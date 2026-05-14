@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3 } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -14,7 +14,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'zakat-calculator', nameAr: 'حاسبة الزكاة', nameEn: 'Zakat Calculator', descAr: 'حساب زكاة المال والذهب والفضة وعروض التجارة', descEn: 'Calculate Zakat on your wealth accurately', icon: HeartHandshake },
       { id: 'gold-calculator', nameAr: 'حاسبة أسعار الذهب المصنعية', nameEn: 'Gold Jewelry Calculator', descAr: 'حساب سعر الذهب والمصنعية والضرائب', descEn: 'Calculate gold price with workmanship and tax', icon: Gem },
       { id: 'inflation-calculator', nameAr: 'حاسبة التضخم', nameEn: 'Inflation Calculator', descAr: 'تأثير التضخم على القوة الشرائية', descEn: 'Effect of inflation on purchasing power', icon: TrendingDown },
-      { id: 'stock-profit', nameAr: 'حاسبة أرباح الأسهم', nameEn: 'Stock Profit', descAr: 'حساب أرباح وخسائر الأسهم والعمولات', descEn: 'Calculate stock profit, loss and commissions', icon: BarChart3 }
+      { id: 'stock-profit', nameAr: 'حاسبة أرباح الأسهم', nameEn: 'Stock Profit', descAr: 'حساب أرباح وخسائر الأسهم والعمولات', descEn: 'Calculate stock profit, loss and commissions', icon: BarChart3 },
+      { id: 'invoice-generator', nameAr: 'صانع الفواتير', nameEn: 'Invoice Generator', descAr: 'إنشاء فواتير احترافية للمستقلين', descEn: 'Create professional invoices for freelancers', icon: FileText }
     ]
   },
   developers: {
