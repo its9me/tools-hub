@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -12,7 +12,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'crypto-converter', nameAr: 'محول العملات الرقمية', nameEn: 'Crypto Converter', descAr: 'أسعار لحظية للعملات الرقمية', descEn: 'Real-time crypto to fiat prices', icon: Bitcoin },
       { id: 'compound-interest', nameAr: 'حاسبة الفائدة المركبة', nameEn: 'Compound Interest', descAr: 'حساب نمو المدخرات واستثماراتك بمرور الوقت', descEn: 'Calculate savings growth over time', icon: Calculator },
       { id: 'zakat-calculator', nameAr: 'حاسبة الزكاة', nameEn: 'Zakat Calculator', descAr: 'حساب زكاة المال والذهب والفضة وعروض التجارة', descEn: 'Calculate Zakat on your wealth accurately', icon: HeartHandshake },
-      { id: 'gold-calculator', nameAr: 'حاسبة أسعار الذهب المصنعية', nameEn: 'Gold Jewelry Calculator', descAr: 'حساب سعر الذهب والمصنعية والضرائب', descEn: 'Calculate gold price with workmanship and tax', icon: Gem }
+      { id: 'gold-calculator', nameAr: 'حاسبة أسعار الذهب المصنعية', nameEn: 'Gold Jewelry Calculator', descAr: 'حساب سعر الذهب والمصنعية والضرائب', descEn: 'Calculate gold price with workmanship and tax', icon: Gem },
+      { id: 'inflation-calculator', nameAr: 'حاسبة التضخم', nameEn: 'Inflation Calculator', descAr: 'تأثير التضخم على القوة الشرائية', descEn: 'Effect of inflation on purchasing power', icon: TrendingDown }
     ]
   },
   developers: {
