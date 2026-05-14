@@ -7,6 +7,7 @@ import WordCounterTool from './pages/WordCounterTool';
 import PersonalLoanCalculator from './pages/PersonalLoanCalculator';
 import IncomeTaxCalculator from './pages/IncomeTaxCalculator';
 import CryptoConverter from './pages/CryptoConverter';
+import CompoundInterestCalculator from './pages/CompoundInterestCalculator';
 
 const translations = {
   ar: {
@@ -136,6 +137,7 @@ export default function App() {
           <Route path="/tool/loan-calculator" element={<PersonalLoanCalculator lang={lang} />} />
           <Route path="/tool/tax-calculator" element={<IncomeTaxCalculator lang={lang} />} />
           <Route path="/tool/crypto-converter" element={<CryptoConverter lang={lang} />} />
+          <Route path="/tool/compound-interest" element={<CompoundInterestCalculator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
