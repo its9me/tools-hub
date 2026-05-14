@@ -11,6 +11,7 @@ import CompoundInterestCalculator from './pages/CompoundInterestCalculator';
 import ZakatCalculator from './pages/ZakatCalculator';
 import GoldJewelryCalculator from './pages/GoldJewelryCalculator';
 import InflationCalculator from './pages/InflationCalculator';
+import StockProfitCalculator from './pages/StockProfitCalculator';
 
 const translations = {
   ar: {
@@ -144,6 +145,7 @@ export default function App() {
           <Route path="/tool/zakat-calculator" element={<ZakatCalculator lang={lang} />} />
           <Route path="/tool/gold-calculator" element={<GoldJewelryCalculator lang={lang} />} />
           <Route path="/tool/inflation-calculator" element={<InflationCalculator lang={lang} />} />
+          <Route path="/tool/stock-profit" element={<StockProfitCalculator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
