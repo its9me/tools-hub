@@ -8,6 +8,11 @@ const countries = [
   { id: 'AE', nameAr: 'الإمارات', nameEn: 'UAE', currencyAr: 'درهم', currencyEn: 'AED', defaultRate: 4 },
   { id: 'JO', nameAr: 'الأردن', nameEn: 'Jordan', currencyAr: 'دينار', currencyEn: 'JOD', defaultRate: 7 },
   { id: 'US', nameAr: 'أمريكا', nameEn: 'USA', currencyAr: 'دولار', currencyEn: 'USD', defaultRate: 6 },
+  { id: 'UK', nameAr: 'بريطانيا', nameEn: 'UK', currencyAr: 'جنيه', currencyEn: 'GBP', defaultRate: 6 },
+  { id: 'CA', nameAr: 'كندا', nameEn: 'Canada', currencyAr: 'دولار كندي', currencyEn: 'CAD', defaultRate: 7 },
+  { id: 'AU', nameAr: 'أستراليا', nameEn: 'Australia', currencyAr: 'دولار أسترالي', currencyEn: 'AUD', defaultRate: 6.5 },
+  { id: 'DE', nameAr: 'ألمانيا', nameEn: 'Germany', currencyAr: 'يورو', currencyEn: 'EUR', defaultRate: 5 },
+  { id: 'FR', nameAr: 'فرنسا', nameEn: 'France', currencyAr: 'يورو', currencyEn: 'EUR', defaultRate: 4.5 },
 ];
 
 const translations = {
