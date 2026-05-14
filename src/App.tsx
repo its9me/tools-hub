@@ -43,6 +43,23 @@ const translations = {
     adTopDesc: "AD_SPACE_728x90 (Top)",
     adMiddle: "إعلان AdSense",
     adMiddleDesc: "AD_SPACE_728x90 (Middle)",
+    privacyTitle: "سياسة الخصوصية",
+    privacyContent: [
+      "نحن في 'أدواتي Pro' نولي اهتماماً كبيراً لخصوصيتك. توضح هذه السياسة كيف نتعامل مع معلوماتك عند استخدام الأداة:",
+      "1. معالجة النصوص محلياً: تم تصميم حاسبة الكلمات لتعمل بالكامل داخل متصفحك (Client-Side). جميع النصوص التي تدخلها وتقوم بفحصها لا تخرج من جهازك، ولا نقوم بحفظها أو إرسالها لأي خوادم خارجية.",
+      "2. جمع البيانات لتطوير الأداة: قد نستخدم تقنيات تحليل (مثل Google Analytics) لفهم تفاعل زوارنا مع الصفحة وتحسين تجربتهم. البيانات المجمعة تكون مجهولة الهوية وتتضمن نوع المتصفح ومصدر الزيارة.",
+      "3. الإعلانات والملفات المؤقتة (Cookies): نستخدم Google AdSense لتقديم إعلانات قد تهمك. تعتمد هذه الخدمات على توظيف ملفات تعريف الارتباط لتحسين دقة الإعلانات المعروضة حسب اهتماماتك.",
+      "4. تعديل السياسة: يحق لنا تحديث سياسة الخصوصية لتتوافق مع أي تغييرات تخص جمع البيانات وتطوير الموقع، وأي تعديل سيتم تحديثه في هذه الصفحة مباشرة."
+    ],
+    termsTitle: "شروط الاستخدام",
+    termsContent: [
+      "مرحباً بك في أداة 'أدواتي Pro'. باستخدامك لهذا الموقع، أنت توافق بشكل كامل على الشروط التالية:",
+      "1. الاستخدام المجاني والمقبول: صُممت هذه الأداة لتكون مجانية وسهلة ليستخدمها الكُتّاب للمساعدة في كتابتهم. يمنع استخدام تقنيات تلقائية (Bawling أو Bots) لإغراق الموقع بالطلبات.",
+      "2. حدود المسؤولية (إخلاء مسؤولية): نقدم الأداة \"كما هي\"، ونسعى دوماً لتقديم أقصى درجات الدقة في حساب الكلمات والحروف، ولكننا لا نتحمل المسؤولية القانونية تجاه أي خسائر تجارية أو أضرار تنتج عن الاعتماد الكلي على نتائج الأداة.",
+      "3. حقوق الملكية: الكود المصدري، تصميم الواجهة، والنصوص المكتوبة في هذا الموقع هي حقوق فكرية مملوكة ولا يحق استنساخها وتكرارها في مواقع أخرى.",
+      "4. توفر الخدمة: لا نضمن توفر الأداة بنسبة 100% دون انقطاع لتحديث الصيانة الدورية.",
+      "5. صلاحية الشروط: نحتفظ بالحق في تحديث الشروط والأحكام دون أي إشعار مسبق. الاستمرار في استخدام الموقع يعني الموافقة الضمنية على أي تغييرات مضافة."
+    ],
   },
   en: {
     appName: "MyTools",
@@ -85,11 +102,29 @@ const translations = {
     adTopDesc: "AD_SPACE_728x90 (Top)",
     adMiddle: "AdSense Ad",
     adMiddleDesc: "AD_SPACE_728x90 (Middle)",
+    privacyTitle: "Privacy Policy",
+    privacyContent: [
+      "At 'MyTools Pro', we take your privacy very seriously. This policy delineates how we manage your information when you interact with our tool:",
+      "1. Client-Side Processing: The word counter is designed strictly as a client-side utility running independently within your browser. The text you input never leaves your device and is neither copied, sent, nor stored on any external servers.",
+      "2. Data Collection for Improvement: We may integrate standard web analytics services (such as Google Analytics) to gain insights regarding user interaction across the site. This involves collecting anonymous, aggregated metrics like browser versions and referral sources.",
+      "3. Advertisements & Cookies: We utilize Google AdSense to offer relevant advertisements. AdSense relies on cookies to serve ads tailored implicitly to your browsing preferences or previous interactions with our site.",
+      "4. Policy Updates: We reserve the right to amend this Privacy Policy to align with new data practices or regulatory changes. Updated policies will constantly be accessible directly through this page."
+    ],
+    termsTitle: "Terms of Use",
+    termsContent: [
+      "Welcome to 'MyTools Pro'. Access to or use of this website signifies your total agreement to comply with the stipulations detailed below:",
+      "1. Acceptable and Free Use: This counter tool is provided universally free for personal or professional writing. Utilizing destructive practices or automated bots to compromise the site integrity is strictly restricted.",
+      "2. Limitations of Liability (Disclaimer): We provide this tool strictly on an \"AS IS\" basis. While optimized for accuracy in counting characters or words, we assume no legal liability for any potential losses or disruptions traced back to reliance entirely on outcomes produced by the app.",
+      "3. Intellectual Property Rights: The distinct user interface design, text content, algorithms, and source codes featured remain our exclusive intellectual property, forbidding unauthorized duplication.",
+      "4. Service Availability: Absolute uninterrupted access or completely flawless uptime is not guaranteed, and brief maintenance breaks may occur independently from notice.",
+      "5. Validity of Terms: We hold the liberty to adapt or update the Terms of Use sporadically. Uninterrupted regular engagement with the site serves as automatic acceptance of modernized terms."
+    ]
   }
 };
 
 export default function App() {
   const [lang, setLang] = useState<'ar' | 'en'>('ar');
+  const [view, setView] = useState<'home' | 'privacy' | 'terms'>('home');
   const [text, setText] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
@@ -185,8 +220,8 @@ export default function App() {
         </div>
         <nav className="flex items-center gap-4 sm:gap-6">
           <ul className="flex gap-4 sm:gap-6 text-sm font-medium text-slate-400 hidden sm:flex">
-            <li><a href="#" className="hover:text-slate-200 transition-colors">{t.home}</a></li>
-            <li><a href="#" className="hover:text-slate-200 transition-colors">{t.otherTools}</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); setView('home'); }} className="hover:text-slate-200 transition-colors">{t.home}</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); setView('home'); }} className="hover:text-slate-200 transition-colors">{t.otherTools}</a></li>
           </ul>
           <button 
             onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
@@ -200,132 +235,162 @@ export default function App() {
       {/* Main Content */}
       <main className="relative z-10 flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
         
-        {/* Placeholder: Top AdSense */}
-        <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
-          <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
-          <p className="text-[10px]">{t.adTopDesc}</p>
-        </div>
-
-        {/* The Interactive Tool Section */}
-        <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl flex flex-col gap-6">
-          <div className="text-center">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-100 mb-2">{t.title}</h2>
-            <p className="text-sm text-slate-400">{t.subtitle}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
-              <span className="block text-3xl font-bold text-emerald-400 mb-1">{wordCount}</span>
-              <span className="text-xs font-medium text-slate-400">{t.words}</span>
+        {view === 'home' && (
+          <>
+            {/* Placeholder: Top AdSense */}
+            <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+              <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+              <p className="text-[10px]">{t.adTopDesc}</p>
             </div>
-            <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
-              <span className="block text-3xl font-bold text-blue-400 mb-1">{charCount}</span>
-              <span className="text-xs font-medium text-slate-400">{t.chars}</span>
+
+            {/* The Interactive Tool Section */}
+            <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl flex flex-col gap-6">
+              <div className="text-center">
+                <h2 className="text-xl md:text-2xl font-bold text-slate-100 mb-2">{t.title}</h2>
+                <p className="text-sm text-slate-400">{t.subtitle}</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
+                  <span className="block text-3xl font-bold text-emerald-400 mb-1">{wordCount}</span>
+                  <span className="text-xs font-medium text-slate-400">{t.words}</span>
+                </div>
+                <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
+                  <span className="block text-3xl font-bold text-blue-400 mb-1">{charCount}</span>
+                  <span className="text-xs font-medium text-slate-400">{t.chars}</span>
+                </div>
+                <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
+                  <span className="block text-3xl font-bold text-emerald-400 mb-1">{charNoSpacesCount}</span>
+                  <span className="text-xs font-medium text-slate-400">{t.charsNoSpaces}</span>
+                </div>
+              </div>
+
+              <div className="relative">
+                <textarea
+                  className="w-full h-64 p-5 bg-slate-900/50 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-y text-slate-200 text-sm md:text-base placeholder:text-slate-500 shadow-inner"
+                  placeholder={t.placeholder}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  dir={lang === 'ar' ? 'rtl' : 'ltr'}
+                ></textarea>
+                {text.length > 0 && (
+                  <button 
+                    onClick={() => setText('')}
+                    className={`absolute top-4 ${lang === 'ar' ? 'left-4' : 'right-4'} text-[11px] font-medium bg-white/5 hover:bg-white/10 text-slate-300 py-1.5 px-3 rounded-full transition-colors border border-white/10 backdrop-blur-md shadow-sm`}
+                  >
+                    {t.clearText}
+                  </button>
+                )}
+              </div>
+
+              {/* Social Share */}
+              <div className="mt-2 flex justify-center">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold text-slate-100 shadow-lg shadow-emerald-600/20 transition-all active:scale-95"
+                >
+                  <Share2 size={18} />
+                  {t.shareWhatsapp}
+                </a>
+              </div>
+            </section>
+
+            {/* Placeholder: Middle AdSense */}
+            <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+              <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+              <p className="text-[10px]">{t.adMiddleDesc}</p>
             </div>
-            <div className="bg-slate-900/50 border border-white/5 rounded-xl p-6 text-center shadow-inner">
-              <span className="block text-3xl font-bold text-emerald-400 mb-1">{charNoSpacesCount}</span>
-              <span className="text-xs font-medium text-slate-400">{t.charsNoSpaces}</span>
+
+            {/* SEO Optimized Article Section */}
+            <article className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-4 text-[13px] text-slate-300 leading-relaxed shadow-lg">
+              <h2 className="text-lg font-bold text-emerald-400 border-b border-white/10 pb-4 mb-2">{t.articleTitle}</h2>
+              <div className="space-y-5">
+                <p>
+                  {lang === 'ar' ? 'تُعد أداة ' : 'The '}
+                  <strong className="text-slate-200 font-semibold">{t.wordCounterBold}</strong> 
+                  {' '}{t.articleP1Base}
+                </p>
+                
+                <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_1}</h3>
+                <p>{t.articleP2}</p>
+                <ul className="list-disc list-inside space-y-2 mx-4 text-slate-400">
+                  <li>{t.articleList1}</li>
+                  <li>{t.articleList2}</li>
+                  <li>{t.articleList3}</li>
+                  <li>{t.articleList4}</li>
+                </ul>
+
+                <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_2}</h3>
+                <p>{t.articleP3}</p>
+
+                <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_3}</h3>
+                <p>{t.articleP4}</p>
+              </div>
+            </article>
+
+            {/* FAQs Section Structured with Schema Layout */}
+            <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
+              <h2 className="text-lg font-bold text-emerald-400 border-b border-white/10 pb-4 mb-6">{t.faqTitle}</h2>
+              <div className="space-y-4">
+                <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
+                  <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
+                    {t.faqQ1}
+                    <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
+                    {t.faqA1}
+                  </p>
+                </details>
+                <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
+                  <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
+                    {t.faqQ2}
+                    <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
+                    {t.faqA2}
+                  </p>
+                </details>
+                <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
+                  <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
+                    {t.faqQ3}
+                    <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
+                    {t.faqA3}
+                  </p>
+                </details>
+              </div>
+            </section>
+          </>
+        )}
+
+        {view === 'privacy' && (
+          <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-emerald-400 border-b border-white/10 pb-4 mb-6">{t.privacyTitle}</h2>
+            <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
+              {t.privacyContent.map((paragraph, idx) => (
+                <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
-          </div>
+          </section>
+        )}
 
-          <div className="relative">
-            <textarea
-              className="w-full h-64 p-5 bg-slate-900/50 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-y text-slate-200 text-sm md:text-base placeholder:text-slate-500 shadow-inner"
-              placeholder={t.placeholder}
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              dir={lang === 'ar' ? 'rtl' : 'ltr'}
-            ></textarea>
-            {text.length > 0 && (
-              <button 
-                onClick={() => setText('')}
-                className={`absolute top-4 ${lang === 'ar' ? 'left-4' : 'right-4'} text-[11px] font-medium bg-white/5 hover:bg-white/10 text-slate-300 py-1.5 px-3 rounded-full transition-colors border border-white/10 backdrop-blur-md shadow-sm`}
-              >
-                {t.clearText}
-              </button>
-            )}
-          </div>
-
-          {/* Social Share */}
-          <div className="mt-2 flex justify-center">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold text-slate-100 shadow-lg shadow-emerald-600/20 transition-all active:scale-95"
-            >
-              <Share2 size={18} />
-              {t.shareWhatsapp}
-            </a>
-          </div>
-        </section>
-
-        {/* Placeholder: Middle AdSense */}
-        <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
-          <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
-          <p className="text-[10px]">{t.adMiddleDesc}</p>
-        </div>
-
-        {/* SEO Optimized Article Section */}
-        <article className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-4 text-[13px] text-slate-300 leading-relaxed shadow-lg">
-          <h2 className="text-lg font-bold text-emerald-400 border-b border-white/10 pb-4 mb-2">{t.articleTitle}</h2>
-          <div className="space-y-5">
-            <p>
-              {lang === 'ar' ? 'تُعد أداة ' : 'The '}
-              <strong className="text-slate-200 font-semibold">{t.wordCounterBold}</strong> 
-              {' '}{t.articleP1Base}
-            </p>
-            
-            <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_1}</h3>
-            <p>{t.articleP2}</p>
-            <ul className="list-disc list-inside space-y-2 mx-4 text-slate-400">
-              <li>{t.articleList1}</li>
-              <li>{t.articleList2}</li>
-              <li>{t.articleList3}</li>
-              <li>{t.articleList4}</li>
-            </ul>
-
-            <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_2}</h3>
-            <p>{t.articleP3}</p>
-
-            <h3 className="text-base font-bold text-blue-400 mt-6">{t.articleH2_3}</h3>
-            <p>{t.articleP4}</p>
-          </div>
-        </article>
-
-        {/* FAQs Section Structured with Schema Layout */}
-        <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
-          <h2 className="text-lg font-bold text-emerald-400 border-b border-white/10 pb-4 mb-6">{t.faqTitle}</h2>
-          <div className="space-y-4">
-            <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
-              <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
-                {t.faqQ1}
-                <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
-                {t.faqA1}
-              </p>
-            </details>
-            <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
-              <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
-                {t.faqQ2}
-                <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
-                {t.faqA2}
-              </p>
-            </details>
-            <details className="group p-4 rounded-xl border border-white/5 bg-slate-900/40 cursor-pointer open:bg-slate-900/60 open:ring-1 open:ring-emerald-500/30 transition-all">
-              <summary className="text-sm font-semibold text-slate-200 outline-none flex justify-between items-center">
-                {t.faqQ3}
-                <span className="text-emerald-500 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
-                {t.faqA3}
-              </p>
-            </details>
-          </div>
-        </section>
+        {view === 'terms' && (
+          <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-blue-400 border-b border-white/10 pb-4 mb-6">{t.termsTitle}</h2>
+            <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
+              {t.termsContent.map((paragraph, idx) => (
+                <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
 
       </main>
 
@@ -340,9 +405,9 @@ export default function App() {
           <span>Schema: SoftwareApplication</span>
         </div>
         <div className="flex gap-3 text-[10px] sm:text-[11px]">
-          <span className="hover:text-slate-300 cursor-pointer transition-colors">{t.footerPrivacy}</span>
+          <span onClick={() => setView('privacy')} className="hover:text-slate-300 cursor-pointer transition-colors">{t.footerPrivacy}</span>
           <span className="w-px h-3 bg-slate-800 self-center"></span>
-          <span className="hover:text-slate-300 cursor-pointer transition-colors">{t.footerTerms}</span>
+          <span onClick={() => setView('terms')} className="hover:text-slate-300 cursor-pointer transition-colors">{t.footerTerms}</span>
         </div>
       </footer>
     </div>
