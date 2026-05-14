@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -8,7 +8,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Finance & Business',
     tools: [
       { id: 'loan-calculator', nameAr: 'حاسبة القروض الشخصية', nameEn: 'Personal Loan Calculator', descAr: 'حساب القسط الشهري والفوائد للقروض', descEn: 'Calculate monthly EMI and interest for loans', icon: Calculator },
-      { id: 'tax-calculator', nameAr: 'حاسبة ضريبة الدخل', nameEn: 'Income Tax Calculator', descAr: 'حساب ضريبة الدخل التقديرية للرواتب الدخل الحر', descEn: 'Estimate income tax for salary or freelance', icon: Calculator }
+      { id: 'tax-calculator', nameAr: 'حاسبة ضريبة الدخل', nameEn: 'Income Tax Calculator', descAr: 'حساب ضريبة الدخل التقديرية للرواتب الدخل الحر', descEn: 'Estimate income tax for salary or freelance', icon: Calculator },
+      { id: 'crypto-converter', nameAr: 'محول العملات الرقمية', nameEn: 'Crypto Converter', descAr: 'أسعار لحظية للعملات الرقمية', descEn: 'Real-time crypto to fiat prices', icon: Bitcoin }
     ]
   },
   developers: {

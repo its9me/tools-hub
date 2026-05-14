@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Calculator, GraduationCap, HeartPulse, Code2, 
-  Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane 
+  Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -148,6 +148,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة ضريبة الدخل' : 'Income Tax Calculator'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب الضريبة المستحقة على راتبك' : 'Calculate tax for your salary'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/crypto-converter"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
+              <Bitcoin size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول العملات الرقمية' : 'Crypto Converter'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'أسعار لحظية للعملات الرقمية' : 'Real-time cryptocurrency prices'}</p>
             </div>
           </Link>
           <Link 
