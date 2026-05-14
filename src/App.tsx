@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route, Link, useNavigate } from 'react-ro
 import Home from './pages/Home';
 import Category from './pages/Category';
 import WordCounterTool from './pages/WordCounterTool';
+import PersonalLoanCalculator from './pages/PersonalLoanCalculator';
 
 const translations = {
   ar: {
@@ -130,6 +131,7 @@ export default function App() {
           <Route path="/" element={<Home lang={lang} />} />
           <Route path="/category/:id" element={<Category lang={lang} />} />
           <Route path="/tool/word-counter" element={<WordCounterTool lang={lang} />} />
+          <Route path="/tool/loan-calculator" element={<PersonalLoanCalculator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

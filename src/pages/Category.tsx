@@ -1,8 +1,15 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
+  finance: {
+    titleAr: 'المال والأعمال',
+    titleEn: 'Finance & Business',
+    tools: [
+      { id: 'loan-calculator', nameAr: 'حاسبة القروض الشخصية', nameEn: 'Personal Loan Calculator', descAr: 'حساب القسط الشهري والفوائد للقروض', descEn: 'Calculate monthly EMI and interest for loans', icon: Calculator }
+    ]
+  },
   developers: {
     titleAr: 'المطورين والـ SEO',
     titleEn: 'Developers & SEO',

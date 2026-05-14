@@ -119,18 +119,29 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
         </h3>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link 
+            to="/tool/loan-calculator"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-blue-500/20 text-blue-400 rounded-lg">
+              <Calculator size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة القروض الشخصية' : 'Personal Loan Calculator'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'إحسب القسط الشهري والفائدة لقرضك' : 'Calculate EMI & interest for your loan'}</p>
+            </div>
+          </Link>
+          <Link 
             to="/tool/word-counter"
             className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
           >
             <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
               <Code2 size={24} />
             </div>
-            <div className="text-right flex-1">
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الكلمات والحروف' : 'Word & Character Counter'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'أداة مجانية لعد الكلمات وتنسيق المقالات' : 'Free tool to count words and format articles'}</p>
             </div>
           </Link>
-          {/* Add more links later */}
         </div>
       </div>
     </div>
