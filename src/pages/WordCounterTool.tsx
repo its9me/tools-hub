@@ -30,7 +30,11 @@ const translations = {
     faqQ2: "ما هو الفرق بين الأحرف والأحرف بدون مسافات؟",
     faqA2: "الأحرف تعني كل نقرة على لوحة المفاتيح بما في ذلك زر المسافة. أما الحروف بدون مسافات فهي العدد الصافي للحروف والرموز فقط.",
     faqQ3: "هل تحفظون النصوص التي أقوم بوضعها في الأداة؟",
-    faqA3: "إطلاقاً، لا تحتفظ أداتنا بأي نصوص ومعالجة البيانات تتم بداخل جهازك والمتصفح الخاص بك فقط."
+    faqA3: "إطلاقاً، لا تحتفظ أداتنا بأي نصوص ومعالجة البيانات تتم بداخل جهازك والمتصفح الخاص بك فقط.",
+    adTop: "مساحة إعلانية",
+    adTopDesc: "AD_SPACE_728x90 (أعلى)",
+    adMiddle: "مساحة إعلانية",
+    adMiddleDesc: "AD_SPACE_728x90 (وسط)"
   },
   en: {
     title: "Word and Character Counter",
@@ -60,7 +64,11 @@ const translations = {
     faqQ2: "What is the difference between characters and characters without spaces?",
     faqA2: "Characters imply every keystroke including the spacebar. Characters without spaces reflect only the letters, numbers, and symbols.",
     faqQ3: "Do you save the texts I input into the tool?",
-    faqA3: "Absolutely not. Our tool retains zero text, and data processing fundamentally transpires locally on your device within your browser."
+    faqA3: "Absolutely not. Our tool retains zero text, and data processing fundamentally transpires locally on your device within your browser.",
+    adTop: "AdSense Ad",
+    adTopDesc: "AD_SPACE_728x90 (Top)",
+    adMiddle: "AdSense Ad",
+    adMiddleDesc: "AD_SPACE_728x90 (Middle)"
   }
 };
 
@@ -82,6 +90,12 @@ export default function WordCounterTool({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
+      {/* Placeholder: Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+        <p className="text-[10px]">{t.adTopDesc}</p>
+      </div>
+
       {/* The Interactive Tool Section */}
       <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl flex flex-col gap-6">
         <div className="text-center">
@@ -135,6 +149,12 @@ export default function WordCounterTool({ lang }: { lang: 'ar' | 'en' }) {
           </a>
         </div>
       </section>
+
+      {/* Placeholder: Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+        <p className="text-[10px]">{t.adMiddleDesc}</p>
+      </div>
 
       {/* SEO Optimized Article Section */}
       <article className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-4 text-[13px] text-slate-300 leading-relaxed shadow-lg">

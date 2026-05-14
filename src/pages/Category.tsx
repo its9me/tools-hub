@@ -37,6 +37,14 @@ export default function Category({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col gap-8">
+      {/* Placeholder: Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">
+          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
+        </div>
+        <p className="text-[10px]">AD_SPACE_728x90 (Top)</p>
+      </div>
+
       <div className="flex items-center justify-between border-b border-white/10 pb-6">
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           {isAr ? category.titleAr : category.titleEn}
@@ -66,6 +74,14 @@ export default function Category({ lang }: { lang: 'ar' | 'en' }) {
             {isAr ? 'جاري إضافة الأدوات قريباً...' : 'Tools will be added soon...'}
           </div>
         )}
+      </div>
+
+      {/* Placeholder: Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm mt-4">
+        <div className="text-[10px] uppercase tracking-widest mb-1">
+          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
+        </div>
+        <p className="text-[10px]">AD_SPACE_728x90 (Middle)</p>
       </div>
     </div>
   );

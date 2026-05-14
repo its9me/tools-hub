@@ -31,7 +31,11 @@ const translations = {
     list1: "مبلغ القرض (أصل الدين): المبلغ الأساسي الذي تحصل عليه.",
     list2: "نسبة الفائدة: التكلفة الإضافية التي يفرضها البنك، وتختلف بشكل كبير بين الدول.",
     list3: "مدة السداد: كلما طالت المدة، قلّ القسط الشهري ولكن زاد إجمالي الفائدة المدفوعة.",
-    note: "ملاحظة: تعتمد هذه الحاسبة على نظام الفائدة المتناقصة (Reducing Balance) وهو الأكثر شيوعاً. قد تختلف الأرقام الفعلية قليلاً باختلاف الرسوم الإدارية للبنك."
+    note: "ملاحظة: تعتمد هذه الحاسبة على نظام الفائدة المتناقصة (Reducing Balance) وهو الأكثر شيوعاً. قد تختلف الأرقام الفعلية قليلاً باختلاف الرسوم الإدارية للبنك.",
+    adTop: "مساحة إعلانية",
+    adTopDesc: "AD_SPACE_728x90 (أعلى)",
+    adMiddle: "مساحة إعلانية",
+    adMiddleDesc: "AD_SPACE_728x90 (وسط)"
   },
   en: {
     title: "Personal Loan Calculator",
@@ -53,7 +57,11 @@ const translations = {
     list1: "Loan Amount (Principal): The base amount you borrow.",
     list2: "Interest Rate: The extra cost charged by the bank, which varies greatly by country.",
     list3: "Loan Term: Longer terms result in lower monthly payments but higher total interest paid.",
-    note: "Note: This calculator uses the standard Reducing Balance method (EMI). Actual figures may vary slightly depending on bank processing fees."
+    note: "Note: This calculator uses the standard Reducing Balance method (EMI). Actual figures may vary slightly depending on bank processing fees.",
+    adTop: "AdSense Ad",
+    adTopDesc: "AD_SPACE_728x90 (Top)",
+    adMiddle: "AdSense Ad",
+    adMiddleDesc: "AD_SPACE_728x90 (Middle)"
   }
 };
 
@@ -111,6 +119,12 @@ export default function PersonalLoanCalculator({ lang }: { lang: 'ar' | 'en' }) 
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
+      {/* Placeholder: Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+        <p className="text-[10px]">{t.adTopDesc}</p>
+      </div>
+
       {/* The Interactive Tool Section */}
       <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl flex flex-col gap-6">
         <div className="text-center">
@@ -234,6 +248,12 @@ export default function PersonalLoanCalculator({ lang }: { lang: 'ar' | 'en' }) 
           </div>
         </div>
       </section>
+
+      {/* Placeholder: Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+        <p className="text-[10px]">{t.adMiddleDesc}</p>
+      </div>
 
       {/* About Section */}
       <article className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-4 text-[13px] text-slate-300 leading-relaxed shadow-lg">

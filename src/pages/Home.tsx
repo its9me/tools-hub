@@ -76,6 +76,14 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto">
+      {/* Placeholder: Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">
+          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
+        </div>
+        <p className="text-[10px]">AD_SPACE_728x90 (Top)</p>
+      </div>
+
       {/* Hero Section */}
       <div className="text-center py-8">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
@@ -113,7 +121,7 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
       </div>
 
       {/* Recommended/Latest Tools (Demo) */}
-      <div className="mt-12 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
+      <div className="mt-6 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
         <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">
           {isAr ? 'أدوات شائعة مؤخراً' : 'Recently Popular Tools'}
         </h3>
@@ -143,6 +151,14 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             </div>
           </Link>
         </div>
+      </div>
+
+      {/* Placeholder: Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm mt-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">
+          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
+        </div>
+        <p className="text-[10px]">AD_SPACE_728x90 (Middle)</p>
       </div>
     </div>
   );
