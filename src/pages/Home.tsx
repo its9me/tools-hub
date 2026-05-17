@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin,
-  PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText
+  PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
+  StickyNote
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -27,6 +28,13 @@ const categories = [
     icon: HeartPulse, 
     desc: 'حساب BMI، والسعرات الحرارية.', 
     color: 'from-rose-400 to-red-500' 
+  },
+  { 
+    id: 'productivity', 
+    name: 'الإنتاجية والنصوص', 
+    icon: StickyNote, 
+    desc: 'ملاحظات، عدد الكلمات، ومولد الفواتير.', 
+    color: 'from-amber-400 to-orange-400' 
   },
   { 
     id: 'developers', 
@@ -245,6 +253,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الكلمات والحروف' : 'Word & Character Counter'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'أداة مجانية لعد الكلمات وتنسيق المقالات' : 'Free tool to count words and format articles'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/online-notepad"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
+              <StickyNote size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'دفتر الملاحظات الذكي' : 'Smart Notepad'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'اكتب واحفظ ملاحظاتك أونلاين' : 'Write and save your notes online'}</p>
             </div>
           </Link>
         </div>

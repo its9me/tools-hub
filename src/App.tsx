@@ -13,6 +13,7 @@ import GoldJewelryCalculator from './pages/GoldJewelryCalculator';
 import InflationCalculator from './pages/InflationCalculator';
 import StockProfitCalculator from './pages/StockProfitCalculator';
 import InvoiceGenerator from './pages/InvoiceGenerator';
+import OnlineNotepad from './pages/OnlineNotepad';
 
 const translations = {
   ar: {
@@ -148,6 +149,7 @@ export default function App() {
           <Route path="/tool/inflation-calculator" element={<InflationCalculator lang={lang} />} />
           <Route path="/tool/stock-profit" element={<StockProfitCalculator lang={lang} />} />
           <Route path="/tool/invoice-generator" element={<InvoiceGenerator lang={lang} />} />
+          <Route path="/tool/online-notepad" element={<OnlineNotepad lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

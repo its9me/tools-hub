@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -16,6 +16,14 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'inflation-calculator', nameAr: 'حاسبة التضخم', nameEn: 'Inflation Calculator', descAr: 'تأثير التضخم على القوة الشرائية', descEn: 'Effect of inflation on purchasing power', icon: TrendingDown },
       { id: 'stock-profit', nameAr: 'حاسبة أرباح الأسهم', nameEn: 'Stock Profit', descAr: 'حساب أرباح وخسائر الأسهم والعمولات', descEn: 'Calculate stock profit, loss and commissions', icon: BarChart3 },
       { id: 'invoice-generator', nameAr: 'صانع الفواتير', nameEn: 'Invoice Generator', descAr: 'إنشاء فواتير احترافية للمستقلين', descEn: 'Create professional invoices for freelancers', icon: FileText }
+    ]
+  },
+  productivity: {
+    titleAr: 'الإنتاجية والنصوص',
+    titleEn: 'Productivity & Text',
+    tools: [
+      { id: 'online-notepad', nameAr: 'دفتر الملاحظات الذكي', nameEn: 'Smart Notepad', descAr: 'اكتب واحفظ ملاحظاتك أونلاين', descEn: 'Write and save notes online', icon: StickyNote },
+      { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 }
     ]
   },
   developers: {
