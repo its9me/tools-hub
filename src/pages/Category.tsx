@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -50,7 +50,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Health & Fitness',
     tools: [
       { id: 'bmi-calculator', nameAr: 'حاسبة التقييم الصحي (BMI)', nameEn: 'BMI Health Assessment', descAr: 'احسب مؤشر كتلة الجسم والوزن المثالي والأيض', descEn: 'Calculate BMI, Ideal Weight, and BMR', icon: HeartPulse },
-      { id: 'calorie-calculator', nameAr: 'حاسبة السعرات الحرارية', nameEn: 'Calorie Calculator', descAr: 'احسب السعرات لإنقاص الوزن أو الحفاظ عليه', descEn: 'Calculate calories for weight loss or maintenance', icon: Flame }
+      { id: 'calorie-calculator', nameAr: 'حاسبة السعرات الحرارية', nameEn: 'Calorie Calculator', descAr: 'احسب السعرات لإنقاص الوزن أو الحفاظ عليه', descEn: 'Calculate calories for weight loss or maintenance', icon: Flame },
+      { id: 'pregnancy-calculator', nameAr: 'حاسبة الحمل والولادة', nameEn: 'Pregnancy Calculator', descAr: 'تتبع الحمل وحساب موعد الولادة (EDD)', descEn: 'Track pregnancy and calculate due date', icon: Baby }
     ]
   },
   // We can populate others later
