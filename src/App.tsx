@@ -25,6 +25,7 @@ import BMICalculator from './pages/BMICalculator';
 import CalorieCalculator from './pages/CalorieCalculator';
 import PregnancyCalculator from './pages/PregnancyCalculator';
 import WaterCalculator from './pages/WaterCalculator';
+import WorkoutGenerator from './pages/WorkoutGenerator';
 
 const translations = {
   ar: {
@@ -172,6 +173,7 @@ export default function App() {
           <Route path="/tool/calorie-calculator" element={<CalorieCalculator lang={lang} />} />
           <Route path="/tool/pregnancy-calculator" element={<PregnancyCalculator lang={lang} />} />
           <Route path="/tool/water-calculator" element={<WaterCalculator lang={lang} />} />
+          <Route path="/tool/workout-generator" element={<WorkoutGenerator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
