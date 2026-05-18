@@ -27,6 +27,7 @@ import PregnancyCalculator from './pages/PregnancyCalculator';
 import WaterCalculator from './pages/WaterCalculator';
 import WorkoutGenerator from './pages/WorkoutGenerator';
 import ColorVisionTest from './pages/ColorVisionTest';
+import JsonConverter from './pages/JsonConverter';
 
 const translations = {
   ar: {
@@ -176,6 +177,7 @@ export default function App() {
           <Route path="/tool/water-calculator" element={<WaterCalculator lang={lang} />} />
           <Route path="/tool/workout-generator" element={<WorkoutGenerator lang={lang} />} />
           <Route path="/tool/color-vision-test" element={<ColorVisionTest lang={lang} />} />
+          <Route path="/tool/json-converter" element={<JsonConverter lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ const categories = [
     id: 'developers', 
     name: 'المطورين والـ SEO', 
     icon: Code2, 
-    desc: 'أدوات النصوص، والأكواد، والسيو.', 
+    desc: 'أدوات النصوص، والأكواد، وتحويل JSON.', 
     color: 'from-emerald-400 to-green-500' 
   },
   { 
@@ -409,6 +409,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'اختبار عمى الألوان' : 'Color Vision Test'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'اختبر حدة بصرك لتدرجات الألوان' : 'Test your color shade acuity'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/json-converter"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
+              <ArrowRightLeft size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول JSON' : 'JSON Converter'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تحويل JSON إلى CSV و XML' : 'Convert JSON to CSV / XML'}</p>
             </div>
           </Link>
         </div>
