@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ const categories = [
     id: 'developers', 
     name: 'المطورين والـ SEO', 
     icon: Code2, 
-    desc: 'أدوات ونصوص وMeta Tags وملفات السيو.', 
+    desc: 'أدوات النصوص وSEO والألوان والملفات.', 
     color: 'from-emerald-400 to-green-500' 
   },
   { 
@@ -457,6 +457,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد ملفات SEO' : 'SEO Files'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد Robots.txt و Sitemap' : 'Generate Robots.txt & Sitemap'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/image-color-picker"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
+              <Palette size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مستخرج ألوان الصور' : 'Color Picker'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'استخراج الألوان من أي صورة' : 'Extract colors from images'}</p>
             </div>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2 } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -46,7 +46,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'json-converter', nameAr: 'محول JSON إلى CSV / XML', nameEn: 'JSON Converter', descAr: 'تحويل بيانات JSON بسهولة', descEn: 'Convert JSON data easily', icon: ArrowRightLeft },
       { id: 'password-generator', nameAr: 'مولد كلمات المرور', nameEn: 'Password Generator', descAr: 'توليد كلمات مرور قوية وعشوائية', descEn: 'Generate strong, random passwords', icon: Key },
       { id: 'meta-tags-previewer', nameAr: 'فاحص العنوان والوصف (Meta Tags)', nameEn: 'Meta Tags Previewer', descAr: 'معاينة ظهور موقعك في نتائج البحث ووسائل التواصل', descEn: 'Preview how your site looks on search and social media', icon: LayoutTemplate },
-      { id: 'seo-files-generator', nameAr: 'مولد ملفات SEO', nameEn: 'SEO Files Generator', descAr: 'إنشاء ملفات Robots.txt و Sitemap', descEn: 'Generate Robots.txt and Sitemap', icon: FileCode2 }
+      { id: 'seo-files-generator', nameAr: 'مولد ملفات SEO', nameEn: 'SEO Files Generator', descAr: 'إنشاء ملفات Robots.txt و Sitemap', descEn: 'Generate Robots.txt and Sitemap', icon: FileCode2 },
+      { id: 'image-color-picker', nameAr: 'مستخرج الألوان من الصور', nameEn: 'Image Color Picker', descAr: 'استخراج أكواد الألوان من أي صورة', descEn: 'Extract color codes from any image', icon: Palette }
     ]
   },
   health: {
