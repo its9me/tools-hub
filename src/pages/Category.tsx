@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -53,7 +53,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'calorie-calculator', nameAr: 'حاسبة السعرات الحرارية', nameEn: 'Calorie Calculator', descAr: 'احسب السعرات لإنقاص الوزن أو الحفاظ عليه', descEn: 'Calculate calories for weight loss or maintenance', icon: Flame },
       { id: 'pregnancy-calculator', nameAr: 'حاسبة الحمل والولادة', nameEn: 'Pregnancy Calculator', descAr: 'تتبع الحمل وحساب موعد الولادة (EDD)', descEn: 'Track pregnancy and calculate due date', icon: Baby },
       { id: 'water-calculator', nameAr: 'حاسبة كمية الماء', nameEn: 'Water Intake Calculator', descAr: 'كمية الماء المثالية حسب وزن الجسم', descEn: 'Ideal water intake based on body weight', icon: Droplet },
-      { id: 'workout-generator', nameAr: 'مولد التمارين المنزلية', nameEn: 'Workout Generator', descAr: 'برامج تمارين عشوائية ومخصصة للمنزل', descEn: 'Randomized home workout programs', icon: Dumbbell }
+      { id: 'workout-generator', nameAr: 'مولد التمارين المنزلية', nameEn: 'Workout Generator', descAr: 'برامج تمارين عشوائية ومخصصة للمنزل', descEn: 'Randomized home workout programs', icon: Dumbbell },
+      { id: 'color-vision-test', nameAr: 'اختبار عمى الألوان', nameEn: 'Color Vision Test', descAr: 'اختبر حدة بصرك وتمييزك للألوان', descEn: 'Test your color vision and acuity', icon: Eye }
     ]
   },
   // We can populate others later
