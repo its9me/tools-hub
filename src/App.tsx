@@ -32,6 +32,7 @@ import PasswordGenerator from './pages/PasswordGenerator';
 import MetaTagsPreviewer from './pages/MetaTagsPreviewer';
 import SeoFilesGenerator from './pages/SeoFilesGenerator';
 import ImageColorPicker from './pages/ImageColorPicker';
+import CodeBeautifier from './pages/CodeBeautifier';
 
 const translations = {
   ar: {
@@ -186,6 +187,7 @@ export default function App() {
           <Route path="/tool/meta-tags-previewer" element={<MetaTagsPreviewer lang={lang} />} />
           <Route path="/tool/seo-files-generator" element={<SeoFilesGenerator lang={lang} />} />
           <Route path="/tool/image-color-picker" element={<ImageColorPicker lang={lang} />} />
+          <Route path="/tool/code-beautifier" element={<CodeBeautifier lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
