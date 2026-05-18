@@ -15,6 +15,13 @@ import StockProfitCalculator from './pages/StockProfitCalculator';
 import InvoiceGenerator from './pages/InvoiceGenerator';
 import OnlineNotepad from './pages/OnlineNotepad';
 
+import GPACalculator from './pages/GPACalculator';
+import PhysicalUnitConverter from './pages/PhysicalUnitConverter';
+import CitationGenerator from './pages/CitationGenerator';
+import GradePercentageCalculator from './pages/GradePercentageCalculator';
+import DateConverter from './pages/DateConverter';
+import DailyStudySchedule from './pages/DailyStudySchedule';
+
 const translations = {
   ar: {
     appName: "أدواتي",
@@ -150,6 +157,13 @@ export default function App() {
           <Route path="/tool/stock-profit" element={<StockProfitCalculator lang={lang} />} />
           <Route path="/tool/invoice-generator" element={<InvoiceGenerator lang={lang} />} />
           <Route path="/tool/online-notepad" element={<OnlineNotepad lang={lang} />} />
+          
+          <Route path="/tool/gpa-calculator" element={<GPACalculator lang={lang} />} />
+          <Route path="/tool/physics-units" element={<PhysicalUnitConverter lang={lang} />} />
+          <Route path="/tool/citation-generator" element={<CitationGenerator lang={lang} />} />
+          <Route path="/tool/grade-percentage" element={<GradePercentageCalculator lang={lang} />} />
+          <Route path="/tool/date-converter" element={<DateConverter lang={lang} />} />
+          <Route path="/tool/daily-study-schedule" element={<DailyStudySchedule lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

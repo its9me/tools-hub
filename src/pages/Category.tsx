@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -23,7 +23,19 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Productivity & Text',
     tools: [
       { id: 'online-notepad', nameAr: 'دفتر الملاحظات الذكي', nameEn: 'Smart Notepad', descAr: 'اكتب واحفظ ملاحظاتك أونلاين', descEn: 'Write and save notes online', icon: StickyNote },
-      { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 }
+      { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 },
+      { id: 'date-converter', nameAr: 'محول التاريخ (ميلادي/هجري)', nameEn: 'Date Converter', descAr: 'تحويل التاريخ بين الميلادي والهجري', descEn: 'Convert between Gregorian and Hijri', icon: CalendarDays }
+    ]
+  },
+  education: {
+    titleAr: 'التعليم والدراسة',
+    titleEn: 'Education & Study',
+    tools: [
+      { id: 'gpa-calculator', nameAr: 'حاسبة المعدل التراكمي', nameEn: 'GPA Calculator', descAr: 'حساب المعدل الفصلي والتراكمي لعدة أنظمة', descEn: 'Calculate semester and cumulative GPA', icon: GraduationCap },
+      { id: 'physics-units', nameAr: 'محول الوحدات الفيزيائية', nameEn: 'Physics Unit Converter', descAr: 'تحويل وحدات السرعة والقوة والضغط', descEn: 'Convert speed, force, and pressure units', icon: Activity },
+      { id: 'citation-generator', nameAr: 'مولد المراجع (APA, MLA)', nameEn: 'Citation Generator', descAr: 'توليد مراجع الأبحاث والمقالات بسهولة', descEn: 'Generate citations for papers easily', icon: BookOpen },
+      { id: 'grade-percentage', nameAr: 'حاسبة النسبة المئوية للدرجات', nameEn: 'Grade Percentage Calculator', descAr: 'حساب النسبة المئوية للدرجات الامتحانية', descEn: 'Calculate exam grade percentage', icon: Percent },
+      { id: 'daily-study-schedule', nameAr: 'مولد الجداول الدراسية', nameEn: 'Daily Study Schedule', descAr: 'منظم ومولد خطة دراسية يومية', descEn: 'Daily study schedule planner', icon: CalendarClock }
     ]
   },
   developers: {

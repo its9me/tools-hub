@@ -279,7 +279,6 @@ export default function OnlineNotepad({ lang }: { lang: 'ar' | 'en' }) {
                             key={color}
                             onClick={() => changeColor(activeNote.id, color)}
                             className={`w-6 h-6 rounded-full border-2 transition-transform hover:scale-110 ${color} ${activeNote.color === color ? 'border-white/50 shadow-sm' : 'border-transparent'}`}
-                            title={t.colors}
                          />
                        ))}
                     </div>

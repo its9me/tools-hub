@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const categories = [
     id: 'education', 
     name: 'التعليم والأكاديميا', 
     icon: GraduationCap, 
-    desc: 'معدلات تراكمية، وتحويل وحدات.', 
+    desc: 'معدل تراكمي، مراجع (APA,MLA)، وحدات.', 
     color: 'from-amber-400 to-orange-500' 
   },
   { 
@@ -134,7 +134,7 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
         <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">
           {isAr ? 'أدوات شائعة مؤخراً' : 'Recently Popular Tools'}
         </h3>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link 
             to="/tool/loan-calculator"
             className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
@@ -265,6 +265,78 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'دفتر الملاحظات الذكي' : 'Smart Notepad'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'اكتب واحفظ ملاحظاتك أونلاين' : 'Write and save your notes online'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/gpa-calculator"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
+              <GraduationCap size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة المعدل (GPA)' : 'GPA Calculator'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'للأنظمة الجامعية العالمية' : 'For global university systems'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/physics-units"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-fuchsia-500/20 text-fuchsia-400 rounded-lg">
+              <Activity size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول الوحدات الفيزيائية' : 'Physics Unit Converter'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'سرعة، قوة، ضغط' : 'Speed, Force, Pressure'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/citation-generator"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
+              <BookOpen size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد المراجع (APA, MLA)' : 'Citation Generator'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد المراجع للأبحاث بسهولة' : 'Generate citations easily'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/grade-percentage"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
+              <Percent size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'نسبة الدرجات' : 'Grade Percentage'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب النسبة والتقدير' : 'Calculate percentage & grade'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/date-converter"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
+              <CalendarDays size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول التاريخ' : 'Date Converter'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'ميلادي إلى هجري وبالعكس' : 'Gregorian to Hijri and vice versa'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/daily-study-schedule"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-rose-500/20 text-rose-400 rounded-lg">
+              <CalendarClock size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد جدول دراسي' : 'Study Schedule'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'نظم أوقات المذاكرة والمهام' : 'Organize study times & tasks'}</p>
             </div>
           </Link>
         </div>
