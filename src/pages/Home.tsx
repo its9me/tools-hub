@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, FlaskConical, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ const categories = [
     id: 'developers', 
     name: 'المطورين والـ SEO', 
     icon: Code2, 
-    desc: 'أدوات ونصوص وتحويل JSON ومولد كلمات المرور.', 
+    desc: 'أدوات ونصوص وMeta Tags ومولد كلمات المرور.', 
     color: 'from-emerald-400 to-green-500' 
   },
   { 
@@ -433,6 +433,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
               <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد كلمات المرور' : 'Password Generator'}</h4>
               <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد كلمات مرور قوية وعشوائية' : 'Generate strong, secure passwords'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/meta-tags-previewer"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
+              <LayoutTemplate size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'فاحص Meta Tags' : 'Meta Tags Preview'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'معاينة العنوان والوصف للمواقع' : 'Preview title and desc tags'}</p>
             </div>
           </Link>
         </div>
