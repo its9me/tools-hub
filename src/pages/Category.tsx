@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -43,7 +43,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Developers & SEO',
     tools: [
       { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 },
-      { id: 'json-converter', nameAr: 'محول JSON إلى CSV / XML', nameEn: 'JSON Converter', descAr: 'تحويل بيانات JSON بسهولة', descEn: 'Convert JSON data easily', icon: ArrowRightLeft }
+      { id: 'json-converter', nameAr: 'محول JSON إلى CSV / XML', nameEn: 'JSON Converter', descAr: 'تحويل بيانات JSON بسهولة', descEn: 'Convert JSON data easily', icon: ArrowRightLeft },
+      { id: 'password-generator', nameAr: 'مولد كلمات المرور', nameEn: 'Password Generator', descAr: 'توليد كلمات مرور قوية وعشوائية', descEn: 'Generate strong, random passwords', icon: Key }
     ]
   },
   health: {
