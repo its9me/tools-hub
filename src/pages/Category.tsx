@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -49,7 +49,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'seo-files-generator', nameAr: 'مولد ملفات SEO', nameEn: 'SEO Files Generator', descAr: 'إنشاء ملفات Robots.txt و Sitemap', descEn: 'Generate Robots.txt and Sitemap', icon: FileCode2 },
       { id: 'image-color-picker', nameAr: 'مستخرج الألوان من الصور', nameEn: 'Image Color Picker', descAr: 'استخراج أكواد الألوان من أي صورة', descEn: 'Extract color codes from any image', icon: Palette },
       { id: 'code-beautifier', nameAr: 'منسق الأكواد', nameEn: 'Code Beautifier', descAr: 'تنسيق وتلوين CSS و JS بضغطة زر', descEn: 'Format & highlight CSS/JS instantly', icon: Wand2 },
-      { id: 'webp-converter', nameAr: 'محول الصورة لـ WebP', nameEn: 'WebP Converter', descAr: 'تحويل الصور لصيغة WebP', descEn: 'Convert images to WebP', icon: RefreshCw }
+      { id: 'webp-converter', nameAr: 'محول الصورة لـ WebP', nameEn: 'WebP Converter', descAr: 'تحويل الصور لصيغة WebP', descEn: 'Convert images to WebP', icon: RefreshCw },
+      { id: 'base64-converter', nameAr: 'محول Base64', nameEn: 'Base64 Converter', descAr: 'تشفير وفك تشفير النصوص والصور', descEn: 'Encode/Decode Base64 strings and files', icon: Braces }
     ]
   },
   health: {
