@@ -21,6 +21,7 @@ import CitationGenerator from './pages/CitationGenerator';
 import GradePercentageCalculator from './pages/GradePercentageCalculator';
 import DateConverter from './pages/DateConverter';
 import DailyStudySchedule from './pages/DailyStudySchedule';
+import BMICalculator from './pages/BMICalculator';
 
 const translations = {
   ar: {
@@ -164,6 +165,7 @@ export default function App() {
           <Route path="/tool/grade-percentage" element={<GradePercentageCalculator lang={lang} />} />
           <Route path="/tool/date-converter" element={<DateConverter lang={lang} />} />
           <Route path="/tool/daily-study-schedule" element={<DailyStudySchedule lang={lang} />} />
+          <Route path="/tool/bmi-calculator" element={<BMICalculator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

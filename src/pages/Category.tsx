@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -43,6 +43,13 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Developers & SEO',
     tools: [
       { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 }
+    ]
+  },
+  health: {
+    titleAr: 'الصحة واللياقة',
+    titleEn: 'Health & Fitness',
+    tools: [
+      { id: 'bmi-calculator', nameAr: 'حاسبة التقييم الصحي (BMI)', nameEn: 'BMI Health Assessment', descAr: 'احسب مؤشر كتلة الجسم والوزن المثالي والأيض', descEn: 'Calculate BMI, Ideal Weight, and BMR', icon: HeartPulse }
     ]
   },
   // We can populate others later
