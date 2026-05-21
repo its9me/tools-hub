@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -92,7 +92,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Hobbies & Entertainment',
     tools: [
       { id: 'lucky-numbers', nameAr: 'مولد أرقام الحظ', nameEn: 'Lucky Number Generator', descAr: 'توليد أرقام عشوائية لليانصيب', descEn: 'Generate random numbers', icon: Dices },
-      { id: 'random-picker', nameAr: 'عجلة الحظ والقرعة', nameEn: 'Random Name Picker', descAr: 'تدوير العجلة لاختيار فائز عشوائي', descEn: 'Spin the wheel for a random winner', icon: Trophy }
+      { id: 'random-picker', nameAr: 'عجلة الحظ والقرعة', nameEn: 'Random Name Picker', descAr: 'تدوير العجلة لاختيار فائز عشوائي', descEn: 'Spin the wheel for a random winner', icon: Trophy },
+      { id: 'daily-riddle', nameAr: 'لغز اليوم', nameEn: 'Daily Riddle', descAr: 'لغز جديد مخصص لكل يوم مع حله', descEn: 'New riddle every day with answer', icon: Lightbulb }
     ]
   },
   science: {
