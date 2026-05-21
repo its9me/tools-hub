@@ -54,6 +54,8 @@ import OhmsLaw from './pages/OhmsLaw';
 import NumberBaseConverter from './pages/NumberBaseConverter';
 import TriangleCalculator from './pages/TriangleCalculator';
 import MaterialStrength from './pages/MaterialStrength';
+import PeriodicTable from './pages/PeriodicTable';
+import TemperatureConverter from './pages/TemperatureConverter';
 
 const translations = {
   ar: {
@@ -230,6 +232,8 @@ export default function App() {
           <Route path="/tool/number-base-converter" element={<NumberBaseConverter lang={lang} />} />
           <Route path="/tool/triangle-calculator" element={<TriangleCalculator lang={lang} />} />
           <Route path="/tool/material-strength" element={<MaterialStrength lang={lang} />} />
+          <Route path="/tool/periodic-table" element={<PeriodicTable lang={lang} />} />
+          <Route path="/tool/temperature-converter" element={<TemperatureConverter lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
