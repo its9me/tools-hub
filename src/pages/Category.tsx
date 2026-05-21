@@ -118,7 +118,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleAr: 'السياحة والسفر',
     titleEn: 'Travel & Tourism',
     tools: [
-      { id: 'size-converter', nameAr: 'محول مقاسات الملابس والأحذية', nameEn: 'Clothing & Shoe Size Converter', descAr: 'تحويل مقاسات دولية فوراً', descEn: 'International size converter instantly', icon: ArrowRightLeft }
+      { id: 'size-converter', nameAr: 'محول مقاسات الملابس والأحذية', nameEn: 'Clothing & Shoe Size Converter', descAr: 'تحويل مقاسات دولية فوراً', descEn: 'International size converter instantly', icon: ArrowRightLeft },
+      { id: 'travel-wheel', nameAr: 'وين أسافر؟ (عجلة الحظ)', nameEn: 'Where to Travel? (Spinner)', descAr: 'حدد وجهتك السياحية القادمة ونصائح سريعة للمترددين', descEn: 'Decide your next destination and get quick tips', icon: Compass }
     ]
   }
 };
