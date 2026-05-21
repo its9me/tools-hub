@@ -44,6 +44,7 @@ import BabyNames from './pages/BabyNames';
 import TimeDifference from './pages/TimeDifference';
 import QiblaDirection from './pages/QiblaDirection';
 import LuckyNumbers from './pages/LuckyNumbers';
+import RandomPicker from './pages/RandomPicker';
 
 const translations = {
   ar: {
@@ -210,6 +211,7 @@ export default function App() {
           <Route path="/tool/time-difference" element={<TimeDifference lang={lang} />} />
           <Route path="/tool/qibla-direction" element={<QiblaDirection lang={lang} />} />
           <Route path="/tool/lucky-numbers" element={<LuckyNumbers lang={lang} />} />
+          <Route path="/tool/random-picker" element={<RandomPicker lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
