@@ -50,6 +50,7 @@ import LiveAgeCalculator from './pages/LiveAgeCalculator';
 import DailyRiddle from './pages/DailyRiddle';
 import TypingSpeedTest from './pages/TypingSpeedTest';
 import AsciiArt from './pages/AsciiArt';
+import OhmsLaw from './pages/OhmsLaw';
 
 const translations = {
   ar: {
@@ -222,6 +223,7 @@ export default function App() {
           <Route path="/tool/daily-riddle" element={<DailyRiddle lang={lang} />} />
           <Route path="/tool/typing-speed-test" element={<TypingSpeedTest lang={lang} />} />
           <Route path="/tool/ascii-art" element={<AsciiArt lang={lang} />} />
+          <Route path="/tool/ohms-law" element={<OhmsLaw lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
