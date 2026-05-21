@@ -37,6 +37,7 @@ import WebpConverter from './pages/WebpConverter';
 import Base64Converter from './pages/Base64Converter';
 import YoutubeCalculator from './pages/YoutubeCalculator';
 import HashtagGenerator from './pages/HashtagGenerator';
+import ImageResizer from './pages/ImageResizer';
 
 const translations = {
   ar: {
@@ -196,6 +197,7 @@ export default function App() {
           <Route path="/tool/base64-converter" element={<Base64Converter lang={lang} />} />
           <Route path="/tool/youtube-calculator" element={<YoutubeCalculator lang={lang} />} />
           <Route path="/tool/hashtag-generator" element={<HashtagGenerator lang={lang} />} />
+          <Route path="/tool/image-resizer" element={<ImageResizer lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
