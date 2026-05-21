@@ -79,7 +79,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Daily & Home Tools',
     tools: [
       { id: 'room-calculator', nameAr: 'حاسبة مساحة الغرف', nameEn: 'Room Calculator', descAr: 'حساب مساحة وخامات الطلاء والأرضيات', descEn: 'Calculate room area, paint, and flooring', icon: Ruler },
-      { id: 'fuel-calculator', nameAr: 'حاسبة وقود السيارات', nameEn: 'Fuel Economy Calculator', descAr: 'تكلفة واستهلاك الوقود', descEn: 'Car fuel consumption & cost', icon: Fuel }
+      { id: 'fuel-calculator', nameAr: 'حاسبة وقود السيارات', nameEn: 'Fuel Economy Calculator', descAr: 'تكلفة واستهلاك الوقود', descEn: 'Car fuel consumption & cost', icon: Fuel },
+      { id: 'baby-names', nameAr: 'مصفاة أسماء الأطفال', nameEn: 'Baby Names Filter', descAr: 'معاني الأسماء وأصولها', descEn: 'Find baby names & meanings', icon: Baby }
     ]
   }
 };

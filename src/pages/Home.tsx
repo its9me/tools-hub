@@ -304,6 +304,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             </div>
           </Link>
           <Link 
+            to="/tool/baby-names"
+            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
+          >
+            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
+               <Baby size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'أسماء الأطفال' : 'Baby Names'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'مصفاة الأسماء ومعانيها' : 'Names filter and meanings'}</p>
+            </div>
+          </Link>
+          <Link 
             to="/tool/word-counter"
             className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
           >
