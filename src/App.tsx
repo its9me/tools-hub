@@ -41,6 +41,7 @@ import ImageResizer from './pages/ImageResizer';
 import RoomCalculator from './pages/RoomCalculator';
 import FuelCalculator from './pages/FuelCalculator';
 import BabyNames from './pages/BabyNames';
+import TimeDifference from './pages/TimeDifference';
 
 const translations = {
   ar: {
@@ -204,6 +205,7 @@ export default function App() {
           <Route path="/tool/room-calculator" element={<RoomCalculator lang={lang} />} />
           <Route path="/tool/fuel-calculator" element={<FuelCalculator lang={lang} />} />
           <Route path="/tool/baby-names" element={<BabyNames lang={lang} />} />
+          <Route path="/tool/time-difference" element={<TimeDifference lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
