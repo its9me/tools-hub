@@ -44,7 +44,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'physics-units', nameAr: 'محول الوحدات الفيزيائية', nameEn: 'Physics Unit Converter', descAr: 'تحويل وحدات السرعة والقوة والضغط', descEn: 'Convert speed, force, and pressure units', icon: Activity },
       { id: 'citation-generator', nameAr: 'مولد المراجع (APA, MLA)', nameEn: 'Citation Generator', descAr: 'توليد مراجع الأبحاث والمقالات بسهولة', descEn: 'Generate citations for papers easily', icon: BookOpen },
       { id: 'grade-percentage', nameAr: 'حاسبة النسبة المئوية للدرجات', nameEn: 'Grade Percentage Calculator', descAr: 'حساب النسبة المئوية للدرجات الامتحانية', descEn: 'Calculate exam grade percentage', icon: Percent },
-      { id: 'daily-study-schedule', nameAr: 'مولد الجداول الدراسية', nameEn: 'Daily Study Schedule', descAr: 'منظم ومولد خطة دراسية يومية', descEn: 'Daily study schedule planner', icon: CalendarClock }
+      { id: 'daily-study-schedule', nameAr: 'مولد الجداول الدراسية', nameEn: 'Daily Study Schedule', descAr: 'منظم ومولد خطة دراسية يومية', descEn: 'Daily study schedule planner', icon: CalendarClock },
+      { id: 'book-reading-time', nameAr: 'حاسبة وقت القراءة', nameEn: 'Book Reading Time', descAr: 'احسب الوقت لإنهاء كتاب', descEn: 'Test speed and calculate reading days', icon: BookOpen }
     ]
   },
   developers: {
