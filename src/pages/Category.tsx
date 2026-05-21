@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -119,7 +119,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Travel & Tourism',
     tools: [
       { id: 'size-converter', nameAr: 'محول مقاسات الملابس والأحذية', nameEn: 'Clothing & Shoe Size Converter', descAr: 'تحويل مقاسات دولية فوراً', descEn: 'International size converter instantly', icon: ArrowRightLeft },
-      { id: 'travel-wheel', nameAr: 'وين أسافر؟ (عجلة الحظ)', nameEn: 'Where to Travel? (Spinner)', descAr: 'حدد وجهتك السياحية القادمة ونصائح سريعة للمترددين', descEn: 'Decide your next destination and get quick tips', icon: Compass }
+      { id: 'travel-wheel', nameAr: 'وين أسافر؟ (عجلة الحظ)', nameEn: 'Where to Travel? (Spinner)', descAr: 'حدد وجهتك السياحية القادمة ونصائح سريعة للمترددين', descEn: 'Decide your next destination and get quick tips', icon: Compass },
+      { id: 'scratch-map', nameAr: 'تحدي الدول (الخريطة)', nameEn: 'Digital Scratch Map', descAr: 'حدد الدول التي زرتها وشارك النسبة المئوية لإنجازك', descEn: 'Track visited countries and share your achievement', icon: Map }
     ]
   }
 };
