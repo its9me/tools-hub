@@ -38,6 +38,7 @@ import Base64Converter from './pages/Base64Converter';
 import YoutubeCalculator from './pages/YoutubeCalculator';
 import HashtagGenerator from './pages/HashtagGenerator';
 import ImageResizer from './pages/ImageResizer';
+import RoomCalculator from './pages/RoomCalculator';
 
 const translations = {
   ar: {
@@ -198,6 +199,7 @@ export default function App() {
           <Route path="/tool/youtube-calculator" element={<YoutubeCalculator lang={lang} />} />
           <Route path="/tool/hashtag-generator" element={<HashtagGenerator lang={lang} />} />
           <Route path="/tool/image-resizer" element={<ImageResizer lang={lang} />} />
+          <Route path="/tool/room-calculator" element={<RoomCalculator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

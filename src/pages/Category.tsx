@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -74,7 +74,13 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'color-vision-test', nameAr: 'اختبار عمى الألوان', nameEn: 'Color Vision Test', descAr: 'اختبر حدة بصرك وتمييزك للألوان', descEn: 'Test your color vision and acuity', icon: Eye }
     ]
   },
-  // We can populate others later
+  lifestyle: {
+    titleAr: 'أدوات يومية وهندسية',
+    titleEn: 'Daily & Home Tools',
+    tools: [
+      { id: 'room-calculator', nameAr: 'حاسبة مساحة الغرف', nameEn: 'Room Calculator', descAr: 'حساب مساحة وخامات الطلاء والأرضيات', descEn: 'Calculate room area, paint, and flooring', icon: Ruler }
+    ]
+  }
 };
 
 export default function Category({ lang }: { lang: 'ar' | 'en' }) {
