@@ -117,7 +117,9 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
   travel: {
     titleAr: 'السياحة والسفر',
     titleEn: 'Travel & Tourism',
-    tools: []
+    tools: [
+      { id: 'size-converter', nameAr: 'محول مقاسات الملابس والأحذية', nameEn: 'Clothing & Shoe Size Converter', descAr: 'تحويل مقاسات دولية فوراً', descEn: 'International size converter instantly', icon: ArrowRightLeft }
+    ]
   }
 };
 
