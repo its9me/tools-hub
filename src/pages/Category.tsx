@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -61,7 +61,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'image-color-picker', nameAr: 'مستخرج الألوان من الصور', nameEn: 'Image Color Picker', descAr: 'استخراج أكواد الألوان من أي صورة', descEn: 'Extract color codes from any image', icon: Palette },
       { id: 'code-beautifier', nameAr: 'منسق الأكواد', nameEn: 'Code Beautifier', descAr: 'تنسيق وتلوين CSS و JS بضغطة زر', descEn: 'Format & highlight CSS/JS instantly', icon: Wand2 },
       { id: 'webp-converter', nameAr: 'محول الصورة لـ WebP', nameEn: 'WebP Converter', descAr: 'تحويل الصور لصيغة WebP', descEn: 'Convert images to WebP', icon: RefreshCw },
-      { id: 'base64-converter', nameAr: 'محول Base64', nameEn: 'Base64 Converter', descAr: 'تشفير وفك تشفير النصوص والصور', descEn: 'Encode/Decode Base64 strings and files', icon: Braces }
+      { id: 'base64-converter', nameAr: 'محول Base64', nameEn: 'Base64 Converter', descAr: 'تشفير وفك تشفير النصوص والصور', descEn: 'Encode/Decode Base64 strings and files', icon: Braces },
+      { id: 'ascii-art', nameAr: 'محول الصور لرسومات نصية', nameEn: 'ASCII Art Generator', descAr: 'حول صورك لفن نصي', descEn: 'Convert images to ASCII text art', icon: ImageIcon }
     ]
   },
   health: {
