@@ -35,6 +35,8 @@ import ImageColorPicker from './pages/ImageColorPicker';
 import CodeBeautifier from './pages/CodeBeautifier';
 import WebpConverter from './pages/WebpConverter';
 import Base64Converter from './pages/Base64Converter';
+import YoutubeCalculator from './pages/YoutubeCalculator';
+import HashtagGenerator from './pages/HashtagGenerator';
 
 const translations = {
   ar: {
@@ -192,6 +194,8 @@ export default function App() {
           <Route path="/tool/code-beautifier" element={<CodeBeautifier lang={lang} />} />
           <Route path="/tool/webp-converter" element={<WebpConverter lang={lang} />} />
           <Route path="/tool/base64-converter" element={<Base64Converter lang={lang} />} />
+          <Route path="/tool/youtube-calculator" element={<YoutubeCalculator lang={lang} />} />
+          <Route path="/tool/hashtag-generator" element={<HashtagGenerator lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
