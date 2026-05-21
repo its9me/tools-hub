@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -84,6 +84,23 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'time-difference', nameAr: 'فرق الوقت بين المدن', nameEn: 'World Time Difference', descAr: 'حاسبة فرق التوقيت المباشر', descEn: 'Live time difference calculator', icon: Globe },
       { id: 'qibla-direction', nameAr: 'اتجاه القبلة', nameEn: 'Qibla Direction', descAr: 'بوصلة توجيه القبلة التفاعلية', descEn: 'Interactive compass to find Qibla', icon: Compass }
     ]
+  },
+  entertainment: {
+    titleAr: 'الهوايات والترفيه',
+    titleEn: 'Hobbies & Entertainment',
+    tools: [
+      { id: 'lucky-numbers', nameAr: 'مولد أرقام الحظ', nameEn: 'Lucky Number Generator', descAr: 'توليد أرقام عشوائية لليانصيب', descEn: 'Generate random numbers', icon: Dices }
+    ]
+  },
+  science: {
+    titleAr: 'الهندسة والعلوم',
+    titleEn: 'Science & Engineering',
+    tools: []
+  },
+  travel: {
+    titleAr: 'السياحة والسفر',
+    titleEn: 'Travel & Tourism',
+    tools: []
   }
 };
 
