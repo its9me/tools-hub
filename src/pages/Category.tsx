@@ -53,6 +53,7 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleAr: 'المطورين والـ SEO',
     titleEn: 'Developers & SEO',
     tools: [
+      { id: 'number-base-converter', nameAr: 'محول الأنظمة العددية', nameEn: 'Number Base Converter', descAr: 'محول للأرقام للنظام العشري والثنائي والسداسي عشر', descEn: 'Convert decimal, binary, hex, and octal', icon: Hash },
       { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 },
       { id: 'json-converter', nameAr: 'محول JSON إلى CSV / XML', nameEn: 'JSON Converter', descAr: 'تحويل بيانات JSON بسهولة', descEn: 'Convert JSON data easily', icon: ArrowRightLeft },
       { id: 'password-generator', nameAr: 'مولد كلمات المرور', nameEn: 'Password Generator', descAr: 'توليد كلمات مرور قوية وعشوائية', descEn: 'Generate strong, random passwords', icon: Key },
