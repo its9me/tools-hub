@@ -48,6 +48,7 @@ import RandomPicker from './pages/RandomPicker';
 import BookReadingTime from './pages/BookReadingTime';
 import LiveAgeCalculator from './pages/LiveAgeCalculator';
 import DailyRiddle from './pages/DailyRiddle';
+import TypingSpeedTest from './pages/TypingSpeedTest';
 
 const translations = {
   ar: {
@@ -218,6 +219,7 @@ export default function App() {
           <Route path="/tool/book-reading-time" element={<BookReadingTime lang={lang} />} />
           <Route path="/tool/live-age-calc" element={<LiveAgeCalculator lang={lang} />} />
           <Route path="/tool/daily-riddle" element={<DailyRiddle lang={lang} />} />
+          <Route path="/tool/typing-speed-test" element={<TypingSpeedTest lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -45,7 +45,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'citation-generator', nameAr: 'مولد المراجع (APA, MLA)', nameEn: 'Citation Generator', descAr: 'توليد مراجع الأبحاث والمقالات بسهولة', descEn: 'Generate citations for papers easily', icon: BookOpen },
       { id: 'grade-percentage', nameAr: 'حاسبة النسبة المئوية للدرجات', nameEn: 'Grade Percentage Calculator', descAr: 'حساب النسبة المئوية للدرجات الامتحانية', descEn: 'Calculate exam grade percentage', icon: Percent },
       { id: 'daily-study-schedule', nameAr: 'مولد الجداول الدراسية', nameEn: 'Daily Study Schedule', descAr: 'منظم ومولد خطة دراسية يومية', descEn: 'Daily study schedule planner', icon: CalendarClock },
-      { id: 'book-reading-time', nameAr: 'حاسبة وقت القراءة', nameEn: 'Book Reading Time', descAr: 'احسب الوقت لإنهاء كتاب', descEn: 'Test speed and calculate reading days', icon: BookOpen }
+      { id: 'book-reading-time', nameAr: 'حاسبة وقت القراءة', nameEn: 'Book Reading Time', descAr: 'احسب الوقت لإنهاء كتاب', descEn: 'Test speed and calculate reading days', icon: BookOpen },
+      { id: 'typing-speed-test', nameAr: 'اختبار سرعة الكتابة', nameEn: 'Typing Speed Test', descAr: 'احسب سرعتك في الكتابة (WPM)', descEn: 'Test your typing speed (WPM)', icon: Keyboard }
     ]
   },
   developers: {
