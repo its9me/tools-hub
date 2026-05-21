@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -104,7 +104,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Science & Engineering',
     tools: [
       { id: 'ohms-law', nameAr: 'حاسبة قانون أوم', nameEn: "Ohm's Law Calculator", descAr: 'احسب الجهد، التيار، والمقاومة', descEn: 'Calculate V, I, R easily', icon: Zap },
-      { id: 'triangle-calculator', nameAr: 'حاسبة المثلثات المتقدمة', nameEn: 'Advanced Triangle Calculator', descAr: 'حساب زوايا وأضلاع المثلث مع الرسم', descEn: 'Solve and draw triangles', icon: Triangle }
+      { id: 'triangle-calculator', nameAr: 'حاسبة المثلثات المتقدمة', nameEn: 'Advanced Triangle Calculator', descAr: 'حساب زوايا وأضلاع المثلث مع الرسم', descEn: 'Solve and draw triangles', icon: Triangle },
+      { id: 'material-strength', nameAr: 'حاسبة مقاومة المواد', nameEn: 'Material Strength', descAr: 'حساب الإجهاد والانفعال للأعمدة', descEn: 'Calculate stress, strain, and deformation', icon: Cuboid }
     ]
   },
   travel: {
