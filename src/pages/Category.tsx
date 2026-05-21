@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -63,7 +63,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'code-beautifier', nameAr: 'منسق الأكواد', nameEn: 'Code Beautifier', descAr: 'تنسيق وتلوين CSS و JS بضغطة زر', descEn: 'Format & highlight CSS/JS instantly', icon: Wand2 },
       { id: 'webp-converter', nameAr: 'محول الصورة لـ WebP', nameEn: 'WebP Converter', descAr: 'تحويل الصور لصيغة WebP', descEn: 'Convert images to WebP', icon: RefreshCw },
       { id: 'base64-converter', nameAr: 'محول Base64', nameEn: 'Base64 Converter', descAr: 'تشفير وفك تشفير النصوص والصور', descEn: 'Encode/Decode Base64 strings and files', icon: Braces },
-      { id: 'ascii-art', nameAr: 'محول الصور لرسومات نصية', nameEn: 'ASCII Art Generator', descAr: 'حول صورك لفن نصي', descEn: 'Convert images to ASCII text art', icon: ImageIcon }
+      { id: 'ascii-art', nameAr: 'محول الصور لرسومات نصية', nameEn: 'ASCII Art Generator', descAr: 'حول صورك لفن نصي', descEn: 'Convert images to ASCII text art', icon: ImageIcon },
+      { id: 'chart-generator', nameAr: 'مولد المخططات البيانية', nameEn: 'Chart Generator', descAr: 'إنشاء رسوم بيانية وتحميلها', descEn: 'Generate and download charts', icon: PieChart }
     ]
   },
   health: {
@@ -108,7 +109,9 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'material-strength', nameAr: 'حاسبة مقاومة المواد', nameEn: 'Material Strength', descAr: 'حساب الإجهاد والانفعال للأعمدة', descEn: 'Calculate stress, strain, and deformation', icon: Cuboid },
       { id: 'periodic-table', nameAr: 'الجدول الدوري التفاعلي', nameEn: 'Interactive Periodic Table', descAr: 'تصفح عناصر الكيمياء بسهولة', descEn: 'Browse chemistry elements', icon: FlaskConical },
       { id: 'temperature-converter', nameAr: 'محول درجات الحرارة', nameEn: 'Temperature Converter', descAr: 'تحويل بين سيلزيوس، فهرنهايت والمزيد', descEn: 'Convert Celsius, Fahrenheit, Kelvin', icon: Thermometer },
-      { id: 'wave-calculator', nameAr: 'حاسبة الأمواج والطيف', nameEn: 'Wave Calculator', descAr: 'حساب التردد، الطول الموجي، ونوع الطيف', descEn: 'Calculate frequency, wavelength & spectrum', icon: Radio }
+      { id: 'wave-calculator', nameAr: 'حاسبة الأمواج والطيف', nameEn: 'Wave Calculator', descAr: 'حساب التردد، الطول الموجي، ونوع الطيف', descEn: 'Calculate frequency, wavelength & spectrum', icon: Radio },
+      { id: 'geometry-calculator', nameAr: 'حاسبة المساحات والأحجام', nameEn: 'Geometry Calculator', descAr: 'حساب مساحات وأحجام الأشكال ثلاثية الأبعاد', descEn: 'Calculate 3D shapes volume and area', icon: Box },
+      { id: 'power-led-calculator', nameAr: 'حاسبة الطاقة ودائرة LED', nameEn: 'Power & LED Calculator', descAr: 'حساب القدرة ومقاومة LED', descEn: 'Calculate power and LED resistor', icon: Plug }
     ]
   },
   travel: {

@@ -1,5 +1,5 @@
 {
-  "name": "حاسبة الكلمات (SEO Micro-SaaS)",
+  "name": "multi-tool-app",
   "description": "أداة Micro-SaaS لحساب عدد الكلمات والحروف متوافقة مع معايير SEO مع مقال ونظام Schema.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
