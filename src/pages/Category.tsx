@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map, BrainCircuit } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map, BrainCircuit, QrCode } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -31,6 +31,7 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleAr: 'الإنتاجية والنصوص',
     titleEn: 'Productivity & Text',
     tools: [
+      { id: 'qr-suite', nameAr: 'أداة QR الشاملة', nameEn: 'QR Suite', descAr: 'إنشاء وقراءة رموز QR بسرعة', descEn: 'Generate & scan QR codes instantly', icon: QrCode },
       { id: 'pdf-compressor', nameAr: 'ضاغط ومحسن PDF', nameEn: 'PDF Compressor', descAr: 'تقليل حجم ملفات PDF بأمان', descEn: 'Compress PDF size securely', icon: FileText },
       { id: 'online-notepad', nameAr: 'دفتر الملاحظات الذكي', nameEn: 'Smart Notepad', descAr: 'اكتب واحفظ ملاحظاتك أونلاين', descEn: 'Write and save notes online', icon: StickyNote },
       { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 },

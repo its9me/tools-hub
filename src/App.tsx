@@ -69,6 +69,7 @@ import TripCountdown from './pages/TripCountdown';
 import TravelSlangDictionary from './pages/TravelSlangDictionary';
 import SimonMemoryGame from './pages/SimonMemoryGame';
 import PdfCompressor from './pages/PdfCompressor';
+import QrSuite from './pages/QrSuite';
 
 const translations = {
   ar: {
@@ -260,6 +261,7 @@ export default function App() {
           <Route path="/tool/travel-slang" element={<TravelSlangDictionary lang={lang} />} />
           <Route path="/tool/memory-game" element={<SimonMemoryGame lang={lang} />} />
           <Route path="/tool/pdf-compressor" element={<PdfCompressor lang={lang} />} />
+          <Route path="/tool/qr-suite" element={<QrSuite lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

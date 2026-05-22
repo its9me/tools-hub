@@ -91,7 +91,7 @@ export default function PdfCompressor({ lang }: { lang: 'ar' | 'en' }) {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
+        await page.render({ canvasContext: ctx, viewport: renderViewport } as any).promise;
         
         // Convert to highly compressed JPEG
         const imgData = canvas.toDataURL('image/jpeg', quality);
