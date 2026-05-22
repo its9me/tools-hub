@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, QrCode
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, QrCode, Wifi, Smile
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -135,6 +135,30 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
           {isAr ? 'أدوات شائعة مؤخراً' : 'Recently Popular Tools'}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link 
+            to="/tool/sticker-maker"
+            className="flex-1 p-4 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 hover:from-indigo-500/20 hover:to-purple-500/20 border border-indigo-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-indigo-500/5"
+          >
+            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg animate-pulse">
+               <Smile size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'صانع ملصقات الواتساب وتليجرام' : 'WhatsApp & Telegram Sticker Maker'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'صمم ملصقات مخصصة مضحكة محلياً ومشاركتها' : 'Make custom stickers & transparent PNGs'}</p>
+            </div>
+          </Link>
+          <Link 
+            to="/tool/ping-tester"
+            className="flex-1 p-4 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 hover:from-emerald-500/20 hover:to-teal-500/20 border border-emerald-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-emerald-500/5"
+          >
+            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg animate-pulse">
+               <Wifi size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'فاحص استقرار الاتصال والـ Ping' : 'Live Ping & Stability Test'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'قياس سرعة وبينغ مستمر للألعاب والعمل' : 'Continuous ping & jitter test'}</p>
+            </div>
+          </Link>
           <Link 
             to="/tool/loan-calculator"
             className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
