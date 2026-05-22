@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Baby, Share2, Info, CalendarHeart, Clock } from 'lucide-react';
 import moment from 'moment';
+import ShareButtons from '../components/ShareButtons';
 
 const translations = {
   ar: {
@@ -224,16 +225,11 @@ export default function PregnancyCalculator({ lang }: { lang: 'ar' | 'en' }) {
                      </p>
                   </div>
 
-                  <div className="mt-2 flex justify-center">
-                    <a
-                      href={`https://wa.me/?text=${generateShareText()}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-pink-600 hover:bg-pink-500 rounded-xl text-sm font-bold text-white shadow-lg shadow-pink-600/20 transition-all active:scale-95 w-full"
-                    >
-                      <Share2 size={18} />
-                      {t.shareWhatsapp}
-                    </a>
+                  <div className="mt-2 flex justify-center w-full">
+                     <ShareButtons   
+                       text={isAr ? `تحديث الحمل:\nأنا الآن في: ${results.currentWeekStr} (${results.trimesterStr})\nموعد الولادة المتوقع هو: ${results.dueDate}` : `Pregnancy Update:\nI am in my: ${results.currentWeekStr} (${results.trimesterStr})\nEstimated Due Date: ${results.dueDate}`} 
+                       lang={lang} 
+                     />
                   </div>
                 </>
               ) : (

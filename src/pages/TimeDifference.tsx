@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Share2, Info, Clock, Globe, ArrowRightLeft, MapPin } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const cities = [
   { id: "baghdad", nameAr: "بغداد", nameEn: "Baghdad", tz: "Asia/Baghdad" },
@@ -281,16 +282,11 @@ export default function TimeDifference({ lang }: { lang: 'ar' | 'en' }) {
 
         </div>
         
-        <div className="hidden md:flex justify-center pt-4 relative z-10 w-full mt-2 border-t border-white/5">
-            <a
-              href={`https://wa.me/?text=${generateShareText()}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 mt-4 px-8 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-bold text-white shadow-lg transition-all border border-white/10"
-            >
-              <Share2 size={16} />
-              {t.shareWhatsapp}
-            </a>
+        <div className="flex justify-center pt-4 relative z-10 w-full mt-4 border-none">
+             <ShareButtons 
+                text={isAr ? `الفرق الزمني:\nالآن أتحقق من فرق الوقت بين ${city1.nameAr} و ${city2.nameAr} بدقة.\nالنتيجة: ${city1.nameAr} ${diffText} ${city2.nameAr}` : `Time Difference:\nI'm checking the time difference between ${city1.nameEn} and ${city2.nameEn}.\nResult: ${city1.nameEn} ${diffText} ${city2.nameEn}`} 
+                lang={lang} 
+             />
         </div>
       </section>
 

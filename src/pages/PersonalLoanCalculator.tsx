@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Calculator, Share2, DollarSign, Percent, Calendar } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const countries = [
   { id: 'IQ', nameAr: 'العراق', nameEn: 'Iraq', currencyAr: 'دينار', currencyEn: 'IQD', defaultRate: 8 },
@@ -238,17 +239,10 @@ export default function PersonalLoanCalculator({ lang }: { lang: 'ar' | 'en' }) 
 
             {/* Social Share */}
             {amount && results.monthly > 0 ? (
-              <div className="mt-4 flex justify-center">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold text-slate-100 shadow-lg shadow-emerald-600/20 transition-all active:scale-95"
-                >
-                  <Share2 size={18} />
-                  {t.shareWhatsapp}
-                </a>
-              </div>
+               <ShareButtons 
+                 text={isAr ? `قرضي الشخصي:\nالمبلغ: ${amount} ${currency}\nالقسط الشهري: ${formatCurrency(results.monthly)} ${currency}` : `My Personal Loan:\nAmount: ${amount} ${currency}\nMonthly EMI: ${formatCurrency(results.monthly)} ${currency}`} 
+                 lang={lang} 
+               />
             ) : null}
           </div>
         </div>

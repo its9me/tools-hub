@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Flame, Share2, Info, Activity, Target } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const translations = {
   ar: {
@@ -377,16 +378,11 @@ export default function CalorieCalculator({ lang }: { lang: 'ar' | 'en' }) {
                      </div>
                   </div>
 
-                  <div className="mt-4 pt-2 flex justify-center border-t border-white/10">
-                    <a
-                      href={`https://wa.me/?text=${generateShareText()}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-bold text-white shadow-lg transition-all border border-white/5 w-full"
-                    >
-                      <Share2 size={16} />
-                      {t.shareWhatsapp}
-                    </a>
+                  <div className="mt-4 pt-2 flex justify-center border-t border-white/10 w-full">
+                     <ShareButtons
+                       text={isAr ? `احتياجي من السعرات:\n🔥 الحفاظ: ${results.maintain} سعرة\n📉 لتخسيس الوزن: ${results.normalLoss} سعرة` : `My Calorie Needs:\n🔥 Maintain: ${results.maintain} kcal\n📉 Weight Loss: ${results.normalLoss} kcal`}
+                       lang={lang}
+                     />
                   </div>
                 </div>
              ) : (

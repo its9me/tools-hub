@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Calculator, Share2, Briefcase, User, Wallet } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const countries = [
   { id: 'IQ', nameAr: 'العراق', nameEn: 'Iraq', currencyAr: 'دينار', currencyEn: 'IQD' },
@@ -274,17 +275,10 @@ export default function IncomeTaxCalculator({ lang }: { lang: 'ar' | 'en' }) {
 
             {/* Social Share */}
             {income && results.initialAnnual > 0 ? (
-              <div className="mt-4 flex justify-center">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-sm font-bold text-slate-100 shadow-lg shadow-indigo-600/20 transition-all active:scale-95"
-                >
-                  <Share2 size={18} />
-                  {t.shareWhatsapp}
-                </a>
-              </div>
+               <ShareButtons 
+                 text={isAr ? `تخطيطي المالي:\nالدخل المقدر الخاص بي.\nالصافي شهرياً: ${formatCurrency(results.netMonthly)} ${currency}` : `My Financial Planning:\nEstimated income tax calculation.\nNet Monthly: ${formatCurrency(results.netMonthly)} ${currency}`} 
+                 lang={lang} 
+               />
             ) : null}
           </div>
         </div>

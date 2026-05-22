@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Share2, Info, Clock, CalendarDays, Hourglass, Activity } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const translations = {
   ar: {
@@ -268,16 +269,11 @@ export default function LiveAgeCalculator({ lang }: { lang: 'ar' | 'en' }) {
 
         </div>
         
-        <div className="hidden md:flex justify-center pt-4 relative z-10 w-full mt-2 border-t border-white/5">
-            <a
-              href={`https://wa.me/?text=${generateShareText()}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 mt-4 px-8 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-bold text-white shadow-lg transition-all border border-white/10"
-            >
-              <Share2 size={16} />
-              {t.shareWhatsapp}
-            </a>
+        <div className="flex justify-center pt-4 relative z-10 w-full mt-2 border-none">
+            <ShareButtons 
+              text={isAr ? `حاسبة العمر الدقيق:\nعمري الآن هو ${age.years} سنة و ${age.months} شهر و ${age.days} أيام!` : `Precise Age Calculator:\nMy age is ${age.years} years, ${age.months} months, and ${age.days} days!`} 
+              lang={lang} 
+            />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, ArrowLeftRight, Share2, Info, CalendarDays } from 'lucide-react';
 import moment from 'moment-hijri';
+import ShareButtons from '../components/ShareButtons';
 
 const translations = {
   ar: {
@@ -59,7 +60,7 @@ export default function DateConverter({ lang }: { lang: 'ar' | 'en' }) {
   const t = translations[lang];
   const isAr = lang === 'ar';
 
-  const [mode, setMode] = useState<'g2h'>('g2h');
+  const [mode, setMode] = useState<'g2h' | 'h2g'>('g2h');
   
   // Gregorian input
   const [gregDate, setGregDate] = useState(moment().format('YYYY-MM-DD'));
@@ -115,13 +116,6 @@ export default function DateConverter({ lang }: { lang: 'ar' | 'en' }) {
       setMode('g2h');
     }
   };
-
-  const shareText = encodeURIComponent(
-    isAr 
-      ? `تحويل التاريخ:\n${mode === 'g2h' ? `${gregDate} ⬅️ ${resHijriStr}` : `${hDay} ${t.hijriMonths[parseInt(hMonth)-1]} ${hYear} ⬅️ ${resGregStr}`}\nاحسبها هنا: `
-      : `Date Conversion:\n${mode === 'g2h' ? `${gregDate} ⬅️ ${resHijriStr}` : `${hDay} ${t.hijriMonths[parseInt(hMonth)-1]} ${hYear} ⬅️ ${resGregStr}`}\nCalculate here: `
-  );
-  const whatsappUrl = `https://wa.me/?text=${shareText}${encodeURIComponent(window.location.href)}`;
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-3xl mx-auto">
@@ -212,16 +206,11 @@ export default function DateConverter({ lang }: { lang: 'ar' | 'en' }) {
           
         </div>
 
-        <div className="flex justify-center pt-2 relative z-10">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-500 rounded-xl text-sm font-bold text-white shadow-lg shadow-teal-500/20 transition-all active:scale-95"
-          >
-            <Share2 size={18} />
-            {t.shareWhatsapp}
-          </a>
+        <div className="flex justify-center pt-2 relative z-10 w-full mb-4">
+           <ShareButtons 
+             text={isAr ? `تحويل التاريخ:\n${mode === 'g2h' ? `${gregDate} ⬅️ ${resHijriStr}` : `${hDay} ${t.hijriMonths[parseInt(hMonth)-1]} ${hYear} ⬅️ ${resGregStr}`}` : `Date Conversion:\n${mode === 'g2h' ? `${gregDate} ⬅️ ${resHijriStr}` : `${hDay} ${t.hijriMonths[parseInt(hMonth)-1]} ${hYear} ⬅️ ${resGregStr}`}`}
+             lang={lang}
+           />
         </div>
       </section>
 

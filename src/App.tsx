@@ -63,6 +63,12 @@ import ChartGenerator from './pages/ChartGenerator';
 import ClothingShoeSizeConverter from './pages/ClothingShoeSizeConverter';
 import TravelWheel from './pages/TravelWheel';
 import ScratchMap from './pages/ScratchMap';
+import TravelDareGenerator from './pages/TravelDareGenerator';
+import TravelCompatibility from './pages/TravelCompatibility';
+import TripCountdown from './pages/TripCountdown';
+import TravelSlangDictionary from './pages/TravelSlangDictionary';
+import SimonMemoryGame from './pages/SimonMemoryGame';
+import PdfCompressor from './pages/PdfCompressor';
 
 const translations = {
   ar: {
@@ -248,6 +254,12 @@ export default function App() {
           <Route path="/tool/size-converter" element={<ClothingShoeSizeConverter lang={lang} />} />
           <Route path="/tool/travel-wheel" element={<TravelWheel lang={lang} />} />
           <Route path="/tool/scratch-map" element={<ScratchMap lang={lang} />} />
+          <Route path="/tool/travel-dare" element={<TravelDareGenerator lang={lang} />} />
+          <Route path="/tool/travel-compatibility" element={<TravelCompatibility lang={lang} />} />
+          <Route path="/tool/trip-countdown" element={<TripCountdown lang={lang} />} />
+          <Route path="/tool/travel-slang" element={<TravelSlangDictionary lang={lang} />} />
+          <Route path="/tool/memory-game" element={<SimonMemoryGame lang={lang} />} />
+          <Route path="/tool/pdf-compressor" element={<PdfCompressor lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

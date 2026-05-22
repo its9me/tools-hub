@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map, BrainCircuit } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -31,6 +31,7 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleAr: 'الإنتاجية والنصوص',
     titleEn: 'Productivity & Text',
     tools: [
+      { id: 'pdf-compressor', nameAr: 'ضاغط ومحسن PDF', nameEn: 'PDF Compressor', descAr: 'تقليل حجم ملفات PDF بأمان', descEn: 'Compress PDF size securely', icon: FileText },
       { id: 'online-notepad', nameAr: 'دفتر الملاحظات الذكي', nameEn: 'Smart Notepad', descAr: 'اكتب واحفظ ملاحظاتك أونلاين', descEn: 'Write and save notes online', icon: StickyNote },
       { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word & Character Counter', descAr: 'عداد كلمات مع احصائيات متقدمة', descEn: 'Word counter with advanced stats', icon: Code2 },
       { id: 'date-converter', nameAr: 'محول التاريخ (ميلادي/هجري)', nameEn: 'Date Converter', descAr: 'تحويل التاريخ بين الميلادي والهجري', descEn: 'Convert between Gregorian and Hijri', icon: CalendarDays }
@@ -97,7 +98,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     tools: [
       { id: 'lucky-numbers', nameAr: 'مولد أرقام الحظ', nameEn: 'Lucky Number Generator', descAr: 'توليد أرقام عشوائية لليانصيب', descEn: 'Generate random numbers', icon: Dices },
       { id: 'random-picker', nameAr: 'عجلة الحظ والقرعة', nameEn: 'Random Name Picker', descAr: 'تدوير العجلة لاختيار فائز عشوائي', descEn: 'Spin the wheel for a random winner', icon: Trophy },
-      { id: 'daily-riddle', nameAr: 'لغز اليوم', nameEn: 'Daily Riddle', descAr: 'لغز جديد مخصص لكل يوم مع حله', descEn: 'New riddle every day with answer', icon: Lightbulb }
+      { id: 'daily-riddle', nameAr: 'لغز اليوم', nameEn: 'Daily Riddle', descAr: 'لغز جديد مخصص لكل يوم مع حله', descEn: 'New riddle every day with answer', icon: Lightbulb },
+      { id: 'memory-game', nameAr: 'لعبة الذاكرة البصرية', nameEn: 'Visual Memory Game', descAr: 'أزرار ملونة تضيء بترتيب وعليك تكراره', descEn: 'Repeat the flashing colored buttons sequence', icon: BrainCircuit }
     ]
   },
   science: {
@@ -120,7 +122,11 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     tools: [
       { id: 'size-converter', nameAr: 'محول مقاسات الملابس والأحذية', nameEn: 'Clothing & Shoe Size Converter', descAr: 'تحويل مقاسات دولية فوراً', descEn: 'International size converter instantly', icon: ArrowRightLeft },
       { id: 'travel-wheel', nameAr: 'وين أسافر؟ (عجلة الحظ)', nameEn: 'Where to Travel? (Spinner)', descAr: 'حدد وجهتك السياحية القادمة ونصائح سريعة للمترددين', descEn: 'Decide your next destination and get quick tips', icon: Compass },
-      { id: 'scratch-map', nameAr: 'تحدي الدول (الخريطة)', nameEn: 'Digital Scratch Map', descAr: 'حدد الدول التي زرتها وشارك النسبة المئوية لإنجازك', descEn: 'Track visited countries and share your achievement', icon: Map }
+      { id: 'scratch-map', nameAr: 'تحدي الدول (الخريطة)', nameEn: 'Digital Scratch Map', descAr: 'حدد الدول التي زرتها وشارك النسبة المئوية لإنجازك', descEn: 'Track visited countries and share your achievement', icon: Map },
+      { id: 'travel-dare', nameAr: 'تحديات السفر المجنونة', nameEn: 'Travel Dare Generator', descAr: 'تحديات عشوائية مضحكة للقيام بها أثناء سفرك', descEn: 'Random fun travel dares to do on your trip', icon: Dices },
+      { id: 'travel-compatibility', nameAr: 'فاحص شركاء السفر', nameEn: 'Travel Compatibility Tester', descAr: 'شاهد نسبة التوافق للرحلة وتجنب الخلافات', descEn: 'Test travel compatibility and avoid conflicts', icon: HeartHandshake },
+      { id: 'trip-countdown', nameAr: 'عداد رحلتي القادمة', nameEn: 'Next Trip Countdown', descAr: 'عداد تنازلي لرحلتك مع قائمة أمنيات (Bucket List)', descEn: 'Countdown to your trip with a bucket list', icon: CalendarClock },
+      { id: 'travel-slang', nameAr: 'قاموس الـ Slang السياحي', nameEn: 'Street Travel Slang', descAr: 'تعرف على المصطلحات الدارجة في السفر والمطارات', descEn: 'Learn street travel slang and phrases', icon: BookOpen }
     ]
   }
 };

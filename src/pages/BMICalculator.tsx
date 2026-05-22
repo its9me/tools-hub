@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { HeartPulse, Share2, Info, Activity, Scale, Dumbbell } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const translations = {
   ar: {
@@ -361,16 +362,11 @@ export default function BMICalculator({ lang }: { lang: 'ar' | 'en' }) {
                      </div>
                   </div>
 
-                  <div className="mt-auto pt-4 flex justify-center">
-                    <a
-                      href={`https://wa.me/?text=${generateShareText()}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-bold text-white shadow-lg transition-all border border-white/5 w-full"
-                    >
-                      <Share2 size={16} />
-                      {t.shareWhatsapp}
-                    </a>
+                  <div className="mt-auto pt-4 flex justify-center w-full">
+                    <ShareButtons 
+                       text={isAr ? `نتائج تقييمي الصحي:\n📊 ${t.bmi}: ${results.bmi.toFixed(1)} (${results.category})\n⚖️ ${t.idealWeight}: ${results.ideal}\n🔥 ${t.bmr}: ${results.bmr} kcal/day` : `My Health Assessment:\n📊 ${t.bmi}: ${results.bmi.toFixed(1)} (${results.category})\n⚖️ ${t.idealWeight}: ${results.ideal}\n🔥 ${t.bmr}: ${results.bmr} kcal/day`} 
+                       lang={lang} 
+                    />
                   </div>
                 </>
              ) : (

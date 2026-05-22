@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Compass, MapPin, Sparkles, RefreshCcw, Info, CheckCircle2 } from 'lucide-react';
+import ShareButtons from '../components/ShareButtons';
 
 const destinations = [
   {
@@ -259,6 +260,11 @@ export default function TravelWheel({ lang }: { lang: 'ar' | 'en' }) {
                 <RefreshCcw size={18} />
                 {isAr ? 'لف مرة أخرى وجرب حظك' : 'Spin Again & Try Your Luck'}
               </button>
+
+              <ShareButtons 
+                 text={isAr ? `نصيبي من عجلة الحظ السياحية طلع: ${result.nameAr} !\n${result.categoryAr}` : `The travel wheel picked my next destination: ${result.nameEn} !\n${result.categoryEn}`} 
+                 lang={lang} 
+              />
             </div>
           ) : (
             <div className="h-full min-h-[350px] bg-white/[0.02] border border-dashed border-white/10 rounded-3xl p-8 flex flex-col text-center items-center justify-center text-slate-500">
