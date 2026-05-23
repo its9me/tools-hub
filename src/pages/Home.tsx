@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Share2, Home as HomeIcon, Gamepad2, Plane, Bitcoin,
   PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, QrCode, Wifi, Smile
+  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, QrCode, Wifi, Smile, Gauge
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -135,6 +135,18 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
           {isAr ? 'أدوات شائعة مؤخراً' : 'Recently Popular Tools'}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link 
+            to="/tool/speed-test"
+            className="flex-1 p-4 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 border border-cyan-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-cyan-500/5"
+          >
+            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg animate-pulse">
+               <Gauge size={24} />
+            </div>
+            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
+              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مقياس سرعة الإنترنت المطور' : 'Pro Internet Speed Test'}</h4>
+              <p className="text-xs text-slate-400 mt-1">{isAr ? 'قس سرعة التحميل والرفع وزمن الاستجابة' : 'Benchmark upload, download & latency'}</p>
+            </div>
+          </Link>
           <Link 
             to="/tool/sticker-maker"
             className="flex-1 p-4 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 hover:from-indigo-500/20 hover:to-purple-500/20 border border-indigo-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-indigo-500/5"

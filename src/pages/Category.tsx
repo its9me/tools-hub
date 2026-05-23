@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map, BrainCircuit, QrCode, Wifi, Smile } from 'lucide-react';
+import { Code2, ArrowRight, ArrowLeft, Calculator, Bitcoin, HeartHandshake, Gem, TrendingDown, BarChart3, FileText, StickyNote, GraduationCap, Activity, BookOpen, Percent, CalendarDays, CalendarClock, HeartPulse, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, Map, BrainCircuit, QrCode, Wifi, Smile, Gauge } from 'lucide-react';
 
 const categoryData: Record<string, { titleAr: string, titleEn: string, tools: any[] }> = {
   finance: {
@@ -55,6 +55,7 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleAr: 'المطورين والـ SEO',
     titleEn: 'Developers & SEO',
     tools: [
+      { id: 'speed-test', nameAr: 'فحص سرعة الإنترنت الاحترافي', nameEn: 'Pro Internet Speed Test', descAr: 'قياس دقيق لسرعات الرفع والتحميل وزمن استجابة الشبكة (البينغ) في الزمن الحقيقي الرسم البياني', descEn: 'High-precision real-time metrics for upload, download, ping latency & stability curves', icon: Gauge },
       { id: 'sticker-maker', nameAr: 'صانع ملصقات الواتساب وتليجرام', nameEn: 'WhatsApp & Telegram Sticker Maker', descAr: 'صمم ملصقات مخصصة ومضحكة، وأضف حدوداً بيضاء، واقتص الأشكال محلياً', descEn: 'Design custom stickers, apply white borders, crop shapes and download instantly', icon: Smile },
       { id: 'ping-tester', nameAr: 'فاحص الـ Ping واستقرار الاتصال', nameEn: 'Ping & Network Stability Tester', descAr: 'قياس سرعة التحميل والـ Ping والـ Jitter واستقرار الألعاب مباشرة', descEn: 'Measure Live Ping, Jitter, download speed, and stability for online gaming', icon: Wifi },
       { id: 'number-base-converter', nameAr: 'محول الأنظمة العددية', nameEn: 'Number Base Converter', descAr: 'محول للأرقام للنظام العشري والثنائي والسداسي عشر', descEn: 'Convert decimal, binary, hex, and octal', icon: Hash },

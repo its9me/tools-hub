@@ -72,6 +72,7 @@ import PdfCompressor from './pages/PdfCompressor';
 import QrSuite from './pages/QrSuite';
 import PingTester from './pages/PingTester';
 import StickerMaker from './pages/StickerMaker';
+import InternetSpeedTest from './pages/InternetSpeedTest';
 
 const translations = {
   ar: {
@@ -266,6 +267,7 @@ export default function App() {
           <Route path="/tool/qr-suite" element={<QrSuite lang={lang} />} />
           <Route path="/tool/ping-tester" element={<PingTester lang={lang} />} />
           <Route path="/tool/sticker-maker" element={<StickerMaker lang={lang} />} />
+          <Route path="/tool/speed-test" element={<InternetSpeedTest lang={lang} />} />
           
           <Route path="/privacy" element={
             <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
