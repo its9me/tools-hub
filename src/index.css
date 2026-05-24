@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,4 +7,71 @@
 
 body {
   font-family: var(--font-sans);
+  background-color: #020412;
+  margin: 0;
+}
+
+/* Custom Cyber Grid Pattern */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+}
+
+/* Slow spin for futuristic dashboard design rings */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+/* Accent pulse slow to make icons and title glow realistically */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.6));
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* Card shimmer reflect */
+.shimmer-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 55%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s ease;
+}
+
+.shimmer-bg:hover::after {
+  transform: rotate(30deg) translate(30%, 30%);
 }

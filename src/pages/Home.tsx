@@ -1,885 +1,417 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   Calculator, GraduationCap, HeartPulse, Code2, 
-  Share2, Home as HomeIcon, Gamepad2, Plane, Bitcoin,
-  PiggyBank, HeartHandshake, Gem, TrendingDown, BarChart3, FileText,
-  StickyNote, Activity, BookOpen, Percent, CalendarDays, CalendarClock, Flame, Baby, Droplet, Dumbbell, Eye, ArrowRightLeft, Key, LayoutTemplate, FileCode2, Palette, Wand2, RefreshCw, Braces, Youtube, Hash, Crop, Ruler, Fuel, Globe, Compass, Dices, Trophy, Hourglass, Lightbulb, Keyboard, Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, PieChart, QrCode, Wifi, Smile, Gauge
+  Plane, PiggyBank, HeartHandshake, Eye, QrCode, Smartphone,
+  FileText, Activity, BookOpen, Clock, 
+  Smile, ShieldCheck, CheckCircle2, Search,
+  Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, 
+  PieChart, Wifi, Gauge, Sparkles, Layers,
+  Globe, User, ArrowRight, Palette, PenTool, Flame, Laptop
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
+import AdPlacement from '../components/AdPlacement';
 
-const categories = [
-  { 
-    id: 'finance', 
-    name: 'المال والأعمال', 
-    icon: Calculator, 
-    desc: 'حاسبات قروض، ضرائب، وعملات.', 
-    color: 'from-blue-500 to-cyan-400' 
-  },
-  { 
-    id: 'education', 
-    name: 'التعليم والأكاديميا', 
-    icon: GraduationCap, 
-    desc: 'معدل تراكمي، مراجع (APA,MLA)، وحدات.', 
-    color: 'from-amber-400 to-orange-500' 
-  },
-  { 
-    id: 'health', 
-    name: 'الصحة واللياقة', 
-    icon: HeartPulse, 
-    desc: 'كتلة الجسم والسعرات وموعد الولادة وكمية الماء وبرامج التمارين.', 
-    color: 'from-rose-400 to-red-500' 
-  },
-  { 
-    id: 'productivity', 
-    name: 'الإنتاجية والنصوص', 
-    icon: StickyNote, 
-    desc: 'ملاحظات، عدد الكلمات، ومولد الفواتير.', 
-    color: 'from-amber-400 to-orange-400' 
-  },
-  { 
-    id: 'developers', 
-    name: 'المطورين والـ SEO', 
-    icon: Code2, 
-    desc: 'نصوص وSEO وتنسيق الأكواد وBase64.', 
-    color: 'from-emerald-400 to-green-500' 
-  },
-  { 
-    id: 'social', 
-    name: 'صناعة المحتوى', 
-    icon: Share2, 
-    desc: 'أرباح يوتيوب، وهاشتاجات.', 
-    color: 'from-purple-500 to-fuchsia-400' 
-  },
-  { 
-    id: 'lifestyle', 
-    name: 'البيت واللايف ستايل', 
-    icon: HomeIcon, 
-    desc: 'تكاليف الطبخ، وترتيب المنزل.', 
-    color: 'from-yellow-400 to-amber-500' 
-  },
-  { 
-    id: 'entertainment', 
-    name: 'الهوايات والترفيه', 
-    icon: Gamepad2, 
-    desc: 'ألعاب، قرعة، وغرائب.', 
-    color: 'from-indigo-400 to-violet-500' 
-  },
-  { 
-    id: 'science', 
-    name: 'الهندسة والعلوم', 
-    icon: FlaskConical, 
-    desc: 'قوانين الفيزياء والرياضيات.', 
-    color: 'from-teal-400 to-emerald-500' 
-  },
-  { 
-    id: 'travel', 
-    name: 'السياحة والسفر', 
-    icon: Plane, 
-    desc: 'ميزانية السفر وحاسبة المسافات.', 
-    color: 'from-sky-400 to-blue-500' 
-  }
+// Comprehensive index of all tools for instant smart search
+const ALL_TOOLS_REGISTRY = [
+  // Finance
+  { id: 'loan-calculator', nameAr: 'حاسبة القروض', nameEn: 'Loan Calculator', descAr: 'القسط الشهري والفوائد بالتفصيل', descEn: 'Monthly EMI and compound interest', icon: Calculator, cat: 'finance' },
+  { id: 'tax-calculator', nameAr: 'حاسبة ضريبة الدخل', nameEn: 'Income Tax', descAr: 'حساب ضريبة الدخل والخصومات', descEn: 'Estimate income tax & deductions', icon: Calculator, cat: 'finance' },
+  { id: 'compound-interest', nameAr: 'الفائدة المركبة', nameEn: 'Compound Interest', descAr: 'نمو المدخرات والاستثمار العكسي', descEn: 'Savings growth & investment', icon: Calculator, cat: 'finance' },
+  { id: 'zakat-calculator', nameAr: 'حاسبة الزكاة', nameEn: 'Zakat Calculator', descAr: 'حساب زكاة المال والذهب الدقيق', descEn: 'Calculate Zakat on wealth', icon: HeartHandshake, cat: 'finance' },
+  { id: 'invoice-generator', nameAr: 'صانع الفواتير', nameEn: 'Invoice Generator', descAr: 'إنشاء فواتير احترافية للعملاء', descEn: 'Create professional client invoices', icon: FileText, cat: 'finance' },
+  { id: 'stock-profit', nameAr: 'أرباح وخسائر الأسهم', nameEn: 'Stock Profit', descAr: 'حساب صفقات التداول بنقرة واحدة', descEn: 'Calculate stock trades & fees', icon: PieChart, cat: 'finance' },
+
+  // Social & Productivity
+  { id: 'image-resizer', nameAr: 'مقاسات الصور السريعة', nameEn: 'Image Resizer', descAr: 'تعديل مقاسات الصور للمنصات', descEn: 'Resize images for social hubs', icon: ImageIcon, cat: 'social' },
+  { id: 'qr-suite', nameAr: 'أداة QR الذكية', nameEn: 'QR Suite', descAr: 'إنشاء وقراءة رموز الاستجابة السريعة', descEn: 'Generate & scan interactive QRs', icon: QrCode, cat: 'productivity' },
+  { id: 'pdf-compressor', nameAr: 'ضاغط PDF الفوري', nameEn: 'PDF Compressor', descAr: 'تقليل حجم ملفات PDF بأمان وبسرعة', descEn: 'Compress PDF size securely', icon: FileText, cat: 'productivity' },
+  { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word Counter', descAr: 'عداد كلمات وجمل ذكي ومتطور', descEn: 'Smart word & sentence counter stats', icon: Code2, cat: 'productivity' },
+  { id: 'online-notepad', nameAr: 'المفكرة السحابية المؤقتة', nameEn: 'Online Notepad', descAr: 'اكتب واحفظ ملاحظاتك أوتوماتيكياً', descEn: 'Auto-saved cloud scratchpad', icon: FileText, cat: 'productivity' },
+
+  // Education
+  { id: 'gpa-calculator', nameAr: 'حاسبة المعدل التراكمي', nameEn: 'GPA Calculator', descAr: 'حساب المعدل الفصلي والتراكمي', descEn: 'Calculate cumulative & semester GPA', icon: GraduationCap, cat: 'education' },
+  { id: 'typing-speed', nameAr: 'اختبار سرعة الكتابة', nameEn: 'Typing Speed', descAr: 'احسب سرعتك بالكتابة بالدقيقة', descEn: 'Calculate writing speed (WPM)', icon: BookOpen, cat: 'education' },
+  { id: 'daily-schedule', nameAr: 'الجدول الدراسي المنظم', nameEn: 'Study Planner', descAr: 'منظم خطة وجداول المذاكرة اليومية', descEn: 'Organize study plans & routines', icon: Clock, cat: 'education' },
+
+  // Developers
+  { id: 'speed-test', nameAr: 'فحص سرعة الإنترنت', nameEn: 'Internet Speed Test', descAr: 'قياس دقيق لسرعة الرفع والتحميل والـ Ping', descEn: 'High-precision broadband metrics', icon: Gauge, cat: 'developers' },
+  { id: 'ping-tester', nameAr: 'فاحص استقرار الـ Ping', nameEn: 'Ping stability tester', descAr: 'التحقق من جودة الاتصال وثبات السرعة', descEn: 'Check network stability in live charts', icon: Wifi, cat: 'developers' },
+  { id: 'json-converter', nameAr: 'محلل ومحول JSON', nameEn: 'JSON Converter Parser', descAr: 'تحويل بيانات JSON لـ XML أو CSV', descEn: 'Convert JSON formatted structures', icon: Code2, cat: 'developers' },
+  { id: 'image-color-picker', nameAr: 'مستخرج ألوان الصور', nameEn: 'Color Picker', descAr: 'استخراج أكواد HEX/RGB من الصور', descEn: 'Extract and pick hex colors from files', icon: Palette, cat: 'developers' },
+
+  // Health
+  { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },
+  { id: 'calorie-calculator', nameAr: 'حاسبة السعرات والوجبات', nameEn: 'Calorie Counter', descAr: 'احسب السعرات لإنقاص أو الحفاظ على الوزن', descEn: 'Estimate daily calorie metrics', icon: Activity, cat: 'health' },
+];
+
+// 12 Premium high-fidelity Category Cards exactly styled to match Image 1
+const CATEGORY_CARDS = [
+  { id: 'photos', nameAr: 'أدوات الصور', nameEn: 'Image Tools', icon: ImageIcon, mapCat: 'social', cardBg: 'bg-gradient-to-b from-[#1c3c9c]/80 to-[#0e2154]/95 border-[#1e44b8]', iconBg: 'bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] shadow-[0_0_15px_rgba(37,99,235,0.5)]' },
+  { id: 'pdf', nameAr: 'أدوات PDF', nameEn: 'PDF Tools', icon: FileText, mapCat: 'productivity', cardBg: 'bg-gradient-to-b from-[#5c24ab]/80 to-[#2b0c53]/95 border-[#6324c4]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#6d28d9] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
+  { id: 'developers', nameAr: 'أدوات المطورين', nameEn: 'Developer Tools', icon: Code2, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#0d6b38]/80 to-[#06331a]/95 border-[#159a4f]', iconBg: 'bg-gradient-to-r from-[#10b981] to-[#047857] shadow-[0_0_15px_rgba(16,185,129,0.5)]' },
+  { id: 'calculators', nameAr: 'الحاسبات', nameEn: 'Calculators', icon: Calculator, mapCat: 'science', cardBg: 'bg-gradient-to-b from-[#aa6600]/80 to-[#4a2e00]/95 border-[#db8700]', iconBg: 'bg-gradient-to-r from-[#f59e0b] to-[#b45309] shadow-[0_0_15px_rgba(245,158,11,0.5)]' },
+  
+  { id: 'writing', nameAr: 'أدوات الكتابة', nameEn: 'Writing Tools', icon: PenTool, mapCat: 'productivity', cardBg: 'bg-gradient-to-b from-[#183474]/80 to-[#0c1a3a]/95 border-[#214caf]', iconBg: 'bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] shadow-[0_0_15px_rgba(59,130,246,0.5)]' },
+  { id: 'health', nameAr: 'الصحة واللياقة', nameEn: 'Health & Fitness', icon: HeartPulse, mapCat: 'health', cardBg: 'bg-gradient-to-b from-[#941c3c]/80 to-[#470a1a]/95 border-[#c82452]', iconBg: 'bg-gradient-to-r from-[#ec4899] to-[#be185d] shadow-[0_0_15px_rgba(236,72,153,0.5)]' },
+  { id: 'education', nameAr: 'أدوات التعليم', nameEn: 'Education Tools', icon: GraduationCap, mapCat: 'education', cardBg: 'bg-gradient-to-b from-[#0e5c98]/80 to-[#072d4c]/95 border-[#1c84d4]', iconBg: 'bg-gradient-to-r from-[#06b6d4] to-[#0369a1] shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
+  { id: 'finance', nameAr: 'المالية', nameEn: 'Finance Tools', icon: PiggyBank, mapCat: 'finance', cardBg: 'bg-gradient-to-b from-[#0f1f4e]/80 to-[#07102b]/95 border-[#162e7a]', iconBg: 'bg-gradient-to-r from-[#1d4ed8] to-[#1e3a8a] shadow-[0_0_15px_rgba(29,78,216,0.5)]' },
+  
+  { id: 'network', nameAr: 'أدوات الشبكة', nameEn: 'Network Tools', icon: Wifi, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#40127e]/80 to-[#1b053c]/95 border-[#5c1cba]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#4c1d95] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
+  { id: 'travel', nameAr: 'السفر والطيران', nameEn: 'Travel & Tourism', icon: Plane, mapCat: 'travel', cardBg: 'bg-gradient-to-b from-[#aa4400]/80 to-[#4a2100]/95 border-[#db5c00]', iconBg: 'bg-gradient-to-r from-[#f97316] to-[#c2410c] shadow-[0_0_15px_rgba(249,115,22,0.5)]' },
+  { id: 'design', nameAr: 'أدوات التصميم', nameEn: 'Design Tools', icon: Palette, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#0a488e]/80 to-[#04244c]/95 border-[#126ecf]', iconBg: 'bg-gradient-to-r from-[#06b6d4] to-[#2563eb] shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
+  { id: 'more', nameAr: 'والمزيد...', nameEn: 'And More...', icon: Layers, mapCat: 'lifestyle', cardBg: 'bg-gradient-to-b from-[#08123c]/80 to-[#030821]/95 border-[#121f5e]', iconBg: 'bg-[#122678]/80 text-[#8aa4f7]' },
 ];
 
 export default function Home({ lang }: { lang: 'ar' | 'en' }) {
   const isAr = lang === 'ar';
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Dual-language localized feature structures for Left Brand Panel
+  const FEATURES = useMemo(() => [
+    { text: isAr ? 'سريعة' : 'Fast', desc: isAr ? 'تنجز أكثر' : 'Finish More', icon: Zap, iconBg: 'bg-cyan-500/15', textClr: 'text-cyan-400' },
+    { text: isAr ? 'آمنة' : 'Secure', desc: isAr ? 'خصوصيتك أولاً' : 'Privacy First', icon: ShieldCheck, iconBg: 'bg-blue-500/15', textClr: 'text-sky-400' },
+    { text: isAr ? 'ذكية' : 'Smart', desc: isAr ? 'أدوات متطورة' : 'Advanced Tools', icon: Sparkles, iconBg: 'bg-purple-500/15', textClr: 'text-purple-400' },
+    { text: isAr ? 'مجانية' : 'Free', desc: isAr ? 'بدون تسجيل' : 'No Signup Req.', icon: CheckCircle2, iconBg: 'bg-emerald-500/15', textClr: 'text-emerald-400' }
+  ], [isAr]);
+
+  const filteredTools = useMemo(() => {
+    if (searchQuery.trim() !== '') {
+      const query = searchQuery.toLowerCase();
+      return ALL_TOOLS_REGISTRY.filter(tool => 
+        tool.nameAr.toLowerCase().includes(query) || 
+        tool.nameEn.toLowerCase().includes(query) || 
+        tool.descAr.toLowerCase().includes(query) || 
+        tool.descEn.toLowerCase().includes(query) || 
+        tool.id.includes(query)
+      );
+    }
+    return [];
+  }, [searchQuery]);
 
   return (
-    <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto">
-      {/* Placeholder: Top AdSense */}
-      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
-        <div className="text-[10px] uppercase tracking-widest mb-1">
-          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
+    <div className="w-full h-full flex flex-col gap-6 animate-in fade-in duration-500 pb-10">
+      
+      {/* 1. Header Banner Ad Placement Placeholder (Retained Exactly) */}
+      <div className="w-full max-w-[1400px] mx-auto">
+        <AdPlacement className="w-full h-24 bg-[#0a0d24]/90 border border-[#212b77]/30 hover:border-[#2b3899] rounded-2xl flex items-center justify-center text-slate-400 transition-colors" />
+      </div>
+
+      {/* 2. Main Central Hub Panel Container */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto p-4 sm:p-6 lg:p-10 rounded-[2.5rem] border border-[#1d2459] bg-[#05071d]/95 backdrop-blur-xl shadow-[0_0_100px_rgba(5,7,29,0.95)] overflow-hidden flex flex-col xl:flex-row gap-8 lg:gap-14">
+        
+        {/* Futuristic layout background nodes */}
+        <div className="absolute inset-0 z-[-1] pointer-events-none">
+          <div className="absolute top-[20%] left-[-15%] w-[45%] h-[45%] bg-blue-600/5 rounded-full blur-[140px]" />
+          <div className="absolute bottom-[20%] right-[-15%] w-[45%] h-[45%] bg-purple-600/5 rounded-full blur-[140px]" />
         </div>
-        <p className="text-[10px]">AD_SPACE_728x90 (Top)</p>
-      </div>
 
-      {/* Hero Section */}
-      <div className="text-center py-8">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-          {isAr ? 'أدواتي Pro' : 'MyTools Pro'}
-        </h1>
-        <p className="text-slate-300 max-w-2xl mx-auto text-lg">
-          {isAr 
-            ? 'مكتبتك الشاملة لأكثر من 900 أداة وتطبيق مصغر في كافة المجالات لتسهيل مهامك اليومية.' 
-            : 'Your comprehensive library of over 900 tools and mini-apps across all fields to simplify your daily tasks.'}
-        </p>
-      </div>
-
-      {/* Grid of Categories */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categories.map((cat) => {
-          const Icon = cat.icon;
-          return (
-            <Link 
-              key={cat.id} 
-              to={`/category/${cat.id}`}
-              className="group relative flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300"
-            >
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${cat.color} bg-opacity-20 shadow-lg shadow-black/20`}>
-                <Icon className="text-white drop-shadow-md" size={32} />
-              </div>
-              <h2 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
-                {cat.name}
-              </h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {cat.desc}
-              </p>
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Recommended/Latest Tools (Demo) */}
-      <div className="mt-6 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
-        <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">
-          {isAr ? 'أدوات شائعة مؤخراً' : 'Recently Popular Tools'}
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Link 
-            to="/tool/speed-test"
-            className="flex-1 p-4 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 border border-cyan-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-cyan-500/5"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg animate-pulse">
-               <Gauge size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مقياس سرعة الإنترنت المطور' : 'Pro Internet Speed Test'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'قس سرعة التحميل والرفع وزمن الاستجابة' : 'Benchmark upload, download & latency'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/sticker-maker"
-            className="flex-1 p-4 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 hover:from-indigo-500/20 hover:to-purple-500/20 border border-indigo-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-indigo-500/5"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg animate-pulse">
-               <Smile size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'صانع ملصقات الواتساب وتليجرام' : 'WhatsApp & Telegram Sticker Maker'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'صمم ملصقات مخصصة مضحكة محلياً ومشاركتها' : 'Make custom stickers & transparent PNGs'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/ping-tester"
-            className="flex-1 p-4 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 hover:from-emerald-500/20 hover:to-teal-500/20 border border-emerald-500/20 rounded-xl transition-colors flex items-center gap-4 shadow-md shadow-emerald-500/5"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg animate-pulse">
-               <Wifi size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'فاحص استقرار الاتصال والـ Ping' : 'Live Ping & Stability Test'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'قياس سرعة وبينغ مستمر للألعاب والعمل' : 'Continuous ping & jitter test'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/loan-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-blue-500/20 text-blue-400 rounded-lg">
-              <Calculator size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة القروض الشخصية' : 'Personal Loan Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'إحسب القسط الشهري والفائدة لقرضك' : 'Calculate EMI & interest for your loan'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/tax-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-              <Calculator size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة ضريبة الدخل' : 'Income Tax Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب الضريبة المستحقة على راتبك' : 'Calculate tax for your salary'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/crypto-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
-              <Bitcoin size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول العملات الرقمية' : 'Crypto Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'أسعار لحظية للعملات الرقمية' : 'Real-time cryptocurrency prices'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/compound-interest"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
-              <PiggyBank size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الفائدة المركبة' : 'Compound Interest'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب نمو المدخرات واستثماراتك' : 'Calculate your savings growth'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/zakat-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-              <HeartHandshake size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الزكاة' : 'Zakat Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب زكاة المال وعروض التجارة' : 'Calculate Zakat on your wealth'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/gold-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-yellow-500/20 text-yellow-400 rounded-lg">
-              <Gem size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة أسعار الذهب المصنعية' : 'Gold Jewelry Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب السعر شامل المصنعية' : 'Calculate price with workmanship'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/inflation-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-rose-500/20 text-rose-400 rounded-lg">
-              <TrendingDown size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة التضخم' : 'Inflation Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تأثير التضخم على القوة الشرائية' : 'Effect of inflation on purchasing power'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/stock-profit"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-              <BarChart3 size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة أرباح الأسهم' : 'Stock Profit'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب أرباح وخسائر الأسهم والعمولات' : 'Calculate stock profit and loss'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/invoice-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-blue-500/20 text-blue-400 rounded-lg">
-              <FileText size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'صانع الفواتير للمستقلين' : 'Invoice Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'سوي فواتير احترافية وحملها PDF' : 'Create professional invoices (PDF)'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/youtube-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-red-500/20 text-red-500 rounded-lg">
-               <Youtube size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة أرباح يوتيوب' : 'YouTube Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب أرباحك التقديرية من المشاهدات' : 'Estimate your earnings by views'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/hashtag-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-               <Hash size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد الهاشتاجات' : 'Hashtag Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'أقوى الهاشتاجات لإنستقرام وتيك توك' : 'Best hashtags for social'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/image-resizer"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-               <Crop size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مقاسات الصور' : 'Social Resizer'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'قص الصور لمنصات السوشيال' : 'Crop images for social media'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/room-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-orange-500/20 text-orange-400 rounded-lg">
-               <Ruler size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مساحة الغرف' : 'Room Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب كميات الطلاء والأرضيات' : 'Calculate paint and flooring quantities'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/fuel-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-rose-500/20 text-rose-400 rounded-lg">
-               <Fuel size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'توفير وقود السيارات' : 'Fuel Economy'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب استهلاك وتكلفة الوقود' : 'Calculate fuel consumption & cost'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/baby-names"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
-               <Baby size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'أسماء الأطفال' : 'Baby Names'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'مصفاة الأسماء ومعانيها' : 'Names filter and meanings'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/time-difference"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-               <Globe size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'فرق الوقت عالمياً' : 'World Time Difference'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حاسبة الفرق الزمني المباشر' : 'Live time difference calculator'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/qibla-direction"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-               <Compass size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'تحديد اتجاه القبلة' : 'Qibla Direction'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حدد القبلة بدقة عبر البوصلة' : 'Find Qibla via interactive compass'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/lucky-numbers"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-violet-500/20 text-violet-400 rounded-lg">
-               <Dices size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'أرقام الحظ' : 'Lucky Numbers'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد أرقام عشوائية لليانصيب' : 'Generate random lottery numbers'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/random-picker"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
-               <Trophy size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'عجلة الحظ' : 'Random Picker'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'عجلة القرعة لاختيار الفائز' : 'Spin the wheel for a winner'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/daily-riddle"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-yellow-500/20 text-yellow-400 rounded-lg">
-               <Lightbulb size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'لغز اليوم' : 'Daily Riddle'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'لغز يومي جديد' : 'New daily riddle'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/typing-speed-test"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-               <Keyboard size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'سرعة الكتابة' : 'Typing Speed'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'اختبر سرعتك (WPM)' : 'Test your WPM'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/ascii-art"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-fuchsia-500/20 text-fuchsia-400 rounded-lg">
-               <ImageIcon size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'صور ASCII الجمالية' : 'ASCII Art'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حول صورك لنص' : 'Make photos into text'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/ohms-law"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
-               <Zap size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'قانون أوم' : "Ohm's Law"}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب الجهد، التيار والمقاومة' : 'Calculate V, I, and R'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/triangle-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-               <Triangle size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة المثلثات' : 'Triangle Solver'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'ترسم وتحسب الزوايا' : 'Solve and draw triangles'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/material-strength"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-orange-500/20 text-orange-400 rounded-lg">
-               <Cuboid size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مقاومة المواد' : 'Material Strength'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'الإجهاد والانفعال والتشوه' : 'Stress, Strain & Deformation'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/periodic-table"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-               <FlaskConical size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'الجدول الدوري' : 'Periodic Table'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تفاعلي لعناصر الكيمياء' : 'Interactive chemistry elements'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/temperature-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-red-500/20 text-red-400 rounded-lg">
-               <Thermometer size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول الحرارة' : 'Temperature'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تحويل فوري بمختلف الوحدات' : 'Instant unit conversion'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/wave-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-violet-500/20 text-violet-400 rounded-lg">
-               <Radio size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الطيف والموجات' : 'Wave Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'التردد والطول الموجي' : 'Frequency & wavelength'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/geometry-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
-               <Box size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'المساحات والأحجام' : 'Geometry Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'أشكال ثلاثية الأبعاد' : '3D Volumes & Areas'}</p>
-            </div>
-          </Link>
-
-          <Link 
-            to="/tool/power-led-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
-               <Plug size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'الطاقة ومقاومة LED' : 'Power & LED'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'القدرة وحماية الـ LED' : 'Power calc & LED resistor'}</p>
-            </div>
-          </Link>
-
-          <Link 
-            to="/tool/chart-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
-               <PieChart size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'رسم بياني' : 'Chart Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'إنشاء مخططات كصور' : 'Generate & download charts'}</p>
-            </div>
-          </Link>
+        {/* ================= LEFT PANEL: HIGH FIDELITY BRAND INFO CARD ================= */}
+        <div className="xl:w-5/12 flex flex-col items-center xl:items-stretch gap-6">
           
-          <Link 
-            to="/tool/number-base-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-               <Hash size={24} />
+          {/* Orbital Graphics Area (Ref. Image 1 Circular Core Logo Container) */}
+          <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto flex items-center justify-center">
+            
+            {/* Spinning background dotted orbit tracks */}
+            <div className="absolute inset-2 border border-dashed border-cyan-500/20 rounded-full animate-[spin_60s_linear_infinite]" />
+            <div className="absolute inset-8 border border-cyan-500/5 rounded-full" />
+            <div className="absolute inset-14 border border-purple-500/10 rounded-full animate-[spin_32s_linear_infinite]" />
+            <div className="absolute inset-0 border border-transparent border-t-purple-500/20 border-b-cyan-500/10 rounded-full animate-spin-slow" />
+
+            {/* Glowing circular backdrop for the central Logo */}
+            <div className="absolute w-44 h-44 rounded-full bg-[#030617]/90 border-2 border-indigo-500/20 shadow-[0_0_50px_rgba(33,82,202,0.25)] flex items-center justify-center z-10">
+              <Logo size={120} glow={true} className="animate-pulse-slow" />
             </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول الأنظمة العددية' : 'Base Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تحويل عشري، ثنائي وسداسي' : 'Convert Bin, Hex, Oct, Dec'}</p>
+
+            {/* floating glassmorphic badges with glowing 3D-like icons (Ref. Image 1 around circular container) */}
+            {/* Top-Left: Code/Developers Badge */}
+            <div className="absolute top-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-[#c084fc]/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(192,132,252,0.2)] hover:scale-110 transition-transform duration-305">
+              <Code2 size={20} className="text-[#c084fc] drop-shadow-[0_0_6px_rgba(192,132,252,0.6)]" />
             </div>
-          </Link>
-          <Link 
-            to="/tool/qr-suite"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
-              <QrCode size={24} />
+
+            {/* Top-Right: Images/Design Badge */}
+            <div className="absolute top-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-cyan-400/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.2)] hover:scale-110 transition-transform duration-305">
+              <ImageIcon size={20} className="text-cyan-400 drop-shadow-[0_0_6px_rgba(34,211,238,0.6)]" />
             </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'أداة QR الشاملة' : 'QR Suite'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد وقراءة رموز QR' : 'Generate & scan QR codes'}</p>
+
+            {/* Bottom-Left: Calculators Badge */}
+            <div className="absolute bottom-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-emerald-400/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(52,211,153,0.2)] hover:scale-110 transition-transform duration-305">
+              <Calculator size={19} className="text-emerald-400 drop-shadow-[0_0_6px_rgba(52,211,153,0.6)] animate-pulse" />
             </div>
-          </Link>
-          <Link 
-            to="/tool/pdf-compressor"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-red-500/20 text-red-500 rounded-lg">
-              <FileText size={24} />
+
+            {/* Bottom-Right: PDF/Documents Badge */}
+            <div className="absolute bottom-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-[#fb923c]/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(251,146,96,0.2)] hover:scale-110 transition-transform duration-305">
+              <FileText size={19} className="text-[#fb923c] drop-shadow-[0_0_6px_rgba(251,146,96,0.6)]" />
             </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'ضاغط ومحسن PDF' : 'PDF Compressor'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تقليل حجم ملفات PDF مباشرة' : 'Compress PDF files locally'}</p>
+
+          </div>
+
+          {/* Core Brand Title and Slogan (Ref. Image 1 core titles) */}
+          <div className="text-center flex flex-col items-center">
+            <h2 className="text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 tracking-wider font-sans drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              TOOLS HUB
+            </h2>
+            
+            <div className="flex items-center gap-2.5 mt-2">
+              <div className="w-6 h-px bg-cyan-500/50" />
+              <span className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase font-mono">
+                {isAr ? 'منصة واحدة لكل احتياجاتك' : 'ALL TOOLS ONE HUB'}
+              </span>
+              <div className="w-6 h-px bg-purple-500/50" />
             </div>
-          </Link>
-          <Link 
-            to="/tool/word-counter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-              <Code2 size={24} />
+          </div>
+
+          {/* 4 Sleek Dark Feature Plates (Ref. Image 1 4 features listed side-by-side or stacked grid) */}
+          <div className="w-full grid grid-cols-2 gap-3 mt-2">
+            {FEATURES.map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="rounded-2xl border border-[#1b2554] bg-[#0b0f2a]/90 p-3 flex items-center gap-2.5 hover:bg-[#121944] hover:border-[#222f77] transition-all hover:-translate-y-0.5"
+                >
+                  <div className={`w-9 h-9 rounded-xl shrink-0 ${item.iconBg} flex items-center justify-center ${item.textClr}`}>
+                    <IconComponent size={16} />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[12px] font-bold text-slate-200 truncate leading-tight">{item.text}</span>
+                    <span className="text-[10px] text-slate-400 truncate mt-0.5 leading-tight">{item.desc}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Futuristic Rounded Active Pill Capsule (Ref. Image 1 bottom wide capsule) */}
+          <div className="w-full bg-gradient-to-r from-cyan-950/25 via-[#1a0e3a]/30 to-cyan-950/25 border border-[#2b276d] hover:border-[#38338e] py-3.5 px-6 rounded-full flex items-center justify-center gap-2.5 text-xs font-bold text-[#b8ceff] tracking-wide shadow-[0_0_30px_rgba(99,102,241,0.15)] mt-1 animate-pulse select-none">
+            <Globe size={15} className="text-cyan-400 animate-spin-slow" />
+            <span>
+              {isAr ? 'أدوات ذكية لكل احتياجاتك اليومية' : 'Smart tools ready for your daily workflow'}
+            </span>
+          </div>
+
+        </div>
+
+
+        {/* ================= RIGHT PANEL: 4x3 CATEGORY TILES GRID ================= */}
+        <div className="xl:w-7/12 flex flex-col justify-center">
+          
+          {/* Decorative Panel Header */}
+          <div className="mb-4 flex items-center justify-between border-b border-white/5 pb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              {isAr ? 'تصفح البرامج حسب الفئة' : 'Browse Utilities by Directory'}
+            </h3>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          </div>
+
+          {/* The 4x3 Grid (Styled to fit Image 1 design language) */}
+          <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 auto-rows-fr">
+            {CATEGORY_CARDS.map((cat, idx) => {
+              const IconComp = cat.icon;
+              return (
+                <Link 
+                  to={`/category/${cat.mapCat}`}
+                  key={cat.id + idx}
+                  className="group flex flex-col bg-[#0b0f2a]/95 border border-[#1b2554] hover:border-[#32459c] rounded-[1.25rem] p-3 pb-2.5 transition-all duration-300 hover:bg-[#0f153a] hover:-translate-y-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+                >
+                  {/* Aspect-ratio container for the solid gradient plate */}
+                  <div className={`w-full aspect-[1.15] rounded-xl flex items-center justify-center mb-3 relative overflow-hidden ${cat.cardBg}`}>
+                    
+                    {/* Glass sheen overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-70 pointer-events-none" />
+                    
+                    {/* High-contrast centered inner icon badge */}
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-[0_5px_12px_rgba(0,0,0,0.45)] ${cat.iconBg}`}>
+                      <IconComp size={24} className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" />
+                    </div>
+                  </div>
+
+                  {/* Tile Typography Footer */}
+                  <span className="text-[12px] sm:text-xs font-bold text-center text-slate-100 mt-1 tracking-wide group-hover:text-cyan-300 transition-colors">
+                    {isAr ? cat.nameAr : cat.nameEn}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* ================= ADVERTISING SECTOR MIDDLE CONTENT (Retained Exactly) ================= */}
+      <div className="w-full max-w-[1400px] mx-auto my-2">
+        <AdPlacement className="w-full h-20 bg-[#070a24]/90 border border-dashed border-cyan-500/10 hover:border-cyan-500/20 rounded-2xl flex items-center justify-center text-slate-500 transition-colors" />
+      </div>
+
+
+      {/* ================= SEARCH SECTOR AND INSTANT UTILITIES DRAWER ================= */}
+      <div className="w-full max-w-[1400px] mx-auto my-1.5">
+        <div className="rounded-[2.25rem] border border-[#1d2459]/80 bg-[#060925]/95 p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          
+          <div className="absolute top-0 right-0 w-44 h-44 bg-purple-500/5 blur-[80px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-44 h-44 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none" />
+
+          {/* Heading with search icon */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
+                <Search size={18} className="text-cyan-400" />
+                <span>{isAr ? 'البحث الذكي عن الأدوات' : 'Rapid Utilities Explorer'}</span>
+              </h3>
+              <p className="text-xs text-slate-400">
+                {isAr ? 'اكتب اسم الأداة أو الكلمة المفتاحية للوصول الفوري والبدء الفوري.' : 'Quick query utility indexing database.'}
+              </p>
             </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة الكلمات والحروف' : 'Word & Character Counter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'أداة مجانية لعد الكلمات وتنسيق المقالات' : 'Free tool to count words and format articles'}</p>
+
+            {/* Premium Input form with inline Search Icon */}
+            <div className="relative w-full md:w-80">
+              <input 
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={isAr ? 'ابحث هنا...' : 'Search hub...'}
+                className="w-full bg-[#0a0d2a] border border-[#212b77] focus:border-[#3b4ecc] text-slate-200 text-xs rounded-full py-3 px-10 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/20 shadow-inner"
+              />
+              <Search size={14} className="text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
             </div>
-          </Link>
-          <Link 
-            to="/tool/online-notepad"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
-              <StickyNote size={24} />
+          </div>
+
+          {/* Conditional Query Results drawer */}
+          {searchQuery.trim() !== '' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[440px] overflow-y-auto pr-1 animate-in slide-in-from-top-1">
+              {filteredTools.length > 0 ? (
+                filteredTools.map((tool) => {
+                  const ToolIcon = tool.icon;
+                  return (
+                    <Link 
+                      key={tool.id} 
+                      to={`/tool/${tool.id}`}
+                      className="bg-[#0b1030]/80 border border-[#212b77]/40 hover:border-cyan-500/40 p-3.5 rounded-2xl flex items-center gap-3 transition-colors hover:bg-[#0f1642] group"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                        <ToolIcon size={16} />
+                      </div>
+                      <div className="min-w-0 flex flex-col">
+                        <span className="text-xs font-bold text-slate-200 truncate group-hover:text-white">{isAr ? tool.nameAr : tool.nameEn}</span>
+                        <span className="text-[10px] text-slate-400 truncate mt-0.5">{isAr ? tool.descAr : tool.descEn}</span>
+                      </div>
+                    </Link>
+                  );
+                })
+              ) : (
+                <div className="col-span-full py-12 text-center text-slate-500 text-xs border border-dashed border-white/5 rounded-2xl">
+                  {isAr ? 'عذراً، لم نعثر على نتائج موازية لطلبك.' : 'No modules indexed with requested name.'}
+                </div>
+              )}
             </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'دفتر الملاحظات الذكي' : 'Smart Notepad'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'اكتب واحفظ ملاحظاتك أونلاين' : 'Write and save your notes online'}</p>
+          ) : (
+            /* Elegant prompt to begin exploring */
+            <div className="py-6 text-center text-[11px] text-[#5c689a] border border-[#1b2554]/20 bg-[#030617]/50 rounded-2xl">
+              {isAr ? 'أدخل اسم الأداة في خانة البحث لعرض قائمة سريعة متجاوبة.' : 'Type any query value inside search parameter box.'}
             </div>
-          </Link>
-          <Link 
-            to="/tool/gpa-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
-              <GraduationCap size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة المعدل (GPA)' : 'GPA Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'للأنظمة الجامعية العالمية' : 'For global university systems'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/physics-units"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-fuchsia-500/20 text-fuchsia-400 rounded-lg">
-              <Activity size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول الوحدات الفيزيائية' : 'Physics Unit Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'سرعة، قوة، ضغط' : 'Speed, Force, Pressure'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/citation-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-              <BookOpen size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد المراجع (APA, MLA)' : 'Citation Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد المراجع للأبحاث بسهولة' : 'Generate citations easily'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/grade-percentage"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-              <Percent size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'نسبة الدرجات' : 'Grade Percentage'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'حساب النسبة والتقدير' : 'Calculate percentage & grade'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/date-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-teal-500/20 text-teal-400 rounded-lg">
-              <CalendarDays size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول التاريخ' : 'Date Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'ميلادي إلى هجري وبالعكس' : 'Gregorian to Hijri and vice versa'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/daily-study-schedule"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-rose-500/20 text-rose-400 rounded-lg">
-              <CalendarClock size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد جدول دراسي' : 'Study Schedule'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'نظم أوقات المذاكرة والمهام' : 'Organize study times & tasks'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/book-reading-time"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-amber-500/20 text-amber-400 rounded-lg">
-              <BookOpen size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'وقت القراءة' : 'Reading Time'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب الأيام لإنهاء كتاب' : 'Calculate days to finish book'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/live-age-calc"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-              <Hourglass size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'العمر الدقيق' : 'Precise Age'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'عمرك بالثواني لايف' : 'Live age in seconds'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/bmi-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-red-500/20 text-red-500 rounded-lg">
-              <HeartPulse size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة التقييم الصحي' : 'BMI Assessment'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب كتلة الجسم والوزن المثالي' : 'Calculate BMI and Ideal Weight'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/calorie-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-orange-500/20 text-orange-400 rounded-lg">
-              <Flame size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'السعرات لإنقاص الوزن' : 'Calorie Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب سعراتك المطلوبة يومياً' : 'Calculate your daily calories'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/pregnancy-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
-              <Baby size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة موعد الولادة' : 'Pregnancy Calculator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تتبع الحمل وموعد الولادة المتوقع' : 'Track pregnancy and due date'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/water-calculator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-              <Droplet size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'حاسبة كمية الماء' : 'Water Intake'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احسب احتياجك اليومي من الماء' : 'Calculate daily water needs'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/workout-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-violet-500/20 text-violet-400 rounded-lg">
-              <Dumbbell size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد التمارين' : 'Workout Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'احصل على برامج تمارين متجددة' : 'Get randomized workout plans'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/color-vision-test"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-lg">
-              <Eye size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'اختبار عمى الألوان' : 'Color Vision Test'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'اختبر حدة بصرك لتدرجات الألوان' : 'Test your color shade acuity'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/json-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-lg">
-              <ArrowRightLeft size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول JSON' : 'JSON Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تحويل JSON إلى CSV و XML' : 'Convert JSON to CSV / XML'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/password-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-green-500/20 text-green-400 rounded-lg">
-              <Key size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد كلمات المرور' : 'Password Generator'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد كلمات مرور قوية وعشوائية' : 'Generate strong, secure passwords'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/meta-tags-previewer"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-cyan-500/20 text-cyan-400 rounded-lg">
-              <LayoutTemplate size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'فاحص Meta Tags' : 'Meta Tags Preview'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'معاينة العنوان والوصف للمواقع' : 'Preview title and desc tags'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/seo-files-generator"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-green-500/20 text-green-400 rounded-lg">
-              <FileCode2 size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مولد ملفات SEO' : 'SEO Files'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'توليد Robots.txt و Sitemap' : 'Generate Robots.txt & Sitemap'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/image-color-picker"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-pink-500/20 text-pink-400 rounded-lg">
-              <Palette size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'مستخرج ألوان الصور' : 'Color Picker'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'استخراج الألوان من أي صورة' : 'Extract colors from images'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/code-beautifier"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-violet-500/20 text-violet-400 rounded-lg">
-              <Wand2 size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'منسق الأكواد' : 'Code Beautifier'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تنسيق وتلوين CSS و JS بضغطة زر' : 'Format CSS & JS codes'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/webp-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-orange-500/20 text-orange-400 rounded-lg">
-              <RefreshCw size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول لـ WebP' : 'WebP Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'ضغط الصور وتحويلها لـ WebP' : 'Convert images to WebP'}</p>
-            </div>
-          </Link>
-          <Link 
-            to="/tool/base64-converter"
-            className="flex-1 p-4 bg-slate-900/50 hover:bg-slate-800 border border-white/5 rounded-xl transition-colors flex items-center gap-4"
-          >
-            <div className="p-3 bg-fuchsia-500/20 text-fuchsia-400 rounded-lg">
-              <Braces size={24} />
-            </div>
-            <div className={`flex-1 ${isAr ? 'text-right' : 'text-left'}`}>
-              <h4 className="text-sm font-bold text-slate-200">{isAr ? 'محول Base64' : 'Base64 Converter'}</h4>
-              <p className="text-xs text-slate-400 mt-1">{isAr ? 'تشفير وفك تشفير النصوص والصور' : 'Encode & decode in Base64'}</p>
-            </div>
-          </Link>
+          )}
+
         </div>
       </div>
 
-      {/* Placeholder: Middle AdSense */}
-      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm mt-2">
-        <div className="text-[10px] uppercase tracking-widest mb-1">
-          {isAr ? 'إعلان AdSense' : 'AdSense Ad'}
-        </div>
-        <p className="text-[10px]">AD_SPACE_728x90 (Middle)</p>
+
+      {/* ================= ADVERTISING SECTOR BOTTOM CONTENT (Retained Exactly) ================= */}
+      <div className="w-full max-w-[1400px] mx-auto my-1.5">
+        <AdPlacement className="w-full h-20 bg-[#070a24]/90 border border-dashed border-purple-500/10 hover:border-purple-500/20 rounded-2xl flex items-center justify-center text-slate-500 transition-colors" />
       </div>
+
+
+      {/* ================= 3. BOTTOM METRICS AND BRANDED SOCIAL CARD (Ref. Image 1 Footer Capsule) ================= */}
+      <div className="w-full max-w-[1400px] mx-auto">
+        <div className="rounded-[2.5rem] border border-[#232857] bg-[#0c102a]/95 backdrop-blur-md p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.4)]">
+          
+          {/* Left / Main Section: 4 Metrics items */}
+          <div className="w-full md:w-8/12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            {/* Stat Item 1 (Zap Logo) */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full border border-purple-500/20 bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                <Zap size={20} className="drop-shadow-[0_0_8px_rgba(168,85,247,0.6)] animate-pulse" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-white font-mono leading-none tracking-wide">+200</span>
+                <span className="text-[11px] text-slate-400 font-semibold mt-1.5">{isAr ? 'أداة مفيدة' : 'Useful Tools'}</span>
+              </div>
+            </div>
+
+            {/* Stat Item 2 (User Logo) */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full border border-blue-500/20 bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <User size={18} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-white font-mono leading-none tracking-wide">+500K</span>
+                <span className="text-[11px] text-slate-400 font-semibold mt-1.5">{isAr ? 'مستخدم راضي' : 'Happy Users'}</span>
+              </div>
+            </div>
+
+            {/* Stat Item 3 (Always active marker) */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full border border-cyan-500/20 bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0 font-mono font-black text-xs leading-none shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                24/7
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-white font-mono leading-none tracking-wide">24/7</span>
+                <span className="text-[11px] text-slate-400 font-semibold mt-1.5">{isAr ? 'متاح دائماً' : 'Always Online'}</span>
+              </div>
+            </div>
+
+            {/* Stat Item 4 (Verification Shield check) */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full border border-emerald-500/20 bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <ShieldCheck size={18} className="drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-white font-mono leading-none tracking-wide">100%</span>
+                <span className="text-[11px] text-slate-400 font-semibold mt-1.5">{isAr ? 'آمن وسهل الاستخدام' : 'Safe & Simple'}</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Socials & Domain Card (Ref. Image 1 bottom right sector) */}
+          <div className="w-full md:w-4/12 flex flex-col items-center md:items-end gap-2 text-center md:text-right border-t border-[#1b2554] md:border-t-0 pt-4 md:pt-0 pl-0 md:pl-6 rtl:md:pr-6 rtl:md:pl-0">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 text-cyan-400 font-bold text-lg font-mono tracking-wider">
+                <Globe size={18} className="animate-spin-slow" />
+                <span>toolshub.site</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-2 text-slate-400 ml-2 rtl:mr-2">
+                {/* Facebook, Instagram, Telegram, Youtube, TikTok */}
+                <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
+                  <span className="text-[10px] font-bold">f</span>
+                </a>
+                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
+                  <span className="text-[10px] font-bold">ig</span>
+                </a>
+                <a href="https://telegram.org" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
+                  <span className="text-[10px] font-bold">tg</span>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
+                  <span className="text-[10px] font-bold">yt</span>
+                </a>
+                <a href="https://www.tiktok.com/@a.716" target="_blank" rel="noreferrer" className="w-7 h-7 bg-[#ff0050]/10 hover:bg-[#ff0050]/20 border border-[#ff0050]/30 rounded-full flex items-center justify-center text-rose-400 hover:text-rose-300 transition-all hover:scale-110 shadow">
+                  <span className="text-[10px] font-bold">tt</span>
+                </a>
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-400 font-medium">
+              {isAr 
+                ? 'تابعنا للحصول على أحدث الأدوات والنصائح يومياً 💜' 
+                : 'Follow us to get the latest smart tools and tips daily! 💜'}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   );
 }

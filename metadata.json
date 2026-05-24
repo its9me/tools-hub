@@ -1,6 +1,6 @@
 {
-  "name": "multi-tool-app",
-  "description": "أداة Micro-SaaS لحساب عدد الكلمات والحروف متوافقة مع معايير SEO مع مقال ونظام Schema.",
+  "name": "Tools Hub",
+  "description": "منصة رقمية متطورة لأدوات العمل اليومية والمطورين والحلول الرياضية في واجهة ذكية واحدة.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

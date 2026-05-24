@@ -14,6 +14,7 @@ import InflationCalculator from './pages/InflationCalculator';
 import StockProfitCalculator from './pages/StockProfitCalculator';
 import InvoiceGenerator from './pages/InvoiceGenerator';
 import OnlineNotepad from './pages/OnlineNotepad';
+import Logo from './components/Logo';
 
 import GPACalculator from './pages/GPACalculator';
 import PhysicalUnitConverter from './pages/PhysicalUnitConverter';
@@ -76,16 +77,17 @@ import InternetSpeedTest from './pages/InternetSpeedTest';
 
 const translations = {
   ar: {
-    appName: "أدواتي",
-    appNameSuffix: "Pro",
+    appName: "أدوات",
+    appNameSuffix: "Hub",
     home: "الرئيسية",
     otherTools: "الأقسام",
     footerCopyright: "جميع الحقوق محفوظة",
     footerPrivacy: "سياسة الخصوصية",
     footerTerms: "شروط الاستخدام",
+    contactUs: "اتصل بنا",
     privacyTitle: "سياسة الخصوصية",
     privacyContent: [
-      "نحن في 'أدواتي Pro' نولي اهتماماً كبيراً لخصوصيتك. توضح هذه السياسة كيف نتعامل مع معلوماتك عند استخدام الأداة:",
+      "نحن في 'أدوات Hub' نولي اهتماماً كبيراً لخصوصيتك. توضح هذه السياسة كيف نتعامل مع معلوماتك عند استخدام الأداة:",
       "1. معالجة النصوص محلياً: تم تصميم حاسبة الكلمات لتعمل بالكامل داخل متصفحك (Client-Side). جميع النصوص التي تدخلها وتقوم بفحصها لا تخرج من جهازك، ولا نقوم بحفظها أو إرسالها لأي خوادم خارجية.",
       "2. جمع البيانات لتطوير الأداة: قد نستخدم تقنيات تحليل (مثل Google Analytics) لفهم تفاعل زوارنا مع الصفحة وتحسين تجربتهم. البيانات المجمعة تكون مجهولة الهوية وتتضمن نوع المتصفح ومصدر الزيارة.",
       "3. الإعلانات والملفات المؤقتة (Cookies): نستخدم Google AdSense لتقديم إعلانات قد تهمك. تعتمد هذه الخدمات على توظيف ملفات تعريف الارتباط لتحسين دقة الإعلانات المعروضة حسب اهتماماتك.",
@@ -93,7 +95,7 @@ const translations = {
     ],
     termsTitle: "شروط الاستخدام",
     termsContent: [
-      "مرحباً بك في أداة 'أدواتي Pro'. باستخدامك لهذا الموقع، أنت توافق بشكل كامل على الشروط التالية:",
+      "مرحباً بك في أداة 'أدوات Hub'. باستخدامك لهذا الموقع، أنت توافق بشكل كامل على الشروط التالية:",
       "1. الاستخدام المجاني والمقبول: صُممت الأدوات لتكون مجانية وسهلة ليستخدمها الجميع. يمنع استخدام تقنيات تلقائية (Bawling أو Bots) لإغراق الموقع بالطلبات.",
       "2. حدود المسؤولية (إخلاء مسؤولية): نقدم الأداة \"كما هي\"، ونسعى دوماً لتقديم أقصى درجات الدقة، ولكننا لا نتحمل المسؤولية القانونية تجاه أي خسائر تجارية أو أضرار تنتج عن الاعتماد الكلي على نتائج الأداة.",
       "3. حقوق الملكية: الكود المصدري، تصميم الواجهة، والنصوص المكتوبة في هذا الموقع هي حقوق فكرية مملوكة ولا يحق استنساخها وتكرارها في مواقع أخرى.",
@@ -102,13 +104,14 @@ const translations = {
     ],
   },
   en: {
-    appName: "MyTools",
-    appNameSuffix: "Pro",
+    appName: "Tools",
+    appNameSuffix: "Hub",
     home: "Home",
     otherTools: "Categories",
     footerCopyright: "All rights reserved",
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms of Use",
+    contactUs: "Contact Us",
     privacyTitle: "Privacy Policy",
     privacyContent: [
       "At 'MyTools Pro', we take your privacy very seriously. This policy delineates how we manage your information when you interact with our tool:",
@@ -130,53 +133,110 @@ const translations = {
 };
 
 function Layout({ children, lang, setLang, t }: any) {
+  const isAr = lang === 'ar';
+  
   return (
-    <div className={`min-h-screen bg-slate-950 text-slate-100 font-sans flex flex-col relative overflow-hidden ${lang === 'ar' ? 'rtl' : 'ltr'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Background blurred blobs */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/20 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-blue-600/20 rounded-full blur-[120px]"></div>
+    <div className={`min-h-screen bg-[#020412] text-slate-100 font-sans flex flex-col relative overflow-hidden ${isAr ? 'rtl' : 'ltr'}`} dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Absolute futuristic ambient glow spots */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Sky blue/cyan glow in the upper left */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[140px]" />
+        {/* Soft violet/indigo glow on the right center */}
+        <div className="absolute top-[30%] right-[-10%] w-[45%] h-[45%] bg-purple-600/10 rounded-full blur-[140px]" />
+        {/* Soft green/emerald glow on the bottom left */}
+        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[140px]" />
+        
+        {/* Cyber Grid pattern */}
+        <div className="absolute inset-0 cyber-grid opacity-60" />
       </div>
 
-      {/* Header */}
-      <header className="relative z-10 h-16 border-b border-white/10 backdrop-blur-md bg-white/5 px-4 sm:px-8 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20">
-            <span className="text-slate-900 font-bold text-lg">{lang === 'ar' ? 'أد' : 'MT'}</span>
+      {/* Modern High-Fidelity Header / Navigation Dashboard */}
+      <header className="relative z-50 px-4 sm:px-8 py-3.5 border-b border-[#141b44] bg-[#070a24]/90 backdrop-blur-xl shadow-lg">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between gap-4">
+          
+          {/* Logo & Brand Identity */}
+          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="relative">
+              <Logo size={40} glow={true} className="transition-transform duration-500 group-hover:rotate-12" />
+              <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-sm scale-75 animate-pulse" />
+            </div>
+            <h1 className="text-xl font-black tracking-wider flex items-center gap-1.5" dir="ltr">
+              <span className="text-white font-extrabold uppercase">TOOLS</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-400 font-black uppercase">HUB</span>
+            </h1>
+          </Link>
+
+          {/* Expanded Dynamic Navigation Links (Matching Image 2 Dashboard) */}
+          <nav className="hidden lg:flex items-center gap-1.5 text-sm font-semibold text-slate-300">
+            <Link to="/" className="px-3 py-2 rounded-xl text-cyan-400 bg-cyan-950/20 hover:bg-cyan-950/40 transition-all">
+              {t.home}
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link to="/category/developers" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+              {isAr ? 'أدوات المطورين' : 'Developer Tools'}
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link to="/category/productivity" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+              {isAr ? 'أدوات PDF والنصوص' : 'PDF & Text Tools'}
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link to="/category/science" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+              {isAr ? 'الحاسبات العلمية' : 'Calculators'}
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link to="/category/finance" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+              {isAr ? 'الخدمات المالية' : 'Financial Services'}
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link to="/category/health" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+              {isAr ? 'الصحة واللياقة' : 'Health & Fitness'}
+            </Link>
+          </nav>
+
+          {/* Action Center (Search, Language, and Profile) */}
+          <div className="flex items-center gap-3">
+            
+            {/* Action Buttons */}
+            <button 
+              onClick={() => setLang(isAr ? 'en' : 'ar')}
+              className="px-3.5 py-1.5 bg-[#10153f] hover:bg-[#151c54] border border-[#212b77] rounded-xl text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-all flex items-center gap-1 shadow-inner active:scale-95"
+            >
+              <span>{isAr ? '🌐 English' : '🌐 العربية'}</span>
+            </button>
+
+            {/* Simulated Desktop Profile Element from Image 2 */}
+            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 p-[1.5px] cursor-pointer hidden sm:block shadow-md">
+              <div className="w-full h-full rounded-full bg-[#070a24] flex items-center justify-center text-xs font-bold text-slate-300">
+                TH
+              </div>
+            </div>
+
           </div>
-          <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-400 hidden sm:block">
-            {t.appName} {t.appNameSuffix}
-          </h1>
-        </Link>
-        <nav className="flex items-center gap-4 sm:gap-6">
-          <ul className="flex gap-4 sm:gap-6 text-sm font-medium text-slate-400 hidden sm:flex">
-            <li><Link to="/" className="hover:text-slate-200 transition-colors">{t.home}</Link></li>
-            <li><Link to="/" className="hover:text-slate-200 transition-colors">{t.otherTools}</Link></li>
-          </ul>
-          <button 
-            onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-            className="px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold text-slate-200 transition-colors backdrop-blur-md"
-          >
-            {lang === 'ar' ? 'English' : 'العربية'}
-          </button>
-        </nav>
+        </div>
       </header>
 
-      {/* Main Content */}
-      <main className="relative z-10 flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
+      {/* Main Content Dashboard Layout */}
+      <main className="relative z-10 flex-grow max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col items-center justify-center gap-6">
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10 h-16 border-t border-white/10 backdrop-blur-md bg-white/5 px-4 sm:px-8 flex items-center justify-between text-[11px] text-slate-500 mt-auto">
-        <div className="flex items-center gap-4">
-          <span className="font-semibold text-slate-400">{t.appName} {t.appNameSuffix}</span>
-          <span className="hidden sm:inline">&copy; {new Date().getFullYear()} {t.footerCopyright}</span>
-        </div>
-        <div className="flex gap-3 text-[10px] sm:text-[11px]">
-          <Link to="/privacy" className="hover:text-slate-300 transition-colors">{t.footerPrivacy}</Link>
-          <span className="w-px h-3 bg-slate-800 self-center"></span>
-          <Link to="/terms" className="hover:text-slate-300 transition-colors">{t.footerTerms}</Link>
+      {/* Fine-Tuned Dashboard Footer */}
+      <footer className="relative z-10 py-5 border-t border-[#141b44] bg-[#04061a] px-4 sm:px-8 text-xs text-slate-500">
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="font-extrabold text-slate-300 tracking-wide">{t.appName} {t.appNameSuffix}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+            <span>&copy; {new Date().getFullYear()} {t.footerCopyright}</span>
+          </div>
+          <div className="flex flex-wrap gap-4 items-center justify-center">
+            <Link to="/privacy" className="hover:text-slate-300 transition-colors">{t.footerPrivacy}</Link>
+            <span className="w-px h-3 bg-[#1e2354] self-center"></span>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">{t.footerTerms}</Link>
+            <span className="w-px h-3 bg-[#1e2354] self-center"></span>
+            <a href="mailto:tools.kit.babylon@gmail.com" className="hover:text-slate-300 transition-colors text-cyan-400 font-medium">
+              {t.contactUs}
+            </a>
+          </div>
         </div>
       </footer>
     </div>
