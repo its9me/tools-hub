@@ -6,7 +6,8 @@ import {
   Smile, ShieldCheck, CheckCircle2, Search,
   Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, 
   PieChart, Wifi, Gauge, Sparkles, Layers,
-  Globe, User, ArrowRight, Palette, PenTool, Flame, Laptop
+  Globe, User, ArrowRight, Palette, PenTool, Flame, Laptop,
+  Facebook, Instagram, Youtube, Send, Music
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
@@ -381,24 +382,24 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="flex items-center gap-1.5 text-cyan-400 font-bold text-lg font-mono tracking-wider">
                 <Globe size={18} className="animate-spin-slow text-cyan-400" />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 font-extrabold uppercase">toolshub</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 font-extrabold uppercase">tools hub</span>
               </div>
               <div className="flex items-center gap-2 ml-2 rtl:mr-2">
                 {/* Facebook, Instagram, Telegram, Youtube, TikTok */}
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook" className="w-7 h-7 bg-[#1877f2]/10 hover:bg-[#1877f2]/20 border border-[#1877f2]/30 rounded-full flex items-center justify-center text-[#1877f2] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(24,119,242,0.15)]">
-                  <span className="text-[11px]">f</span>
+                <a href="https://www.facebook.com/DNBbanka" target="_blank" rel="noreferrer" title="Facebook" className="w-7 h-7 bg-[#1877f2]/10 hover:bg-[#1877f2]/20 border border-[#1877f2]/30 rounded-full flex items-center justify-center text-[#1877f2] transition-all hover:scale-110 shadow-[0_0_8px_rgba(24,119,242,0.15)]">
+                  <Facebook size={12} strokeWidth={2.5} />
                 </a>
-                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" title="Instagram" className="w-7 h-7 bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34]/20 hover:to-[#6228d7]/20 border border-[#ee2a7b]/35 rounded-full flex items-center justify-center text-[#ee2a7b] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(238,42,123,0.15)]">
-                  <span className="text-[11px]">ig</span>
+                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" title="Instagram" className="w-7 h-7 bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34]/20 hover:to-[#6228d7]/20 border border-[#ee2a7b]/35 rounded-full flex items-center justify-center text-[#ee2a7b] transition-all hover:scale-110 shadow-[0_0_8px_rgba(238,42,123,0.15)]">
+                  <Instagram size={12} strokeWidth={2.5} />
                 </a>
-                <a href="https://t.me/too1shub" target="_blank" rel="noreferrer" title="Telegram" className="w-7 h-7 bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 rounded-full flex items-center justify-center text-[#0088cc] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(0,136,204,0.15)]">
-                  <span className="text-[11px]">tg</span>
+                <a href="https://t.me/too1shub" target="_blank" rel="noreferrer" title="Telegram" className="w-7 h-7 bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 rounded-full flex items-center justify-center text-[#0088cc] transition-all hover:scale-110 shadow-[0_0_8px_rgba(0,136,204,0.15)]">
+                  <Send size={12} strokeWidth={2.5} className="rotate-45 -translate-x-[1px] translate-y-[0.5px]" />
                 </a>
-                <a href="https://www.youtube.com/@Tools-hub-k3k" target="_blank" rel="noreferrer" title="YouTube" className="w-7 h-7 bg-[#ff0000]/10 hover:bg-[#ff0000]/20 border border-[#ff0000]/30 rounded-full flex items-center justify-center text-[#ff0000] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(255,0,0,0.15)]">
-                  <span className="text-[11px]">yt</span>
+                <a href="https://www.youtube.com/@Tools-hub-k3k" target="_blank" rel="noreferrer" title="YouTube" className="w-7 h-7 bg-[#ff0000]/10 hover:bg-[#ff0000]/20 border border-[#ff0000]/30 rounded-full flex items-center justify-center text-[#ff0000] transition-all hover:scale-110 shadow-[0_0_8px_rgba(255,0,0,0.15)]">
+                  <Youtube size={12} strokeWidth={2.5} />
                 </a>
-                <a href="https://www.tiktok.com/@a.716" target="_blank" rel="noreferrer" title="TikTok" className="w-7 h-7 bg-[#010101]/30 hover:bg-[#010101]/50 border border-[#fe2c55]/40 rounded-full flex items-center justify-center text-[#fe2c55] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(254,44,85,0.15)]">
-                  <span className="text-[11px]">tt</span>
+                <a href="https://www.tiktok.com/@a.716" target="_blank" rel="noreferrer" title="TikTok" className="w-7 h-7 bg-[#010101]/30 hover:bg-[#010101]/50 border border-[#fe2c55]/40 rounded-full flex items-center justify-center text-[#fe2c55] transition-all hover:scale-110 shadow-[0_0_8px_rgba(254,44,85,0.15)]">
+                  <Music size={12} strokeWidth={2.5} />
                 </a>
               </div>
             </div>
