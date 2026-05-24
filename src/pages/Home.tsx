@@ -377,28 +377,28 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
           </div>
 
           {/* Socials & Domain Card (Ref. Image 1 bottom right sector) */}
-          <div className="w-full md:w-4/12 flex flex-col items-center md:items-end gap-2 text-center md:text-right border-t border-[#1b2554] md:border-t-0 pt-4 md:pt-0 pl-0 md:pl-6 rtl:md:pr-6 rtl:md:pl-0">
-            <div className="flex items-center gap-2">
+          <div className="w-full md:w-4/12 flex flex-col items-center md:items-end gap-2 text-center md:text-right border-t border-[#1b2554] md:border-t-0 pt-4 md:pt-0 pl-0 md:pl-6 rtl:md:pr-6 rtl:md:pl-0 font-sans">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
               <div className="flex items-center gap-1.5 text-cyan-400 font-bold text-lg font-mono tracking-wider">
-                <Globe size={18} className="animate-spin-slow" />
-                <span>toolshub.site</span>
+                <Globe size={18} className="animate-spin-slow text-cyan-400" />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 font-extrabold uppercase">toolshub</span>
               </div>
-              <div className="hidden sm:flex items-center gap-2 text-slate-400 ml-2 rtl:mr-2">
+              <div className="flex items-center gap-2 ml-2 rtl:mr-2">
                 {/* Facebook, Instagram, Telegram, Youtube, TikTok */}
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
-                  <span className="text-[10px] font-bold">f</span>
+                <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook" className="w-7 h-7 bg-[#1877f2]/10 hover:bg-[#1877f2]/20 border border-[#1877f2]/30 rounded-full flex items-center justify-center text-[#1877f2] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(24,119,242,0.15)]">
+                  <span className="text-[11px]">f</span>
                 </a>
-                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
-                  <span className="text-[10px] font-bold">ig</span>
+                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" title="Instagram" className="w-7 h-7 bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34]/20 hover:to-[#6228d7]/20 border border-[#ee2a7b]/35 rounded-full flex items-center justify-center text-[#ee2a7b] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(238,42,123,0.15)]">
+                  <span className="text-[11px]">ig</span>
                 </a>
-                <a href="https://telegram.org" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
-                  <span className="text-[10px] font-bold">tg</span>
+                <a href="https://t.me/too1shub" target="_blank" rel="noreferrer" title="Telegram" className="w-7 h-7 bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 rounded-full flex items-center justify-center text-[#0088cc] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(0,136,204,0.15)]">
+                  <span className="text-[11px]">tg</span>
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-7 h-7 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110 shadow">
-                  <span className="text-[10px] font-bold">yt</span>
+                <a href="https://www.youtube.com/@Tools-hub-k3k" target="_blank" rel="noreferrer" title="YouTube" className="w-7 h-7 bg-[#ff0000]/10 hover:bg-[#ff0000]/20 border border-[#ff0000]/30 rounded-full flex items-center justify-center text-[#ff0000] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(255,0,0,0.15)]">
+                  <span className="text-[11px]">yt</span>
                 </a>
-                <a href="https://www.tiktok.com/@a.716" target="_blank" rel="noreferrer" className="w-7 h-7 bg-[#ff0050]/10 hover:bg-[#ff0050]/20 border border-[#ff0050]/30 rounded-full flex items-center justify-center text-rose-400 hover:text-rose-300 transition-all hover:scale-110 shadow">
-                  <span className="text-[10px] font-bold">tt</span>
+                <a href="https://www.tiktok.com/@a.716" target="_blank" rel="noreferrer" title="TikTok" className="w-7 h-7 bg-[#010101]/30 hover:bg-[#010101]/50 border border-[#fe2c55]/40 rounded-full flex items-center justify-center text-[#fe2c55] font-black transition-all hover:scale-110 shadow-[0_0_8px_rgba(254,44,85,0.15)]">
+                  <span className="text-[11px]">tt</span>
                 </a>
               </div>
             </div>
