@@ -140,6 +140,11 @@ export default function TravelSlangDictionary({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col gap-8 p-4 max-w-5xl mx-auto w-full">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+      </div>
       {/* Header section */}
       <div className="flex flex-col items-center gap-3 text-center mb-2 animate-in slide-in-from-top-4 fade-in">
         <div className="w-16 h-16 bg-gradient-to-tr from-amber-500 to-orange-500 text-white rounded-3xl flex items-center justify-center shadow-lg shadow-amber-500/20 rotate-3">
@@ -260,6 +265,12 @@ export default function TravelSlangDictionary({ lang }: { lang: 'ar' | 'en' }) {
              </div>
            )}
         </div>
+      </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
       </div>
     </div>
   );

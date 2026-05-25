@@ -53,6 +53,10 @@ const translations = {
     speedResult: "سرعة التحميل التقديرية",
     runSpeedTestBtn: "قياس سرعة التحميل المباشرة",
     speedReadyText: "جاهز للفحص (سعة الملف 600KB من CDN)",
+    adTop: "مساحة إعلانية",
+    adTopDesc: "AD_SPACE_728x90 (أعلى)",
+    adMiddle: "مساحة إعلانية",
+    adMiddleDesc: "AD_SPACE_728x90 (وسط)",
   },
   en: {
     title: "Pure JS Network Ping & Jitter Tester",
@@ -101,6 +105,10 @@ const translations = {
     speedResult: "Estimated Download Speed",
     runSpeedTestBtn: "Measure Real-time Download Speed",
     speedReadyText: "Ready to measure (Fetches a 600KB file via global CDN)",
+    adTop: "AdSense Ad",
+    adTopDesc: "AD_SPACE_728x90 (Top)",
+    adMiddle: "AdSense Ad",
+    adMiddleDesc: "AD_SPACE_728x90 (Middle)",
   }
 };
 
@@ -614,6 +622,11 @@ export default function PingTester({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="w-full flex flex-col gap-6 animate-in fade-in duration-300">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+        <p className="text-[10px]">{t.adTopDesc}</p>
+      </div>
       
       {/* Top Header Card */}
       <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative overflow-hidden">
@@ -1007,6 +1020,12 @@ export default function PingTester({ lang }: { lang: 'ar' | 'en' }) {
           <ShareButtons text={shareText} lang={lang} />
           
         </div>
+      </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+        <p className="text-[10px]">{t.adMiddleDesc}</p>
       </div>
 
       {/* Explanatory Info Card */}

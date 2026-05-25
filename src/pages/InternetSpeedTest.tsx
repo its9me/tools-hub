@@ -93,6 +93,10 @@ const translations = {
     poorLoss: "سرعة متذبذبة (أكثر من %2)",
     fileSizeMB: "ميغابايت (MB)",
     fileSizeGB: "جيجابايت (GB)",
+    adTop: "مساحة إعلانية",
+    adTopDesc: "AD_SPACE_728x90 (أعلى)",
+    adMiddle: "مساحة إعلانية",
+    adMiddleDesc: "AD_SPACE_728x90 (وسط)",
   },
   en: {
     title: "Pro Internet Speed Test Studio",
@@ -180,6 +184,10 @@ const translations = {
     poorLoss: "Intermittent / High Jitter (over 2% loss)",
     fileSizeMB: "Megabytes (MB)",
     fileSizeGB: "Gigabytes (GB)",
+    adTop: "AdSense Ad",
+    adTopDesc: "AD_SPACE_728x90 (Top)",
+    adMiddle: "AdSense Ad",
+    adMiddleDesc: "AD_SPACE_728x90 (Middle)",
   }
 };
 
@@ -755,6 +763,11 @@ ${dnsResults.map(dns => `- ${dns.name} (${dns.ip}): ${dns.ping ? dns.ping + ' ms
 
   return (
     <div className="w-full flex flex-col gap-6 animate-in fade-in duration-300">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+        <p className="text-[10px]">{t.adTopDesc}</p>
+      </div>
       
       {/* Banner Intro Title Card */}
       <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative overflow-hidden">
@@ -1338,6 +1351,12 @@ ${dnsResults.map(dns => `- ${dns.name} (${dns.ip}): ${dns.ping ? dns.ping + ' ms
           />
         </div>
       )}
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+        <p className="text-[10px]">{t.adMiddleDesc}</p>
+      </div>
 
       {/* Technical analysis how it works */}
       <div className="p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-4">

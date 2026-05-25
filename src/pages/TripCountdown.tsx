@@ -173,7 +173,13 @@ export default function TripCountdown({ lang }: { lang: 'ar' | 'en' }) {
 
   if (isSettingUp) {
     return (
-      <div className="flex flex-col p-4 max-w-3xl mx-auto w-full animate-in fade-in zoom-in-95">
+      <div className="flex flex-col p-4 max-w-3xl mx-auto w-full animate-in fade-in zoom-in-95 gap-6">
+        {/* Top AdSense */}
+        <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+          <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+          <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+        </div>
+
         <div className="bg-slate-900 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-12 bg-indigo-500/20 text-indigo-400 rounded-xl flex items-center justify-center shrink-0">
@@ -269,6 +275,12 @@ export default function TripCountdown({ lang }: { lang: 'ar' | 'en' }) {
             </div>
           </form>
         </div>
+
+        {/* Middle AdSense */}
+        <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+          <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+          <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
+        </div>
       </div>
     );
   }
@@ -276,7 +288,14 @@ export default function TripCountdown({ lang }: { lang: 'ar' | 'en' }) {
   if (!tripData) return null;
 
   return (
-    <div className="flex flex-col -m-4 md:m-0 h-[calc(100vh-8rem)] min-h-[600px] relative rounded-none md:rounded-3xl overflow-hidden animate-in fade-in duration-700">
+    <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+      </div>
+
+      <div className="flex flex-col -m-4 md:m-0 h-[calc(100vh-8rem)] min-h-[600px] relative rounded-none md:rounded-3xl overflow-hidden animate-in fade-in duration-700">
       
       {/* Background Image Setup */}
       <div 
@@ -435,6 +454,13 @@ export default function TripCountdown({ lang }: { lang: 'ar' | 'en' }) {
            </div>
         </div>
         
+      </div>
+    </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
       </div>
     </div>
   );

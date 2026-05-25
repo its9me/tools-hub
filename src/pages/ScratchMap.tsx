@@ -83,6 +83,11 @@ export default function ScratchMap({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col gap-6 p-4 max-w-5xl mx-auto w-full">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+      </div>
       <div className="flex items-center gap-4 mb-2">
         <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center shrink-0">
           <MapIcon size={28} />
@@ -233,6 +238,12 @@ export default function ScratchMap({ lang }: { lang: 'ar' | 'en' }) {
            </div>
         </div>
 
+      </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
       </div>
     </div>
   );

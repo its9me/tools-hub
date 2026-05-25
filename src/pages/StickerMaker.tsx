@@ -89,7 +89,11 @@ const translations = {
     
     aboutTitle: "حول صانع الملصقات التفاعلي والسلس",
     aboutP1: "أداة صانع الملصقات هي تطبيق متكامل يعمل بنسبة 100% داخل المتصفح، صُمم خصيصاً للجيمرز والشباب والجروبات الذين يرغبون في تحويل صورهم وميمزاتهم إلى ملصقات واتساب وتليجرام بخطوة واحدة ودون إعلانات مزعجة.",
-    aboutP2: "بفضل استخدام مكتبات الرسم المتقدمة على Canvas، يمكنك تدوير وتكبير الصورة، تطبيق فلاتر الألوان، اقتطاع الأشكال الذكية، وإضافة حد أبيض سميك (Die-Cut Effect) يشبه الملصقات المطبوعة الحقيقية. الأداة آمنة تماماً ولا تشارك صورك مع أي خوادم خارجية حفاظاً على الخصوصية والمثالية."
+    aboutP2: "بفضل استخدام مكتبات الرسم المتقدمة على Canvas، يمكنك تدوير وتكبير الصورة، تطبيق فلاتر الألوان، اقتطاع الأشكال الذكية، وإضافة حد أبيض سميك (Die-Cut Effect) يشبه الملصقات المطبوعة الحقيقية. الأداة آمنة تماماً ولا تشارك صورك مع أي خوادم خارجية حفاظاً على الخصوصية والمثالية.",
+    adTop: "مساحة إعلانية",
+    adTopDesc: "AD_SPACE_728x90 (أعلى)",
+    adMiddle: "مساحة إعلانية",
+    adMiddleDesc: "AD_SPACE_728x90 (وسط)",
   },
   en: {
     title: "Pro WhatsApp & Telegram Sticker Builder",
@@ -173,7 +177,11 @@ const translations = {
 
     aboutTitle: "About the Sticker Maker Studio",
     aboutP1: "Sticker Maker Studio is a lightweight tool that runs entirely client-side. There are absolutely no uploads to any remote server, meaning complete confidentiality for your personal photos and memes.",
-    aboutP2: "Featuring complex canvas operations, you can easily tweak rotation, scale, adjust hues/brightness, apply shapes, and generate a continuous thick white die-cut outline - imitating real physical sticker products. Safe, quick, and highly intuitive."
+    aboutP2: "Featuring complex canvas operations, you can easily tweak rotation, scale, adjust hues/brightness, apply shapes, and generate a continuous thick white die-cut outline - imitating real physical sticker products. Safe, quick, and highly intuitive.",
+    adTop: "AdSense Ad",
+    adTopDesc: "AD_SPACE_728x90 (Top)",
+    adMiddle: "AdSense Ad",
+    adMiddleDesc: "AD_SPACE_728x90 (Middle)",
   }
 };
 
@@ -626,6 +634,11 @@ export default function StickerMaker({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="w-full flex flex-col gap-6 animate-in fade-in duration-300">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adTop}</div>
+        <p className="text-[10px]">{t.adTopDesc}</p>
+      </div>
       
       {/* Top Header Card Info Banner */}
       <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative overflow-hidden">
@@ -1320,6 +1333,12 @@ export default function StickerMaker({ lang }: { lang: 'ar' | 'en' }) {
 
         </div>
 
+      </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{t.adMiddle}</div>
+        <p className="text-[10px]">{t.adMiddleDesc}</p>
       </div>
 
       {/* Step by Step integration instructions for Telegram & WhatsApp */}

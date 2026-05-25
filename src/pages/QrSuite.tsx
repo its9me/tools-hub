@@ -138,6 +138,11 @@ export default function QrSuite({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col items-center max-w-4xl mx-auto w-full gap-8">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+      </div>
       <div className="w-full text-center space-y-3">
         <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-emerald-500">
           {isAr ? 'أداة QR الشاملة' : 'All-in-One QR Suite'}
@@ -484,6 +489,12 @@ export default function QrSuite({ lang }: { lang: 'ar' | 'en' }) {
 
         </div>
       )}
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
+      </div>
 
     </div>
   );

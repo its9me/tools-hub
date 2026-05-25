@@ -154,6 +154,11 @@ export default function TravelWheel({ lang }: { lang: 'ar' | 'en' }) {
 
   return (
     <div className="flex flex-col gap-8 p-4 max-w-4xl mx-auto w-full items-center">
+      {/* Top AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (أعلى)' : 'AD_SPACE_728x90 (Top)'}</p>
+      </div>
       
       {/* Header section */}
       <div className="flex flex-col items-center gap-3 text-center mb-4">
@@ -278,6 +283,12 @@ export default function TravelWheel({ lang }: { lang: 'ar' | 'en' }) {
           )}
         </div>
 
+      </div>
+
+      {/* Middle AdSense */}
+      <div className="w-full h-20 bg-slate-800/30 rounded-lg flex flex-col items-center justify-center border border-dashed border-white/10 text-slate-500 shadow-sm my-2">
+        <div className="text-[10px] uppercase tracking-widest mb-1">{isAr ? 'مساحة إعلانية' : 'AdSense Ad'}</div>
+        <p className="text-[10px]">{isAr ? 'AD_SPACE_728x90 (وسط)' : 'AD_SPACE_728x90 (Middle)'}</p>
       </div>
     </div>
   );
