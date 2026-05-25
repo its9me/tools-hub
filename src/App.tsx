@@ -1,79 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Share2 } from 'lucide-react';
 import { HashRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Category from './pages/Category';
-import WordCounterTool from './pages/WordCounterTool';
-import PersonalLoanCalculator from './pages/PersonalLoanCalculator';
-import IncomeTaxCalculator from './pages/IncomeTaxCalculator';
-import CryptoConverter from './pages/CryptoConverter';
-import CompoundInterestCalculator from './pages/CompoundInterestCalculator';
-import ZakatCalculator from './pages/ZakatCalculator';
-import GoldJewelryCalculator from './pages/GoldJewelryCalculator';
-import InflationCalculator from './pages/InflationCalculator';
-import StockProfitCalculator from './pages/StockProfitCalculator';
-import InvoiceGenerator from './pages/InvoiceGenerator';
-import OnlineNotepad from './pages/OnlineNotepad';
 import Logo from './components/Logo';
 
-import GPACalculator from './pages/GPACalculator';
-import PhysicalUnitConverter from './pages/PhysicalUnitConverter';
-import CitationGenerator from './pages/CitationGenerator';
-import GradePercentageCalculator from './pages/GradePercentageCalculator';
-import DateConverter from './pages/DateConverter';
-import DailyStudySchedule from './pages/DailyStudySchedule';
-import BMICalculator from './pages/BMICalculator';
-import CalorieCalculator from './pages/CalorieCalculator';
-import PregnancyCalculator from './pages/PregnancyCalculator';
-import WaterCalculator from './pages/WaterCalculator';
-import WorkoutGenerator from './pages/WorkoutGenerator';
-import ColorVisionTest from './pages/ColorVisionTest';
-import JsonConverter from './pages/JsonConverter';
-import PasswordGenerator from './pages/PasswordGenerator';
-import MetaTagsPreviewer from './pages/MetaTagsPreviewer';
-import SeoFilesGenerator from './pages/SeoFilesGenerator';
-import ImageColorPicker from './pages/ImageColorPicker';
-import CodeBeautifier from './pages/CodeBeautifier';
-import WebpConverter from './pages/WebpConverter';
-import Base64Converter from './pages/Base64Converter';
-import YoutubeCalculator from './pages/YoutubeCalculator';
-import HashtagGenerator from './pages/HashtagGenerator';
-import ImageResizer from './pages/ImageResizer';
-import RoomCalculator from './pages/RoomCalculator';
-import FuelCalculator from './pages/FuelCalculator';
-import BabyNames from './pages/BabyNames';
-import TimeDifference from './pages/TimeDifference';
-import QiblaDirection from './pages/QiblaDirection';
-import LuckyNumbers from './pages/LuckyNumbers';
-import RandomPicker from './pages/RandomPicker';
-import BookReadingTime from './pages/BookReadingTime';
-import LiveAgeCalculator from './pages/LiveAgeCalculator';
-import DailyRiddle from './pages/DailyRiddle';
-import TypingSpeedTest from './pages/TypingSpeedTest';
-import AsciiArt from './pages/AsciiArt';
-import OhmsLaw from './pages/OhmsLaw';
-import NumberBaseConverter from './pages/NumberBaseConverter';
-import TriangleCalculator from './pages/TriangleCalculator';
-import MaterialStrength from './pages/MaterialStrength';
-import PeriodicTable from './pages/PeriodicTable';
-import TemperatureConverter from './pages/TemperatureConverter';
-import WaveCalculator from './pages/WaveCalculator';
-import GeometryCalculator from './pages/GeometryCalculator';
-import PowerLedCalculator from './pages/PowerLedCalculator';
-import ChartGenerator from './pages/ChartGenerator';
-import ClothingShoeSizeConverter from './pages/ClothingShoeSizeConverter';
-import TravelWheel from './pages/TravelWheel';
-import ScratchMap from './pages/ScratchMap';
-import TravelDareGenerator from './pages/TravelDareGenerator';
-import TravelCompatibility from './pages/TravelCompatibility';
-import TripCountdown from './pages/TripCountdown';
-import TravelSlangDictionary from './pages/TravelSlangDictionary';
-import SimonMemoryGame from './pages/SimonMemoryGame';
-import PdfCompressor from './pages/PdfCompressor';
-import QrSuite from './pages/QrSuite';
-import PingTester from './pages/PingTester';
-import StickerMaker from './pages/StickerMaker';
-import InternetSpeedTest from './pages/InternetSpeedTest';
+const WordCounterTool = lazy(() => import('./pages/WordCounterTool'));
+const PersonalLoanCalculator = lazy(() => import('./pages/PersonalLoanCalculator'));
+const IncomeTaxCalculator = lazy(() => import('./pages/IncomeTaxCalculator'));
+const CryptoConverter = lazy(() => import('./pages/CryptoConverter'));
+const CompoundInterestCalculator = lazy(() => import('./pages/CompoundInterestCalculator'));
+const ZakatCalculator = lazy(() => import('./pages/ZakatCalculator'));
+const GoldJewelryCalculator = lazy(() => import('./pages/GoldJewelryCalculator'));
+const InflationCalculator = lazy(() => import('./pages/InflationCalculator'));
+const StockProfitCalculator = lazy(() => import('./pages/StockProfitCalculator'));
+const InvoiceGenerator = lazy(() => import('./pages/InvoiceGenerator'));
+const OnlineNotepad = lazy(() => import('./pages/OnlineNotepad'));
+
+const GPACalculator = lazy(() => import('./pages/GPACalculator'));
+const PhysicalUnitConverter = lazy(() => import('./pages/PhysicalUnitConverter'));
+const CitationGenerator = lazy(() => import('./pages/CitationGenerator'));
+const GradePercentageCalculator = lazy(() => import('./pages/GradePercentageCalculator'));
+const DateConverter = lazy(() => import('./pages/DateConverter'));
+const DailyStudySchedule = lazy(() => import('./pages/DailyStudySchedule'));
+const BMICalculator = lazy(() => import('./pages/BMICalculator'));
+const CalorieCalculator = lazy(() => import('./pages/CalorieCalculator'));
+const PregnancyCalculator = lazy(() => import('./pages/PregnancyCalculator'));
+const WaterCalculator = lazy(() => import('./pages/WaterCalculator'));
+const WorkoutGenerator = lazy(() => import('./pages/WorkoutGenerator'));
+const ColorVisionTest = lazy(() => import('./pages/ColorVisionTest'));
+const JsonConverter = lazy(() => import('./pages/JsonConverter'));
+const PasswordGenerator = lazy(() => import('./pages/PasswordGenerator'));
+const MetaTagsPreviewer = lazy(() => import('./pages/MetaTagsPreviewer'));
+const SeoFilesGenerator = lazy(() => import('./pages/SeoFilesGenerator'));
+const ImageColorPicker = lazy(() => import('./pages/ImageColorPicker'));
+const CodeBeautifier = lazy(() => import('./pages/CodeBeautifier'));
+const WebpConverter = lazy(() => import('./pages/WebpConverter'));
+const Base64Converter = lazy(() => import('./pages/Base64Converter'));
+const YoutubeCalculator = lazy(() => import('./pages/YoutubeCalculator'));
+const HashtagGenerator = lazy(() => import('./pages/HashtagGenerator'));
+const ImageResizer = lazy(() => import('./pages/ImageResizer'));
+const RoomCalculator = lazy(() => import('./pages/RoomCalculator'));
+const FuelCalculator = lazy(() => import('./pages/FuelCalculator'));
+const BabyNames = lazy(() => import('./pages/BabyNames'));
+const TimeDifference = lazy(() => import('./pages/TimeDifference'));
+const QiblaDirection = lazy(() => import('./pages/QiblaDirection'));
+const LuckyNumbers = lazy(() => import('./pages/LuckyNumbers'));
+const RandomPicker = lazy(() => import('./pages/RandomPicker'));
+const BookReadingTime = lazy(() => import('./pages/BookReadingTime'));
+const LiveAgeCalculator = lazy(() => import('./pages/LiveAgeCalculator'));
+const DailyRiddle = lazy(() => import('./pages/DailyRiddle'));
+const TypingSpeedTest = lazy(() => import('./pages/TypingSpeedTest'));
+const AsciiArt = lazy(() => import('./pages/AsciiArt'));
+const OhmsLaw = lazy(() => import('./pages/OhmsLaw'));
+const NumberBaseConverter = lazy(() => import('./pages/NumberBaseConverter'));
+const TriangleCalculator = lazy(() => import('./pages/TriangleCalculator'));
+const MaterialStrength = lazy(() => import('./pages/MaterialStrength'));
+const PeriodicTable = lazy(() => import('./pages/PeriodicTable'));
+const TemperatureConverter = lazy(() => import('./pages/TemperatureConverter'));
+const WaveCalculator = lazy(() => import('./pages/WaveCalculator'));
+const GeometryCalculator = lazy(() => import('./pages/GeometryCalculator'));
+const PowerLedCalculator = lazy(() => import('./pages/PowerLedCalculator'));
+const ChartGenerator = lazy(() => import('./pages/ChartGenerator'));
+const ClothingShoeSizeConverter = lazy(() => import('./pages/ClothingShoeSizeConverter'));
+const TravelWheel = lazy(() => import('./pages/TravelWheel'));
+const ScratchMap = lazy(() => import('./pages/ScratchMap'));
+const TravelDareGenerator = lazy(() => import('./pages/TravelDareGenerator'));
+const TravelCompatibility = lazy(() => import('./pages/TravelCompatibility'));
+const TripCountdown = lazy(() => import('./pages/TripCountdown'));
+const TravelSlangDictionary = lazy(() => import('./pages/TravelSlangDictionary'));
+const SimonMemoryGame = lazy(() => import('./pages/SimonMemoryGame'));
+const PdfCompressor = lazy(() => import('./pages/PdfCompressor'));
+const QrSuite = lazy(() => import('./pages/QrSuite'));
+const PingTester = lazy(() => import('./pages/PingTester'));
+const StickerMaker = lazy(() => import('./pages/StickerMaker'));
+const InternetSpeedTest = lazy(() => import('./pages/InternetSpeedTest'));
 
 const translations = {
   ar: {
@@ -255,106 +256,118 @@ export default function App() {
   return (
     <Router>
       <Layout lang={lang} setLang={setLang} t={t}>
-        <Routes>
-          <Route path="/" element={<Home lang={lang} />} />
-          <Route path="/category/:id" element={<Category lang={lang} />} />
-          <Route path="/tool/word-counter" element={<WordCounterTool lang={lang} />} />
-          <Route path="/tool/loan-calculator" element={<PersonalLoanCalculator lang={lang} />} />
-          <Route path="/tool/tax-calculator" element={<IncomeTaxCalculator lang={lang} />} />
-          <Route path="/tool/crypto-converter" element={<CryptoConverter lang={lang} />} />
-          <Route path="/tool/compound-interest" element={<CompoundInterestCalculator lang={lang} />} />
-          <Route path="/tool/zakat-calculator" element={<ZakatCalculator lang={lang} />} />
-          <Route path="/tool/gold-calculator" element={<GoldJewelryCalculator lang={lang} />} />
-          <Route path="/tool/inflation-calculator" element={<InflationCalculator lang={lang} />} />
-          <Route path="/tool/stock-profit" element={<StockProfitCalculator lang={lang} />} />
-          <Route path="/tool/invoice-generator" element={<InvoiceGenerator lang={lang} />} />
-          <Route path="/tool/online-notepad" element={<OnlineNotepad lang={lang} />} />
-          
-          <Route path="/tool/gpa-calculator" element={<GPACalculator lang={lang} />} />
-          <Route path="/tool/physics-units" element={<PhysicalUnitConverter lang={lang} />} />
-          <Route path="/tool/citation-generator" element={<CitationGenerator lang={lang} />} />
-          <Route path="/tool/grade-percentage" element={<GradePercentageCalculator lang={lang} />} />
-          <Route path="/tool/date-converter" element={<DateConverter lang={lang} />} />
-          <Route path="/tool/daily-study-schedule" element={<DailyStudySchedule lang={lang} />} />
-          <Route path="/tool/bmi-calculator" element={<BMICalculator lang={lang} />} />
-          <Route path="/tool/calorie-calculator" element={<CalorieCalculator lang={lang} />} />
-          <Route path="/tool/pregnancy-calculator" element={<PregnancyCalculator lang={lang} />} />
-          <Route path="/tool/water-calculator" element={<WaterCalculator lang={lang} />} />
-          <Route path="/tool/workout-generator" element={<WorkoutGenerator lang={lang} />} />
-          <Route path="/tool/color-vision-test" element={<ColorVisionTest lang={lang} />} />
-          <Route path="/tool/json-converter" element={<JsonConverter lang={lang} />} />
-          <Route path="/tool/password-generator" element={<PasswordGenerator lang={lang} />} />
-          <Route path="/tool/meta-tags-previewer" element={<MetaTagsPreviewer lang={lang} />} />
-          <Route path="/tool/seo-files-generator" element={<SeoFilesGenerator lang={lang} />} />
-          <Route path="/tool/image-color-picker" element={<ImageColorPicker lang={lang} />} />
-          <Route path="/tool/code-beautifier" element={<CodeBeautifier lang={lang} />} />
-          <Route path="/tool/webp-converter" element={<WebpConverter lang={lang} />} />
-          <Route path="/tool/base64-converter" element={<Base64Converter lang={lang} />} />
-          <Route path="/tool/youtube-calculator" element={<YoutubeCalculator lang={lang} />} />
-          <Route path="/tool/hashtag-generator" element={<HashtagGenerator lang={lang} />} />
-          <Route path="/tool/image-resizer" element={<ImageResizer lang={lang} />} />
-          <Route path="/tool/room-calculator" element={<RoomCalculator lang={lang} />} />
-          <Route path="/tool/fuel-calculator" element={<FuelCalculator lang={lang} />} />
-          <Route path="/tool/baby-names" element={<BabyNames lang={lang} />} />
-          <Route path="/tool/time-difference" element={<TimeDifference lang={lang} />} />
-          <Route path="/tool/qibla-direction" element={<QiblaDirection lang={lang} />} />
-          <Route path="/tool/lucky-numbers" element={<LuckyNumbers lang={lang} />} />
-          <Route path="/tool/random-picker" element={<RandomPicker lang={lang} />} />
-          <Route path="/tool/book-reading-time" element={<BookReadingTime lang={lang} />} />
-          <Route path="/tool/live-age-calc" element={<LiveAgeCalculator lang={lang} />} />
-          <Route path="/tool/daily-riddle" element={<DailyRiddle lang={lang} />} />
-          <Route path="/tool/typing-speed-test" element={<TypingSpeedTest lang={lang} />} />
-          <Route path="/tool/ascii-art" element={<AsciiArt lang={lang} />} />
-          <Route path="/tool/ohms-law" element={<OhmsLaw lang={lang} />} />
-          <Route path="/tool/number-base-converter" element={<NumberBaseConverter lang={lang} />} />
-          <Route path="/tool/triangle-calculator" element={<TriangleCalculator lang={lang} />} />
-          <Route path="/tool/material-strength" element={<MaterialStrength lang={lang} />} />
-          <Route path="/tool/periodic-table" element={<PeriodicTable lang={lang} />} />
-          <Route path="/tool/temperature-converter" element={<TemperatureConverter lang={lang} />} />
-          <Route path="/tool/wave-calculator" element={<WaveCalculator lang={lang} />} />
-          <Route path="/tool/geometry-calculator" element={<GeometryCalculator lang={lang} />} />
-          <Route path="/tool/power-led-calculator" element={<PowerLedCalculator lang={lang} />} />
-          <Route path="/tool/chart-generator" element={<ChartGenerator lang={lang} />} />
-          <Route path="/tool/size-converter" element={<ClothingShoeSizeConverter lang={lang} />} />
-          <Route path="/tool/travel-wheel" element={<TravelWheel lang={lang} />} />
-          <Route path="/tool/scratch-map" element={<ScratchMap lang={lang} />} />
-          <Route path="/tool/travel-dare" element={<TravelDareGenerator lang={lang} />} />
-          <Route path="/tool/travel-compatibility" element={<TravelCompatibility lang={lang} />} />
-          <Route path="/tool/trip-countdown" element={<TripCountdown lang={lang} />} />
-          <Route path="/tool/travel-slang" element={<TravelSlangDictionary lang={lang} />} />
-          <Route path="/tool/memory-game" element={<SimonMemoryGame lang={lang} />} />
-          <Route path="/tool/pdf-compressor" element={<PdfCompressor lang={lang} />} />
-          <Route path="/tool/qr-suite" element={<QrSuite lang={lang} />} />
-          <Route path="/tool/ping-tester" element={<PingTester lang={lang} />} />
-          <Route path="/tool/sticker-maker" element={<StickerMaker lang={lang} />} />
-          <Route path="/tool/speed-test" element={<InternetSpeedTest lang={lang} />} />
-          
-          <Route path="/privacy" element={
-            <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-emerald-400 border-b border-white/10 pb-4 mb-6">{t.privacyTitle}</h2>
-              <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
-                {t.privacyContent.map((paragraph, idx) => (
-                  <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-          } />
-          
-          <Route path="/terms" element={
-            <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-blue-400 border-b border-white/10 pb-4 mb-6">{t.termsTitle}</h2>
-              <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
-                {t.termsContent.map((paragraph, idx) => (
-                  <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-          } />
-        </Routes>
+        <Suspense fallback={
+          <div className="flex flex-col items-center justify-center min-h-[400px] w-full gap-4 py-12">
+            <div className="relative w-16 h-16">
+              <div className="absolute inset-0 rounded-full border-4 border-cyan-500/10 border-t-cyan-400 animate-spin" />
+              <div className="absolute inset-2 rounded-full border-4 border-purple-500/10 border-b-purple-400 animate-spin [animation-duration:1.5s]" />
+            </div>
+            <p className="text-cyan-400/80 text-xs font-bold tracking-widest font-mono animate-pulse uppercase">
+              {lang === 'ar' ? 'جاري تحميل الأداة...' : 'LOADING TOOL...'}
+            </p>
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home lang={lang} />} />
+            <Route path="/category/:id" element={<Category lang={lang} />} />
+            <Route path="/tool/word-counter" element={<WordCounterTool lang={lang} />} />
+            <Route path="/tool/loan-calculator" element={<PersonalLoanCalculator lang={lang} />} />
+            <Route path="/tool/tax-calculator" element={<IncomeTaxCalculator lang={lang} />} />
+            <Route path="/tool/crypto-converter" element={<CryptoConverter lang={lang} />} />
+            <Route path="/tool/compound-interest" element={<CompoundInterestCalculator lang={lang} />} />
+            <Route path="/tool/zakat-calculator" element={<ZakatCalculator lang={lang} />} />
+            <Route path="/tool/gold-calculator" element={<GoldJewelryCalculator lang={lang} />} />
+            <Route path="/tool/inflation-calculator" element={<InflationCalculator lang={lang} />} />
+            <Route path="/tool/stock-profit" element={<StockProfitCalculator lang={lang} />} />
+            <Route path="/tool/invoice-generator" element={<InvoiceGenerator lang={lang} />} />
+            <Route path="/tool/online-notepad" element={<OnlineNotepad lang={lang} />} />
+            
+            <Route path="/tool/gpa-calculator" element={<GPACalculator lang={lang} />} />
+            <Route path="/tool/physics-units" element={<PhysicalUnitConverter lang={lang} />} />
+            <Route path="/tool/citation-generator" element={<CitationGenerator lang={lang} />} />
+            <Route path="/tool/grade-percentage" element={<GradePercentageCalculator lang={lang} />} />
+            <Route path="/tool/date-converter" element={<DateConverter lang={lang} />} />
+            <Route path="/tool/daily-study-schedule" element={<DailyStudySchedule lang={lang} />} />
+            <Route path="/tool/bmi-calculator" element={<BMICalculator lang={lang} />} />
+            <Route path="/tool/calorie-calculator" element={<CalorieCalculator lang={lang} />} />
+            <Route path="/tool/pregnancy-calculator" element={<PregnancyCalculator lang={lang} />} />
+            <Route path="/tool/water-calculator" element={<WaterCalculator lang={lang} />} />
+            <Route path="/tool/workout-generator" element={<WorkoutGenerator lang={lang} />} />
+            <Route path="/tool/color-vision-test" element={<ColorVisionTest lang={lang} />} />
+            <Route path="/tool/json-converter" element={<JsonConverter lang={lang} />} />
+            <Route path="/tool/password-generator" element={<PasswordGenerator lang={lang} />} />
+            <Route path="/tool/meta-tags-previewer" element={<MetaTagsPreviewer lang={lang} />} />
+            <Route path="/tool/seo-files-generator" element={<SeoFilesGenerator lang={lang} />} />
+            <Route path="/tool/image-color-picker" element={<ImageColorPicker lang={lang} />} />
+            <Route path="/tool/code-beautifier" element={<CodeBeautifier lang={lang} />} />
+            <Route path="/tool/webp-converter" element={<WebpConverter lang={lang} />} />
+            <Route path="/tool/base64-converter" element={<Base64Converter lang={lang} />} />
+            <Route path="/tool/youtube-calculator" element={<YoutubeCalculator lang={lang} />} />
+            <Route path="/tool/hashtag-generator" element={<HashtagGenerator lang={lang} />} />
+            <Route path="/tool/image-resizer" element={<ImageResizer lang={lang} />} />
+            <Route path="/tool/room-calculator" element={<RoomCalculator lang={lang} />} />
+            <Route path="/tool/fuel-calculator" element={<FuelCalculator lang={lang} />} />
+            <Route path="/tool/baby-names" element={<BabyNames lang={lang} />} />
+            <Route path="/tool/time-difference" element={<TimeDifference lang={lang} />} />
+            <Route path="/tool/qibla-direction" element={<QiblaDirection lang={lang} />} />
+            <Route path="/tool/lucky-numbers" element={<LuckyNumbers lang={lang} />} />
+            <Route path="/tool/random-picker" element={<RandomPicker lang={lang} />} />
+            <Route path="/tool/book-reading-time" element={<BookReadingTime lang={lang} />} />
+            <Route path="/tool/live-age-calc" element={<LiveAgeCalculator lang={lang} />} />
+            <Route path="/tool/daily-riddle" element={<DailyRiddle lang={lang} />} />
+            <Route path="/tool/typing-speed-test" element={<TypingSpeedTest lang={lang} />} />
+            <Route path="/tool/ascii-art" element={<AsciiArt lang={lang} />} />
+            <Route path="/tool/ohms-law" element={<OhmsLaw lang={lang} />} />
+            <Route path="/tool/number-base-converter" element={<NumberBaseConverter lang={lang} />} />
+            <Route path="/tool/triangle-calculator" element={<TriangleCalculator lang={lang} />} />
+            <Route path="/tool/material-strength" element={<MaterialStrength lang={lang} />} />
+            <Route path="/tool/periodic-table" element={<PeriodicTable lang={lang} />} />
+            <Route path="/tool/temperature-converter" element={<TemperatureConverter lang={lang} />} />
+            <Route path="/tool/wave-calculator" element={<WaveCalculator lang={lang} />} />
+            <Route path="/tool/geometry-calculator" element={<GeometryCalculator lang={lang} />} />
+            <Route path="/tool/power-led-calculator" element={<PowerLedCalculator lang={lang} />} />
+            <Route path="/tool/chart-generator" element={<ChartGenerator lang={lang} />} />
+            <Route path="/tool/size-converter" element={<ClothingShoeSizeConverter lang={lang} />} />
+            <Route path="/tool/travel-wheel" element={<TravelWheel lang={lang} />} />
+            <Route path="/tool/scratch-map" element={<ScratchMap lang={lang} />} />
+            <Route path="/tool/travel-dare" element={<TravelDareGenerator lang={lang} />} />
+            <Route path="/tool/travel-compatibility" element={<TravelCompatibility lang={lang} />} />
+            <Route path="/tool/trip-countdown" element={<TripCountdown lang={lang} />} />
+            <Route path="/tool/travel-slang" element={<TravelSlangDictionary lang={lang} />} />
+            <Route path="/tool/memory-game" element={<SimonMemoryGame lang={lang} />} />
+            <Route path="/tool/pdf-compressor" element={<PdfCompressor lang={lang} />} />
+            <Route path="/tool/qr-suite" element={<QrSuite lang={lang} />} />
+            <Route path="/tool/ping-tester" element={<PingTester lang={lang} />} />
+            <Route path="/tool/sticker-maker" element={<StickerMaker lang={lang} />} />
+            <Route path="/tool/speed-test" element={<InternetSpeedTest lang={lang} />} />
+            
+            <Route path="/privacy" element={
+              <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
+                <h2 className="text-xl md:text-2xl font-bold text-emerald-400 border-b border-white/10 pb-4 mb-6">{t.privacyTitle}</h2>
+                <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
+                  {t.privacyContent.map((paragraph, idx) => (
+                    <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            } />
+            
+            <Route path="/terms" element={
+              <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
+                <h2 className="text-xl md:text-2xl font-bold text-blue-400 border-b border-white/10 pb-4 mb-6">{t.termsTitle}</h2>
+                <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
+                  {t.termsContent.map((paragraph, idx) => (
+                    <p key={idx} className={idx === 0 ? "mb-6 text-base text-slate-200 font-medium" : ""}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            } />
+          </Routes>
+        </Suspense>
       </Layout>
     </Router>
   );
