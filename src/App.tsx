@@ -4,6 +4,8 @@ import { HashRouter as Router, Routes, Route, Link, useNavigate } from 'react-ro
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Logo from './components/Logo';
+import SEOHandler from './components/SEOHandler';
+import RelatedTools from './components/RelatedTools';
 
 const WordCounterTool = lazy(() => import('./pages/WordCounterTool'));
 const PersonalLoanCalculator = lazy(() => import('./pages/PersonalLoanCalculator'));
@@ -219,6 +221,7 @@ function Layout({ children, lang, setLang, t }: any) {
       {/* Main Content Dashboard Layout */}
       <main className="relative z-10 flex-grow max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col items-center justify-center gap-6">
         {children}
+        <RelatedTools lang={lang} />
       </main>
 
       {/* Fine-Tuned Dashboard Footer */}
@@ -255,6 +258,7 @@ export default function App() {
 
   return (
     <Router>
+      <SEOHandler lang={lang} />
       <Layout lang={lang} setLang={setLang} t={t}>
         <Suspense fallback={
           <div className="flex flex-col items-center justify-center min-h-[400px] w-full gap-4 py-12">
