@@ -8,13 +8,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/privacy</loc>
+    <loc>https://tools-hub.live/#/privacy</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/terms</loc>
+    <loc>https://tools-hub.live/#/terms</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -22,37 +22,37 @@
 
   <!-- Categories -->
   <url>
-    <loc>https://tools-hub.live/category/finance</loc>
+    <loc>https://tools-hub.live/#/category/finance</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/category/productivity</loc>
+    <loc>https://tools-hub.live/#/category/productivity</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/category/education</loc>
+    <loc>https://tools-hub.live/#/category/education</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/category/developers</loc>
+    <loc>https://tools-hub.live/#/category/developers</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/category/health</loc>
+    <loc>https://tools-hub.live/#/category/health</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/category/travel</loc>
+    <loc>https://tools-hub.live/#/category/travel</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -60,415 +60,415 @@
 
   <!-- Complete 71 Interactive Tools -->
   <url>
-    <loc>https://tools-hub.live/tool/word-counter</loc>
+    <loc>https://tools-hub.live/#/tool/word-counter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/loan-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/loan-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/tax-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/tax-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/crypto-converter</loc>
+    <loc>https://tools-hub.live/#/tool/crypto-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/compound-interest</loc>
+    <loc>https://tools-hub.live/#/tool/compound-interest</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/zakat-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/zakat-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/gold-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/gold-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/inflation-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/inflation-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/stock-profit</loc>
+    <loc>https://tools-hub.live/#/tool/stock-profit</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/invoice-generator</loc>
+    <loc>https://tools-hub.live/#/tool/invoice-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/online-notepad</loc>
+    <loc>https://tools-hub.live/#/tool/online-notepad</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/gpa-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/gpa-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/physics-units</loc>
+    <loc>https://tools-hub.live/#/tool/physics-units</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/citation-generator</loc>
+    <loc>https://tools-hub.live/#/tool/citation-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/grade-percentage</loc>
+    <loc>https://tools-hub.live/#/tool/grade-percentage</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/date-converter</loc>
+    <loc>https://tools-hub.live/#/tool/date-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/daily-study-schedule</loc>
+    <loc>https://tools-hub.live/#/tool/daily-study-schedule</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/bmi-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/bmi-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/calorie-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/calorie-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/pregnancy-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/pregnancy-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/water-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/water-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/workout-generator</loc>
+    <loc>https://tools-hub.live/#/tool/workout-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/color-vision-test</loc>
+    <loc>https://tools-hub.live/#/tool/color-vision-test</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/json-converter</loc>
+    <loc>https://tools-hub.live/#/tool/json-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/password-generator</loc>
+    <loc>https://tools-hub.live/#/tool/password-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/meta-tags-previewer</loc>
+    <loc>https://tools-hub.live/#/tool/meta-tags-previewer</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/seo-files-generator</loc>
+    <loc>https://tools-hub.live/#/tool/seo-files-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/image-color-picker</loc>
+    <loc>https://tools-hub.live/#/tool/image-color-picker</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/code-beautifier</loc>
+    <loc>https://tools-hub.live/#/tool/code-beautifier</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/webp-converter</loc>
+    <loc>https://tools-hub.live/#/tool/webp-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/base64-converter</loc>
+    <loc>https://tools-hub.live/#/tool/base64-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/youtube-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/youtube-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/hashtag-generator</loc>
+    <loc>https://tools-hub.live/#/tool/hashtag-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/image-resizer</loc>
+    <loc>https://tools-hub.live/#/tool/image-resizer</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/room-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/room-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/fuel-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/fuel-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/baby-names</loc>
+    <loc>https://tools-hub.live/#/tool/baby-names</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/time-difference</loc>
+    <loc>https://tools-hub.live/#/tool/time-difference</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/qibla-direction</loc>
+    <loc>https://tools-hub.live/#/tool/qibla-direction</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/lucky-numbers</loc>
+    <loc>https://tools-hub.live/#/tool/lucky-numbers</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/random-picker</loc>
+    <loc>https://tools-hub.live/#/tool/random-picker</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/book-reading-time</loc>
+    <loc>https://tools-hub.live/#/tool/book-reading-time</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/live-age-calc</loc>
+    <loc>https://tools-hub.live/#/tool/live-age-calc</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/daily-riddle</loc>
+    <loc>https://tools-hub.live/#/tool/daily-riddle</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/typing-speed-test</loc>
+    <loc>https://tools-hub.live/#/tool/typing-speed-test</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/ascii-art</loc>
+    <loc>https://tools-hub.live/#/tool/ascii-art</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/ohms-law</loc>
+    <loc>https://tools-hub.live/#/tool/ohms-law</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/number-base-converter</loc>
+    <loc>https://tools-hub.live/#/tool/number-base-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/triangle-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/triangle-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/material-strength</loc>
+    <loc>https://tools-hub.live/#/tool/material-strength</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/periodic-table</loc>
+    <loc>https://tools-hub.live/#/tool/periodic-table</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/temperature-converter</loc>
+    <loc>https://tools-hub.live/#/tool/temperature-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/wave-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/wave-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/geometry-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/geometry-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/power-led-calculator</loc>
+    <loc>https://tools-hub.live/#/tool/power-led-calculator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/chart-generator</loc>
+    <loc>https://tools-hub.live/#/tool/chart-generator</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/size-converter</loc>
+    <loc>https://tools-hub.live/#/tool/size-converter</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/travel-wheel</loc>
+    <loc>https://tools-hub.live/#/tool/travel-wheel</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/scratch-map</loc>
+    <loc>https://tools-hub.live/#/tool/scratch-map</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/travel-dare</loc>
+    <loc>https://tools-hub.live/#/tool/travel-dare</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/travel-compatibility</loc>
+    <loc>https://tools-hub.live/#/tool/travel-compatibility</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/trip-countdown</loc>
+    <loc>https://tools-hub.live/#/tool/trip-countdown</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/travel-slang</loc>
+    <loc>https://tools-hub.live/#/tool/travel-slang</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/memory-game</loc>
+    <loc>https://tools-hub.live/#/tool/memory-game</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/pdf-compressor</loc>
+    <loc>https://tools-hub.live/#/tool/pdf-compressor</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/qr-suite</loc>
+    <loc>https://tools-hub.live/#/tool/qr-suite</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/ping-tester</loc>
+    <loc>https://tools-hub.live/#/tool/ping-tester</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/sticker-maker</loc>
+    <loc>https://tools-hub.live/#/tool/sticker-maker</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tools-hub.live/tool/speed-test</loc>
+    <loc>https://tools-hub.live/#/tool/speed-test</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
