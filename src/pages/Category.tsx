@@ -159,7 +159,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'lucky-numbers', nameAr: 'مولد أرقام الحظ المتنوعة', nameEn: 'Lucky Number Generator', descAr: 'توليد أرقام عشوائية مخصصة لليانصيب والقرعة والرياضة والقرار السريع', descEn: 'Generate random numbers with tailored ranges', icon: Dices },
       { id: 'random-picker', nameAr: 'عجلة الحظ والقرعة العشوائية', nameEn: 'Interactive Random Name Picker', descAr: 'تدوير العجلة لاختيار فائز عشوائي وتوثيق السحب والقرعات السريعة', descEn: 'Spin the wheel for a random winner with customizable boards', icon: Trophy },
       { id: 'daily-riddle', nameAr: 'لغز اليوم التفاعلي والمبهر', nameEn: 'Daily Riddle Game', descAr: 'لغز جديد كلياً مخصص لكل يوم مع كشف الإجابة لتعزيز حدة التفكير', descEn: 'New interactive riddle every day with answer check', icon: Lightbulb },
-      { id: 'memory-game', nameAr: 'لعبة الذاكرة البصرية التفاعلية وسايمون', nameEn: 'Visual Simon Memory Game', descAr: 'أزرار ملونة تضيء بترتيب متسلسل هندسي وعليك تكراره لرفع مهارات الانتباه', descEn: 'Repeat the flashing colored buttons sequence with incremental score tracker', icon: BrainCircuit }
+      { id: 'memory-game', nameAr: 'لعبة الذاكرة البصرية التفاعلية وسايمون', nameEn: 'Visual Simon Memory Game', descAr: 'أزرار ملونة تضيء بترتيب متسلسل هندسي وعليك تكراره لرفع مهارات الانتباه', descEn: 'Repeat the flashing colored buttons sequence with incremental score tracker', icon: BrainCircuit },
+      { id: 'gamers-reflex', nameAr: 'فاحص سرعة الاستجابة والنقر للاعبين', nameEn: 'Gamers Reflex & CPS Benchmarker', descAr: 'أداة لقياس واختبار سرعة ردة الفعل واستقرار معدل النقر والـ CPS مع مقارنات لاعبي الـ eSports والمحترفين', descEn: 'Test reaction speed & click precision tailored for eSports players alongside pro leaderboards', icon: Trophy }
     ]
   },
   social: {

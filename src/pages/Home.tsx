@@ -3,7 +3,7 @@ import {
   Calculator, GraduationCap, HeartPulse, Code2, 
   Plane, PiggyBank, HeartHandshake, Eye, QrCode, Smartphone,
   FileText, Activity, BookOpen, Clock, 
-  Smile, ShieldCheck, CheckCircle2, Search,
+  Smile, ShieldCheck, CheckCircle2, Search, Trophy,
   Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, 
   PieChart, Wifi, Gauge, Sparkles, Layers,
   Globe, User, ArrowRight, Palette, PenTool, Flame, Laptop,
@@ -45,7 +45,8 @@ const ALL_TOOLS_REGISTRY = [
   // Health
   { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },
   { id: 'calorie-calculator', nameAr: 'حاسبة السعرات والوجبات', nameEn: 'Calorie Counter', descAr: 'احسب السعرات لإنقاص أو الحفاظ على الوزن', descEn: 'Estimate daily calorie metrics', icon: Activity, cat: 'health' },
-  { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'تنسيق واختيار الموعد الأمثل والمشترك لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe, cat: 'travel' }
+  { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'تنسيق واختيار الموعد الأمثل والمشترك لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe, cat: 'travel' },
+  { id: 'gamers-reflex', nameAr: 'فاحص سرعة الاستجابة والنقر للاعبين', nameEn: 'Gamers Reflex & CPS Benchmarker', descAr: 'أداة لقياس واختبار سرعة ردة الفعل واستقرار معدل النقر والـ CPS مع مقارنات لاعبي الـ eSports والمحترفين', descEn: 'Test reaction speed & click precision tailored for eSports players alongside pro leaderboards', icon: Trophy, cat: 'lifestyle' }
 ];
 
 // 12 Premium high-fidelity Category Cards exactly styled to match Image 1
