@@ -37,7 +37,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'pdf-compressor', nameAr: 'ضاغط ومحسن PDF', nameEn: 'PDF Compressor', descAr: 'تقليل حجم ملفات PDF بأمان ومعاينة الحجم قبل وبعد وتحميلها', descEn: 'Compress PDF size securely with file metrics', icon: FileText },
       { id: 'invoice-generator', nameAr: 'صانع الفواتير', nameEn: 'Invoice Generator', descAr: 'إنشاء فواتير احترافية للمستقلين والشركات وتحميلها PDF', descEn: 'Create and download professional invoices as PDF', icon: FileText },
       { id: 'online-notepad', nameAr: 'دفتر الملاحظات الذكي', nameEn: 'Smart Notepad', descAr: 'اكتب واحفظ ملاحظاتك أونلاين تلقائياً مع خيار النسخ والتنزيل', descEn: 'Write and save notes with automatic local backup', icon: StickyNote },
-      { id: 'qr-suite', nameAr: 'أداة QR الشاملة', nameEn: 'QR Suite', descAr: 'إنشاء وقراءة رموز الاستجابة السريعة QR للمواقع أو الواي فاي والنصوص', descEn: 'Generate & scan functional QR codes instantly', icon: QrCode }
+      { id: 'qr-suite', nameAr: 'أداة QR الشاملة', nameEn: 'QR Suite', descAr: 'إنشاء وقراءة رموز الاستجابة السريعة QR للمواقع أو الواي فاي والنصوص', descEn: 'Generate & scan functional QR codes instantly', icon: QrCode },
+      { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'مخطط زمني ذكي للمناطق الزمنية، تنسيق واختيار المواعيد المشتركة لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe }
     ]
   },
   developers: {
@@ -130,7 +131,8 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
       { id: 'travel-dare', nameAr: 'تحديات السفر المغنونة', nameEn: 'Travel Dare Generator', descAr: 'تحديات عشوائية مضحكة ومثيرة للقيام بها أثناء سفرك وحفظ الذكريات', descEn: 'Random fun travel dares to do on your trip with checklist', icon: Dices },
       { id: 'travel-compatibility', nameAr: 'فاحص شركاء السفر والطباع', nameEn: 'Travel Compatibility Tester', descAr: 'شاهد نسبة التوافق للرحلة مع أصدقائك وتجنب الخلافات عبر فحص التفضيلات', descEn: 'Test travel compatibility and avoid conflicts through customized traits', icon: HeartHandshake },
       { id: 'trip-countdown', nameAr: 'عداد رحلتي القادمة وتخطيط الأغراض', nameEn: 'Next Trip Countdown', descAr: 'عداد تنازلي لرحلتك مع قائمة أمنيات (Bucket List) وأغراض السفر', descEn: 'Countdown to your trip with packing items bucket list', icon: CalendarClock },
-      { id: 'travel-slang', nameAr: 'قاموس الـ Slang السياحي للبلدان', nameEn: 'Street Travel Slang Phrasebook', descAr: 'تعرف على المصطلحات الدارجة في السفر والمطارات والكلمات الأكثر استخداماً شعبياً', descEn: 'Learn street travel slang, airports abbreviations, and daily phrases', icon: BookOpen }
+      { id: 'travel-slang', nameAr: 'قاموس الـ Slang السياحي للبلدان', nameEn: 'Street Travel Slang Phrasebook', descAr: 'تعرف على المصطلحات الدارجة في السفر والمطارات والكلمات الأكثر استخداماً شعبياً', descEn: 'Learn street travel slang, airports abbreviations, and daily phrases', icon: BookOpen },
+      { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'مخطط زمني ذكي للمناطق الزمنية، تنسيق واختيار المواعيد المشتركة لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe }
     ]
   },
   design: {

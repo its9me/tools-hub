@@ -78,6 +78,7 @@ const QrSuite = lazy(() => import('./pages/QrSuite'));
 const PingTester = lazy(() => import('./pages/PingTester'));
 const StickerMaker = lazy(() => import('./pages/StickerMaker'));
 const InternetSpeedTest = lazy(() => import('./pages/InternetSpeedTest'));
+const WorldMeetingPlanner = lazy(() => import('./pages/WorldMeetingPlanner'));
 
 const translations = {
   ar: {
@@ -346,6 +347,7 @@ export default function App() {
             <Route path="/tool/sticker-maker" element={<StickerMaker lang={lang} />} />
             <Route path="/tool/speed-test" element={<InternetSpeedTest lang={lang} />} />
             <Route path="/tool/color-contrast" element={<ColorContrastChecker lang={lang} />} />
+            <Route path="/tool/world-meeting-planner" element={<WorldMeetingPlanner lang={lang} />} />
             
             <Route path="/privacy" element={
               <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">

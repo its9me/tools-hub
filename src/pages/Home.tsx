@@ -45,6 +45,7 @@ const ALL_TOOLS_REGISTRY = [
   // Health
   { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },
   { id: 'calorie-calculator', nameAr: 'حاسبة السعرات والوجبات', nameEn: 'Calorie Counter', descAr: 'احسب السعرات لإنقاص أو الحفاظ على الوزن', descEn: 'Estimate daily calorie metrics', icon: Activity, cat: 'health' },
+  { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'تنسيق واختيار الموعد الأمثل والمشترك لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe, cat: 'travel' }
 ];
 
 // 12 Premium high-fidelity Category Cards exactly styled to match Image 1
