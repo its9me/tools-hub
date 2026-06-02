@@ -492,6 +492,9 @@ export default function InternetSpeedTest({ lang }: { lang: 'ar' | 'en' }) {
       await new Promise(r => setTimeout(r, 120));
     }
 
+    const avgPing = pingResults.length > 0 ? Math.round(pingResults.reduce((a, b) => a + b, 0) / pingResults.length) : 25;
+    setPing(avgPing);
+
     // Jitter is the math variation between sequential frames
     let jitterSum = 0;
     for (let j = 1; j < pingResults.length; j++) {
@@ -505,7 +508,6 @@ export default function InternetSpeedTest({ lang }: { lang: 'ar' | 'en' }) {
     playStageBeep(580, 0.12);
     setProgressPercent(0);
 
-    // We fetch a real CDN library chunk (jquery ~90KB or similar) multiple times to measure pure network RTT throughput
     let finalDlMbps = 25 * threadMultiplier;
     const downloadIterations = 15;
     let dlHistoryPoints: number[] = [];
@@ -513,7 +515,7 @@ export default function InternetSpeedTest({ lang }: { lang: 'ar' | 'en' }) {
     for (let step = 1; step <= downloadIterations; step++) {
       const triggerTime = performance.now();
       try {
-        const response = await fetch(`${serverUrl}${serverUrl.includes('?') ? '&' : '?'}dl_cb=${Date.now()}_${step}`, {
+        await fetch(`${serverUrl}${serverUrl.includes('?') ? '&' : '?'}dl_cb=${Date.now()}_${step}`, {
           method: 'GET',
           cache: 'no-store',
           mode: 'no-cors'

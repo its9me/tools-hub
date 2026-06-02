@@ -40,6 +40,7 @@ const ALL_TOOLS_REGISTRY = [
   { id: 'ping-tester', nameAr: 'فاحص استقرار الـ Ping', nameEn: 'Ping stability tester', descAr: 'التحقق من جودة الاتصال وثبات السرعة', descEn: 'Check network stability in live charts', icon: Wifi, cat: 'developers' },
   { id: 'json-converter', nameAr: 'محلل ومحول JSON', nameEn: 'JSON Converter Parser', descAr: 'تحويل بيانات JSON لـ XML أو CSV', descEn: 'Convert JSON formatted structures', icon: Code2, cat: 'developers' },
   { id: 'image-color-picker', nameAr: 'مستخرج ألوان الصور', nameEn: 'Color Picker', descAr: 'استخراج أكواد HEX/RGB من الصور', descEn: 'Extract and pick hex colors from files', icon: Palette, cat: 'developers' },
+  { id: 'color-contrast', nameAr: 'فاحص تباين الألوان', nameEn: 'Color Contrast Checker', descAr: 'فحص موازنة تباين الألوان ومعايير WCAG ومعاينة حية وتوفير بدائل وحلول', descEn: 'Check color contrast ratios against WCAG standard & suggest alternatives', icon: Palette, cat: 'developers' },
 
   // Health
   { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },
@@ -48,19 +49,19 @@ const ALL_TOOLS_REGISTRY = [
 
 // 12 Premium high-fidelity Category Cards exactly styled to match Image 1
 const CATEGORY_CARDS = [
-  { id: 'photos', nameAr: 'أدوات الصور', nameEn: 'Image Tools', icon: ImageIcon, mapCat: 'social', cardBg: 'bg-gradient-to-b from-[#1c3c9c]/80 to-[#0e2154]/95 border-[#1e44b8]', iconBg: 'bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] shadow-[0_0_15px_rgba(37,99,235,0.5)]' },
-  { id: 'pdf', nameAr: 'أدوات PDF', nameEn: 'PDF Tools', icon: FileText, mapCat: 'productivity', cardBg: 'bg-gradient-to-b from-[#5c24ab]/80 to-[#2b0c53]/95 border-[#6324c4]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#6d28d9] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
+  { id: 'photos', nameAr: 'أدوات الصور', nameEn: 'Image Tools', icon: ImageIcon, mapCat: 'photos', cardBg: 'bg-gradient-to-b from-[#1c3c9c]/80 to-[#0e2154]/95 border-[#1e44b8]', iconBg: 'bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] shadow-[0_0_15px_rgba(37,99,235,0.5)]' },
+  { id: 'pdf', nameAr: 'أدوات PDF', nameEn: 'PDF Tools', icon: FileText, mapCat: 'pdf', cardBg: 'bg-gradient-to-b from-[#5c24ab]/80 to-[#2b0c53]/95 border-[#6324c4]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#6d28d9] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
   { id: 'developers', nameAr: 'أدوات المطورين', nameEn: 'Developer Tools', icon: Code2, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#0d6b38]/80 to-[#06331a]/95 border-[#159a4f]', iconBg: 'bg-gradient-to-r from-[#10b981] to-[#047857] shadow-[0_0_15px_rgba(16,185,129,0.5)]' },
-  { id: 'calculators', nameAr: 'الحاسبات', nameEn: 'Calculators', icon: Calculator, mapCat: 'science', cardBg: 'bg-gradient-to-b from-[#aa6600]/80 to-[#4a2e00]/95 border-[#db8700]', iconBg: 'bg-gradient-to-r from-[#f59e0b] to-[#b45309] shadow-[0_0_15px_rgba(245,158,11,0.5)]' },
+  { id: 'calculators', nameAr: 'الحاسبات', nameEn: 'Calculators', icon: Calculator, mapCat: 'calculators', cardBg: 'bg-gradient-to-b from-[#aa6600]/80 to-[#4a2e00]/95 border-[#db8700]', iconBg: 'bg-gradient-to-r from-[#f59e0b] to-[#b45309] shadow-[0_0_15px_rgba(245,158,11,0.5)]' },
   
-  { id: 'writing', nameAr: 'أدوات الكتابة', nameEn: 'Writing Tools', icon: PenTool, mapCat: 'productivity', cardBg: 'bg-gradient-to-b from-[#183474]/80 to-[#0c1a3a]/95 border-[#214caf]', iconBg: 'bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] shadow-[0_0_15px_rgba(59,130,246,0.5)]' },
+  { id: 'writing', nameAr: 'أدوات الكتابة', nameEn: 'Writing Tools', icon: PenTool, mapCat: 'writing', cardBg: 'bg-gradient-to-b from-[#183474]/80 to-[#0c1a3a]/95 border-[#214caf]', iconBg: 'bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] shadow-[0_0_15px_rgba(59,130,246,0.5)]' },
   { id: 'health', nameAr: 'الصحة واللياقة', nameEn: 'Health & Fitness', icon: HeartPulse, mapCat: 'health', cardBg: 'bg-gradient-to-b from-[#941c3c]/80 to-[#470a1a]/95 border-[#c82452]', iconBg: 'bg-gradient-to-r from-[#ec4899] to-[#be185d] shadow-[0_0_15px_rgba(236,72,153,0.5)]' },
   { id: 'education', nameAr: 'أدوات التعليم', nameEn: 'Education Tools', icon: GraduationCap, mapCat: 'education', cardBg: 'bg-gradient-to-b from-[#0e5c98]/80 to-[#072d4c]/95 border-[#1c84d4]', iconBg: 'bg-gradient-to-r from-[#06b6d4] to-[#0369a1] shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
   { id: 'finance', nameAr: 'المالية', nameEn: 'Finance Tools', icon: PiggyBank, mapCat: 'finance', cardBg: 'bg-gradient-to-b from-[#0f1f4e]/80 to-[#07102b]/95 border-[#162e7a]', iconBg: 'bg-gradient-to-r from-[#1d4ed8] to-[#1e3a8a] shadow-[0_0_15px_rgba(29,78,216,0.5)]' },
   
-  { id: 'network', nameAr: 'أدوات الشبكة', nameEn: 'Network Tools', icon: Wifi, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#40127e]/80 to-[#1b053c]/95 border-[#5c1cba]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#4c1d95] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
+  { id: 'network', nameAr: 'أدوات الشبكة', nameEn: 'Network Tools', icon: Wifi, mapCat: 'network', cardBg: 'bg-gradient-to-b from-[#40127e]/80 to-[#1b053c]/95 border-[#5c1cba]', iconBg: 'bg-gradient-to-r from-[#8b5cf6] to-[#4c1d95] shadow-[0_0_15px_rgba(139,92,246,0.5)]' },
   { id: 'travel', nameAr: 'السفر والطيران', nameEn: 'Travel & Tourism', icon: Plane, mapCat: 'travel', cardBg: 'bg-gradient-to-b from-[#aa4400]/80 to-[#4a2100]/95 border-[#db5c00]', iconBg: 'bg-gradient-to-r from-[#f97316] to-[#c2410c] shadow-[0_0_15px_rgba(249,115,22,0.5)]' },
-  { id: 'design', nameAr: 'أدوات التصميم', nameEn: 'Design Tools', icon: Palette, mapCat: 'developers', cardBg: 'bg-gradient-to-b from-[#0a488e]/80 to-[#04244c]/95 border-[#126ecf]', iconBg: 'bg-gradient-to-r from-[#06b6d4] to-[#2563eb] shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
+  { id: 'design', nameAr: 'أدوات التصميم', nameEn: 'Design Tools', icon: Palette, mapCat: 'design', cardBg: 'bg-gradient-to-b from-[#0a488e]/80 to-[#04244c]/95 border-[#126ecf]', iconBg: 'bg-gradient-to-r from-[#06b6d4] to-[#2563eb] shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
   { id: 'more', nameAr: 'والمزيد...', nameEn: 'And More...', icon: Layers, mapCat: 'lifestyle', cardBg: 'bg-gradient-to-b from-[#08123c]/80 to-[#030821]/95 border-[#121f5e]', iconBg: 'bg-[#122678]/80 text-[#8aa4f7]' },
 ];
 

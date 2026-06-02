@@ -36,6 +36,7 @@ const PasswordGenerator = lazy(() => import('./pages/PasswordGenerator'));
 const MetaTagsPreviewer = lazy(() => import('./pages/MetaTagsPreviewer'));
 const SeoFilesGenerator = lazy(() => import('./pages/SeoFilesGenerator'));
 const ImageColorPicker = lazy(() => import('./pages/ImageColorPicker'));
+const ColorContrastChecker = lazy(() => import('./pages/ColorContrastChecker'));
 const CodeBeautifier = lazy(() => import('./pages/CodeBeautifier'));
 const WebpConverter = lazy(() => import('./pages/WebpConverter'));
 const Base64Converter = lazy(() => import('./pages/Base64Converter'));
@@ -179,11 +180,11 @@ function Layout({ children, lang, setLang, t }: any) {
               {isAr ? 'أدوات المطورين' : 'Developer Tools'}
             </Link>
             <span className="text-slate-700">|</span>
-            <Link to="/category/productivity" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+            <Link to="/category/pdf" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
               {isAr ? 'أدوات PDF والنصوص' : 'PDF & Text Tools'}
             </Link>
             <span className="text-slate-700">|</span>
-            <Link to="/category/science" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
+            <Link to="/category/calculators" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
               {isAr ? 'الحاسبات العلمية' : 'Calculators'}
             </Link>
             <span className="text-slate-700">|</span>
@@ -344,6 +345,7 @@ export default function App() {
             <Route path="/tool/ping-tester" element={<PingTester lang={lang} />} />
             <Route path="/tool/sticker-maker" element={<StickerMaker lang={lang} />} />
             <Route path="/tool/speed-test" element={<InternetSpeedTest lang={lang} />} />
+            <Route path="/tool/color-contrast" element={<ColorContrastChecker lang={lang} />} />
             
             <Route path="/privacy" element={
               <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
