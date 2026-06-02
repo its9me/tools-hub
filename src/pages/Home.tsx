@@ -391,7 +391,7 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
                 <a href="https://www.facebook.com/DNBbanka" target="_blank" rel="noreferrer" title="Facebook" className="w-7 h-7 bg-[#1877f2]/10 hover:bg-[#1877f2]/20 border border-[#1877f2]/30 rounded-full flex items-center justify-center text-[#1877f2] transition-all hover:scale-110 shadow-[0_0_8px_rgba(24,119,242,0.15)]">
                   <Facebook size={12} strokeWidth={2.5} />
                 </a>
-                <a href="https://www.instagram.com/tools_hub.tech" target="_blank" rel="noreferrer" title="Instagram" className="w-7 h-7 bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34]/20 hover:to-[#6228d7]/20 border border-[#ee2a7b]/35 rounded-full flex items-center justify-center text-[#ee2a7b] transition-all hover:scale-110 shadow-[0_0_8px_rgba(238,42,123,0.15)]">
+                <a href="https://www.instagram.com/tools_hub.live" target="_blank" rel="noreferrer" title="Instagram" className="w-7 h-7 bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34]/20 hover:to-[#6228d7]/20 border border-[#ee2a7b]/35 rounded-full flex items-center justify-center text-[#ee2a7b] transition-all hover:scale-110 shadow-[0_0_8px_rgba(238,42,123,0.15)]">
                   <Instagram size={12} strokeWidth={2.5} />
                 </a>
                 <a href="https://t.me/too1shub" target="_blank" rel="noreferrer" title="Telegram" className="w-7 h-7 bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 rounded-full flex items-center justify-center text-[#0088cc] transition-all hover:scale-110 shadow-[0_0_8px_rgba(0,136,204,0.15)]">
