@@ -81,6 +81,7 @@ const InternetSpeedTest = lazy(() => import('./pages/InternetSpeedTest'));
 const WorldMeetingPlanner = lazy(() => import('./pages/WorldMeetingPlanner'));
 const GamersReflexBenchmarker = lazy(() => import('./pages/GamersReflexBenchmarker'));
 const TextProcessorSuite = lazy(() => import('./pages/TextProcessorSuite'));
+const Guides = lazy(() => import('./pages/Guides'));
 
 const translations = {
   ar: {
@@ -179,6 +180,10 @@ function Layout({ children, lang, setLang, t }: any) {
               {t.home}
             </Link>
             <span className="text-slate-700">|</span>
+            <Link to="/guides" className="px-3 py-2 rounded-xl hover:text-cyan-300 hover:bg-cyan-950/20 text-cyan-400 font-extrabold transition-all flex items-center gap-1 animate-pulse">
+              <span>{isAr ? 'مركز المعرفة 📚' : 'Guides 📚'}</span>
+            </Link>
+            <span className="text-slate-700">|</span>
             <Link to="/category/developers" className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition-all">
               {isAr ? 'أدوات المطورين' : 'Developer Tools'}
             </Link>
@@ -237,6 +242,8 @@ function Layout({ children, lang, setLang, t }: any) {
             <span>&copy; {new Date().getFullYear()} {t.footerCopyright}</span>
           </div>
           <div className="flex flex-wrap gap-4 items-center justify-center">
+            <Link to="/guides" className="hover:text-slate-300 text-cyan-400 font-bold transition-colors">{isAr ? 'الشروحات والمقالات 📚' : 'Guides & Documentation 📚'}</Link>
+            <span className="w-px h-3 bg-[#1e2354] self-center"></span>
             <Link to="/privacy" className="hover:text-slate-300 transition-colors">{t.footerPrivacy}</Link>
             <span className="w-px h-3 bg-[#1e2354] self-center"></span>
             <Link to="/terms" className="hover:text-slate-300 transition-colors">{t.footerTerms}</Link>
@@ -277,6 +284,7 @@ export default function App() {
         }>
           <Routes>
             <Route path="/" element={<Home lang={lang} />} />
+            <Route path="/guides" element={<Guides lang={lang} />} />
             <Route path="/category/:id" element={<Category lang={lang} />} />
             <Route path="/tool/word-counter" element={<WordCounterTool lang={lang} />} />
             <Route path="/tool/loan-calculator" element={<PersonalLoanCalculator lang={lang} />} />

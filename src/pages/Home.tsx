@@ -32,8 +32,8 @@ const ALL_TOOLS_REGISTRY = [
 
   // Education
   { id: 'gpa-calculator', nameAr: 'حاسبة المعدل التراكمي', nameEn: 'GPA Calculator', descAr: 'حساب المعدل الفصلي والتراكمي', descEn: 'Calculate cumulative & semester GPA', icon: GraduationCap, cat: 'education' },
-  { id: 'typing-speed', nameAr: 'اختبار سرعة الكتابة', nameEn: 'Typing Speed', descAr: 'احسب سرعتك بالكتابة بالدقيقة', descEn: 'Calculate writing speed (WPM)', icon: BookOpen, cat: 'education' },
-  { id: 'daily-schedule', nameAr: 'الجدول الدراسي المنظم', nameEn: 'Study Planner', descAr: 'منظم خطة وجداول المذاكرة اليومية', descEn: 'Organize study plans & routines', icon: Clock, cat: 'education' },
+  { id: 'typing-speed-test', nameAr: 'اختبار سرعة الكتابة', nameEn: 'Typing Speed', descAr: 'احسب سرعتك بالكتابة بالدقيقة', descEn: 'Calculate writing speed (WPM)', icon: BookOpen, cat: 'education' },
+  { id: 'daily-study-schedule', nameAr: 'الجدول الدراسي المنظم', nameEn: 'Study Planner', descAr: 'منظم خطة وجداول المذاكرة اليومية', descEn: 'Organize study plans & routines', icon: Clock, cat: 'education' },
 
   // Developers
   { id: 'speed-test', nameAr: 'فحص سرعة الإنترنت', nameEn: 'Internet Speed Test', descAr: 'قياس دقيق لسرعة الرفع والتحميل والـ Ping', descEn: 'High-precision broadband metrics', icon: Gauge, cat: 'developers' },
@@ -238,6 +238,31 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
                 </Link>
               );
             })}
+          </div>
+
+          {/* Panoramic learning center promotion card (Google AdSense compliance boost) */}
+          <div className="mt-6 p-4 rounded-2xl bg-gradient-to-r from-[#170c3a]/50 via-[#0d2a54]/50 to-[#0b0f2a]/95 border border-[#3e2e8c]/35 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-right rtl:text-right">
+              <div className="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center shrink-0">
+                <BookOpen size={18} />
+              </div>
+              <div className="min-w-0 flex flex-col">
+                <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                  {isAr ? 'مركز الشروحات والبحوث العلمية لأدوات Hub 📚' : 'Learning Hub & Scientific Guides 📚'}
+                  <span className="text-[9px] bg-cyan-500/20 text-cyan-400 px-1.5 py-0.5 rounded font-black tracking-wider uppercase">NEW</span>
+                </span>
+                <span className="text-[10px] text-slate-400 truncate mt-0.5">
+                  {isAr ? 'شروحات شاملة لزكاة المال، حساب المعدل، تباين الألوان ومقارنة النصوص.' : 'Detailed mathematical rules, Zakat frameworks, and UI accessibility guides.'}
+                </span>
+              </div>
+            </div>
+            <Link 
+              to="/guides" 
+              className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-xl text-xs font-bold shrink-0 transition-opacity flex items-center gap-1 shadow-md shadow-cyan-950/20"
+            >
+              <span>{isAr ? 'استكشف المقالات والأدلة' : 'Read Articles'}</span>
+              <ArrowRight size={12} className={isAr ? 'rotate-180' : ''} />
+            </Link>
           </div>
 
         </div>
