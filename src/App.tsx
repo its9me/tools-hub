@@ -7,81 +7,166 @@ import Logo from './components/Logo';
 import SEOHandler from './components/SEOHandler';
 import RelatedTools from './components/RelatedTools';
 
-const WordCounterTool = lazy(() => import('./pages/WordCounterTool'));
-const PersonalLoanCalculator = lazy(() => import('./pages/PersonalLoanCalculator'));
-const IncomeTaxCalculator = lazy(() => import('./pages/IncomeTaxCalculator'));
-const CryptoConverter = lazy(() => import('./pages/CryptoConverter'));
-const CompoundInterestCalculator = lazy(() => import('./pages/CompoundInterestCalculator'));
-const ZakatCalculator = lazy(() => import('./pages/ZakatCalculator'));
-const GoldJewelryCalculator = lazy(() => import('./pages/GoldJewelryCalculator'));
-const InflationCalculator = lazy(() => import('./pages/InflationCalculator'));
-const StockProfitCalculator = lazy(() => import('./pages/StockProfitCalculator'));
-const InvoiceGenerator = lazy(() => import('./pages/InvoiceGenerator'));
-const OnlineNotepad = lazy(() => import('./pages/OnlineNotepad'));
 
-const GPACalculator = lazy(() => import('./pages/GPACalculator'));
-const PhysicalUnitConverter = lazy(() => import('./pages/PhysicalUnitConverter'));
-const CitationGenerator = lazy(() => import('./pages/CitationGenerator'));
-const GradePercentageCalculator = lazy(() => import('./pages/GradePercentageCalculator'));
-const DateConverter = lazy(() => import('./pages/DateConverter'));
-const DailyStudySchedule = lazy(() => import('./pages/DailyStudySchedule'));
-const BMICalculator = lazy(() => import('./pages/BMICalculator'));
-const CalorieCalculator = lazy(() => import('./pages/CalorieCalculator'));
-const PregnancyCalculator = lazy(() => import('./pages/PregnancyCalculator'));
-const WaterCalculator = lazy(() => import('./pages/WaterCalculator'));
-const WorkoutGenerator = lazy(() => import('./pages/WorkoutGenerator'));
-const ColorVisionTest = lazy(() => import('./pages/ColorVisionTest'));
-const JsonConverter = lazy(() => import('./pages/JsonConverter'));
-const PasswordGenerator = lazy(() => import('./pages/PasswordGenerator'));
-const MetaTagsPreviewer = lazy(() => import('./pages/MetaTagsPreviewer'));
-const SeoFilesGenerator = lazy(() => import('./pages/SeoFilesGenerator'));
-const ImageColorPicker = lazy(() => import('./pages/ImageColorPicker'));
-const ColorContrastChecker = lazy(() => import('./pages/ColorContrastChecker'));
-const CodeBeautifier = lazy(() => import('./pages/CodeBeautifier'));
-const WebpConverter = lazy(() => import('./pages/WebpConverter'));
-const Base64Converter = lazy(() => import('./pages/Base64Converter'));
-const YoutubeCalculator = lazy(() => import('./pages/YoutubeCalculator'));
-const HashtagGenerator = lazy(() => import('./pages/HashtagGenerator'));
-const ImageResizer = lazy(() => import('./pages/ImageResizer'));
-const RoomCalculator = lazy(() => import('./pages/RoomCalculator'));
-const FuelCalculator = lazy(() => import('./pages/FuelCalculator'));
-const BabyNames = lazy(() => import('./pages/BabyNames'));
-const TimeDifference = lazy(() => import('./pages/TimeDifference'));
-const QiblaDirection = lazy(() => import('./pages/QiblaDirection'));
-const LuckyNumbers = lazy(() => import('./pages/LuckyNumbers'));
-const RandomPicker = lazy(() => import('./pages/RandomPicker'));
-const BookReadingTime = lazy(() => import('./pages/BookReadingTime'));
-const LiveAgeCalculator = lazy(() => import('./pages/LiveAgeCalculator'));
-const DailyRiddle = lazy(() => import('./pages/DailyRiddle'));
-const TypingSpeedTest = lazy(() => import('./pages/TypingSpeedTest'));
-const AsciiArt = lazy(() => import('./pages/AsciiArt'));
-const OhmsLaw = lazy(() => import('./pages/OhmsLaw'));
-const NumberBaseConverter = lazy(() => import('./pages/NumberBaseConverter'));
-const TriangleCalculator = lazy(() => import('./pages/TriangleCalculator'));
-const MaterialStrength = lazy(() => import('./pages/MaterialStrength'));
-const PeriodicTable = lazy(() => import('./pages/PeriodicTable'));
-const TemperatureConverter = lazy(() => import('./pages/TemperatureConverter'));
-const WaveCalculator = lazy(() => import('./pages/WaveCalculator'));
-const GeometryCalculator = lazy(() => import('./pages/GeometryCalculator'));
-const PowerLedCalculator = lazy(() => import('./pages/PowerLedCalculator'));
-const ChartGenerator = lazy(() => import('./pages/ChartGenerator'));
-const ClothingShoeSizeConverter = lazy(() => import('./pages/ClothingShoeSizeConverter'));
-const TravelWheel = lazy(() => import('./pages/TravelWheel'));
-const ScratchMap = lazy(() => import('./pages/ScratchMap'));
-const TravelDareGenerator = lazy(() => import('./pages/TravelDareGenerator'));
-const TravelCompatibility = lazy(() => import('./pages/TravelCompatibility'));
-const TripCountdown = lazy(() => import('./pages/TripCountdown'));
-const TravelSlangDictionary = lazy(() => import('./pages/TravelSlangDictionary'));
-const SimonMemoryGame = lazy(() => import('./pages/SimonMemoryGame'));
-const PdfCompressor = lazy(() => import('./pages/PdfCompressor'));
-const QrSuite = lazy(() => import('./pages/QrSuite'));
-const PingTester = lazy(() => import('./pages/PingTester'));
-const StickerMaker = lazy(() => import('./pages/StickerMaker'));
-const InternetSpeedTest = lazy(() => import('./pages/InternetSpeedTest'));
-const WorldMeetingPlanner = lazy(() => import('./pages/WorldMeetingPlanner'));
-const GamersReflexBenchmarker = lazy(() => import('./pages/GamersReflexBenchmarker'));
-const TextProcessorSuite = lazy(() => import('./pages/TextProcessorSuite'));
-const Guides = lazy(() => import('./pages/Guides'));
+declare global {
+  interface Window {
+    preloadTool?: (id: string) => void;
+  }
+}
+
+export const toolImporters: Record<string, () => Promise<any>> = {
+  'word-counter': () => import('./pages/WordCounterTool'),
+  'loan-calculator': () => import('./pages/PersonalLoanCalculator'),
+  'tax-calculator': () => import('./pages/IncomeTaxCalculator'),
+  'crypto-converter': () => import('./pages/CryptoConverter'),
+  'compound-interest': () => import('./pages/CompoundInterestCalculator'),
+  'zakat-calculator': () => import('./pages/ZakatCalculator'),
+  'gold-calculator': () => import('./pages/GoldJewelryCalculator'),
+  'inflation-calculator': () => import('./pages/InflationCalculator'),
+  'stock-profit': () => import('./pages/StockProfitCalculator'),
+  'invoice-generator': () => import('./pages/InvoiceGenerator'),
+  'online-notepad': () => import('./pages/OnlineNotepad'),
+  'gpa-calculator': () => import('./pages/GPACalculator'),
+  'physics-units': () => import('./pages/PhysicalUnitConverter'),
+  'citation-generator': () => import('./pages/CitationGenerator'),
+  'grade-percentage': () => import('./pages/GradePercentageCalculator'),
+  'date-converter': () => import('./pages/DateConverter'),
+  'daily-study-schedule': () => import('./pages/DailyStudySchedule'),
+  'bmi-calculator': () => import('./pages/BMICalculator'),
+  'calorie-calculator': () => import('./pages/CalorieCalculator'),
+  'pregnancy-calculator': () => import('./pages/PregnancyCalculator'),
+  'water-calculator': () => import('./pages/WaterCalculator'),
+  'workout-generator': () => import('./pages/WorkoutGenerator'),
+  'color-vision-test': () => import('./pages/ColorVisionTest'),
+  'json-converter': () => import('./pages/JsonConverter'),
+  'password-generator': () => import('./pages/PasswordGenerator'),
+  'meta-tags-previewer': () => import('./pages/MetaTagsPreviewer'),
+  'seo-files-generator': () => import('./pages/SeoFilesGenerator'),
+  'image-color-picker': () => import('./pages/ImageColorPicker'),
+  'color-contrast': () => import('./pages/ColorContrastChecker'),
+  'code-beautifier': () => import('./pages/CodeBeautifier'),
+  'webp-converter': () => import('./pages/WebpConverter'),
+  'base64-converter': () => import('./pages/Base64Converter'),
+  'youtube-calculator': () => import('./pages/YoutubeCalculator'),
+  'hashtag-generator': () => import('./pages/HashtagGenerator'),
+  'image-resizer': () => import('./pages/ImageResizer'),
+  'room-calculator': () => import('./pages/RoomCalculator'),
+  'fuel-calculator': () => import('./pages/FuelCalculator'),
+  'baby-names': () => import('./pages/BabyNames'),
+  'time-difference': () => import('./pages/TimeDifference'),
+  'qibla-direction': () => import('./pages/QiblaDirection'),
+  'lucky-numbers': () => import('./pages/LuckyNumbers'),
+  'random-picker': () => import('./pages/RandomPicker'),
+  'book-reading-time': () => import('./pages/BookReadingTime'),
+  'live-age-calc': () => import('./pages/LiveAgeCalculator'),
+  'daily-riddle': () => import('./pages/DailyRiddle'),
+  'typing-speed-test': () => import('./pages/TypingSpeedTest'),
+  'ascii-art': () => import('./pages/AsciiArt'),
+  'ohms-law': () => import('./pages/OhmsLaw'),
+  'number-base-converter': () => import('./pages/NumberBaseConverter'),
+  'triangle-calculator': () => import('./pages/TriangleCalculator'),
+  'material-strength': () => import('./pages/MaterialStrength'),
+  'periodic-table': () => import('./pages/PeriodicTable'),
+  'temperature-converter': () => import('./pages/TemperatureConverter'),
+  'wave-calculator': () => import('./pages/WaveCalculator'),
+  'geometry-calculator': () => import('./pages/GeometryCalculator'),
+  'power-led-calculator': () => import('./pages/PowerLedCalculator'),
+  'chart-generator': () => import('./pages/ChartGenerator'),
+  'size-converter': () => import('./pages/ClothingShoeSizeConverter'),
+  'travel-wheel': () => import('./pages/TravelWheel'),
+  'scratch-map': () => import('./pages/ScratchMap'),
+  'travel-dare': () => import('./pages/TravelDareGenerator'),
+  'travel-compatibility': () => import('./pages/TravelCompatibility'),
+  'trip-countdown': () => import('./pages/TripCountdown'),
+  'travel-slang': () => import('./pages/TravelSlangDictionary'),
+  'memory-game': () => import('./pages/SimonMemoryGame'),
+  'pdf-compressor': () => import('./pages/PdfCompressor'),
+  'qr-suite': () => import('./pages/QrSuite'),
+  'ping-tester': () => import('./pages/PingTester'),
+  'sticker-maker': () => import('./pages/StickerMaker'),
+  'speed-test': () => import('./pages/InternetSpeedTest'),
+  'world-meeting-planner': () => import('./pages/WorldMeetingPlanner'),
+  'gamers-reflex': () => import('./pages/GamersReflexBenchmarker'),
+  'text-diff-suite': () => import('./pages/TextProcessorSuite'),
+  'guides': () => import('./pages/Guides'),
+};
+
+const WordCounterTool = lazy(toolImporters['word-counter']);
+const PersonalLoanCalculator = lazy(toolImporters['loan-calculator']);
+const IncomeTaxCalculator = lazy(toolImporters['tax-calculator']);
+const CryptoConverter = lazy(toolImporters['crypto-converter']);
+const CompoundInterestCalculator = lazy(toolImporters['compound-interest']);
+const ZakatCalculator = lazy(toolImporters['zakat-calculator']);
+const GoldJewelryCalculator = lazy(toolImporters['gold-calculator']);
+const InflationCalculator = lazy(toolImporters['inflation-calculator']);
+const StockProfitCalculator = lazy(toolImporters['stock-profit']);
+const InvoiceGenerator = lazy(toolImporters['invoice-generator']);
+const OnlineNotepad = lazy(toolImporters['online-notepad']);
+
+const GPACalculator = lazy(toolImporters['gpa-calculator']);
+const PhysicalUnitConverter = lazy(toolImporters['physics-units']);
+const CitationGenerator = lazy(toolImporters['citation-generator']);
+const GradePercentageCalculator = lazy(toolImporters['grade-percentage']);
+const DateConverter = lazy(toolImporters['date-converter']);
+const DailyStudySchedule = lazy(toolImporters['daily-study-schedule']);
+const BMICalculator = lazy(toolImporters['bmi-calculator']);
+const CalorieCalculator = lazy(toolImporters['calorie-calculator']);
+const PregnancyCalculator = lazy(toolImporters['pregnancy-calculator']);
+const WaterCalculator = lazy(toolImporters['water-calculator']);
+const WorkoutGenerator = lazy(toolImporters['workout-generator']);
+const ColorVisionTest = lazy(toolImporters['color-vision-test']);
+const JsonConverter = lazy(toolImporters['json-converter']);
+const PasswordGenerator = lazy(toolImporters['password-generator']);
+const MetaTagsPreviewer = lazy(toolImporters['meta-tags-previewer']);
+const SeoFilesGenerator = lazy(toolImporters['seo-files-generator']);
+const ImageColorPicker = lazy(toolImporters['image-color-picker']);
+const ColorContrastChecker = lazy(toolImporters['color-contrast']);
+const CodeBeautifier = lazy(toolImporters['code-beautifier']);
+const WebpConverter = lazy(toolImporters['webp-converter']);
+const Base64Converter = lazy(toolImporters['base64-converter']);
+const YoutubeCalculator = lazy(toolImporters['youtube-calculator']);
+const HashtagGenerator = lazy(toolImporters['hashtag-generator']);
+const ImageResizer = lazy(toolImporters['image-resizer']);
+const RoomCalculator = lazy(toolImporters['room-calculator']);
+const FuelCalculator = lazy(toolImporters['fuel-calculator']);
+const BabyNames = lazy(toolImporters['baby-names']);
+const TimeDifference = lazy(toolImporters['time-difference']);
+const QiblaDirection = lazy(toolImporters['qibla-direction']);
+const LuckyNumbers = lazy(toolImporters['lucky-numbers']);
+const RandomPicker = lazy(toolImporters['random-picker']);
+const BookReadingTime = lazy(toolImporters['book-reading-time']);
+const LiveAgeCalculator = lazy(toolImporters['live-age-calc']);
+const DailyRiddle = lazy(toolImporters['daily-riddle']);
+const TypingSpeedTest = lazy(toolImporters['typing-speed-test']);
+const AsciiArt = lazy(toolImporters['ascii-art']);
+const OhmsLaw = lazy(toolImporters['ohms-law']);
+const NumberBaseConverter = lazy(toolImporters['number-base-converter']);
+const TriangleCalculator = lazy(toolImporters['triangle-calculator']);
+const MaterialStrength = lazy(toolImporters['material-strength']);
+const PeriodicTable = lazy(toolImporters['periodic-table']);
+const TemperatureConverter = lazy(toolImporters['temperature-converter']);
+const WaveCalculator = lazy(toolImporters['wave-calculator']);
+const GeometryCalculator = lazy(toolImporters['geometry-calculator']);
+const PowerLedCalculator = lazy(toolImporters['power-led-calculator']);
+const ChartGenerator = lazy(toolImporters['chart-generator']);
+const ClothingShoeSizeConverter = lazy(toolImporters['size-converter']);
+const TravelWheel = lazy(toolImporters['travel-wheel']);
+const ScratchMap = lazy(toolImporters['scratch-map']);
+const TravelDareGenerator = lazy(toolImporters['travel-dare']);
+const TravelCompatibility = lazy(toolImporters['travel-compatibility']);
+const TripCountdown = lazy(toolImporters['trip-countdown']);
+const TravelSlangDictionary = lazy(toolImporters['travel-slang']);
+const SimonMemoryGame = lazy(toolImporters['memory-game']);
+const PdfCompressor = lazy(toolImporters['pdf-compressor']);
+const QrSuite = lazy(toolImporters['qr-suite']);
+const PingTester = lazy(toolImporters['ping-tester']);
+const StickerMaker = lazy(toolImporters['sticker-maker']);
+const InternetSpeedTest = lazy(toolImporters['speed-test']);
+const WorldMeetingPlanner = lazy(toolImporters['world-meeting-planner']);
+const GamersReflexBenchmarker = lazy(toolImporters['gamers-reflex']);
+const TextProcessorSuite = lazy(toolImporters['text-diff-suite']);
+const Guides = lazy(toolImporters['guides']);
+
 
 const translations = {
   ar: {
@@ -266,6 +351,38 @@ export default function App() {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
   }, [lang]);
+
+  // Hook to handle preloading globally
+  useEffect(() => {
+    // 1. Register global preloader
+    window.preloadTool = (id: string) => {
+      const importer = toolImporters[id];
+      if (importer) {
+        importer().catch(() => {});
+      }
+    };
+
+    // 2. Perform silent background eager preloading of most popular tools
+    const timer = setTimeout(() => {
+      const popularTools = [
+        'word-counter',
+        'gpa-calculator',
+        'speed-test',
+        'bmi-calculator',
+        'loan-calculator',
+        'guides'
+      ];
+      popularTools.forEach((id) => {
+        const importer = toolImporters[id];
+        if (importer) {
+          importer().catch(() => {});
+        }
+      });
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
 
   return (
     <Router>

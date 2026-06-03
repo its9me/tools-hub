@@ -258,6 +258,9 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             </div>
             <Link 
               to="/guides" 
+              onMouseEnter={() => window.preloadTool?.('guides')}
+              onFocus={() => window.preloadTool?.('guides')}
+              onTouchStart={() => window.preloadTool?.('guides')}
               className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-xl text-xs font-bold shrink-0 transition-opacity flex items-center gap-1 shadow-md shadow-cyan-950/20"
             >
               <span>{isAr ? 'استكشف المقالات والأدلة' : 'Read Articles'}</span>
@@ -318,6 +321,9 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
                     <Link 
                       key={tool.id} 
                       to={`/tool/${tool.id}`}
+                      onMouseEnter={() => window.preloadTool?.(tool.id)}
+                      onFocus={() => window.preloadTool?.(tool.id)}
+                      onTouchStart={() => window.preloadTool?.(tool.id)}
                       className="bg-[#0b1030]/80 border border-[#212b77]/40 hover:border-cyan-500/40 p-3.5 rounded-2xl flex items-center gap-3 transition-colors hover:bg-[#0f1642] group"
                     >
                       <div className="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">

@@ -215,7 +215,14 @@ export default function Category({ lang }: { lang: 'ar' | 'en' }) {
           category.tools.map(tool => {
             const Icon = tool.icon;
             return (
-              <Link key={tool.id} to={`/tool/${tool.id}`} className="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-xl transition-colors flex flex-col gap-3">
+              <Link 
+                key={tool.id} 
+                to={`/tool/${tool.id}`} 
+                onMouseEnter={() => window.preloadTool?.(tool.id)}
+                onFocus={() => window.preloadTool?.(tool.id)}
+                onTouchStart={() => window.preloadTool?.(tool.id)}
+                className="bg-white/5 border border-white/10 hover:bg-white/10 p-5 rounded-xl transition-colors flex flex-col gap-3"
+              >
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
                   <Icon size={20} />
                 </div>
