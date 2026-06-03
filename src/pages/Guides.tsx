@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { BookOpen, Search, Sparkles, ChevronRight, Calculator, FileText, HeartPulse, Palette, ExternalLink, ShieldCheck, GraduationCap, TrendingUp } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Search, Sparkles, ChevronRight, ChevronLeft, Calculator, FileText, HeartPulse, Palette, ExternalLink, ShieldCheck, GraduationCap, TrendingUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ARTICLES = [
   {
@@ -809,6 +810,16 @@ export default function Guides({ lang }: { lang: 'ar' | 'en' }) {
 
   const [search, setSearch] = useState('');
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [activeCat, setActiveCat] = useState('all');
+
+  // Turn automatic featured article rotating on
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % ARTICLES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleSelectArticle = (art: any | null) => {
     setSelectedArticle(art);
@@ -824,12 +835,14 @@ export default function Guides({ lang }: { lang: 'ar' | 'en' }) {
 
   const filteredArticles = ARTICLES.filter(art => {
     const term = search.toLowerCase();
-    return (
+    const matchesSearch = (
       art.titleAr.toLowerCase().includes(term) ||
       art.titleEn.toLowerCase().includes(term) ||
       art.summaryAr.toLowerCase().includes(term) ||
       art.summaryEn.toLowerCase().includes(term)
     );
+    const matchesCategory = activeCat === 'all' || art.cat === activeCat;
+    return matchesSearch && matchesCategory;
   });
 
   return (
@@ -869,13 +882,131 @@ export default function Guides({ lang }: { lang: 'ar' | 'en' }) {
         </div>
       </div>
 
+      {/* FEATURED ARTICLES CAROUSEL FRAME */}
+      {ARTICLES.length > 0 && (() => {
+        const feat = ARTICLES[featuredIndex] || ARTICLES[0];
+        const FeatIcon = feat.icon;
+        
+        return (
+          <div className="relative border border-cyan-500/10 p-6 md:p-8 rounded-[2rem] bg-gradient-to-r from-slate-900/45 via-[#0e163b]/70 to-slate-900/45 overflow-hidden shadow-xl animate-in fade-in duration-500">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-[60px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/5 rounded-full blur-[60px] pointer-events-none" />
+
+            <div className="flex flex-col gap-4 relative z-10">
+              <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[10px] font-black uppercase rounded-lg flex items-center gap-1.5 shadow-[0_0_8px_rgba(6,182,212,0.1)]">
+                  <Sparkles size={11} className="animate-spin text-cyan-400" />
+                  <span>{isAr ? 'المقالة الموصى بها والمميزة' : 'RECOMMENDED FEATURED STUDY'}</span>
+                </span>
+                
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => setFeaturedIndex((prev) => (prev - 1 + ARTICLES.length) % ARTICLES.length)}
+                    className="w-8 h-8 rounded-full bg-slate-950/80 hover:bg-slate-900 text-slate-400 hover:text-white border border-white/5 flex items-center justify-center transition-colors shadow-sm"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+                  <button 
+                    onClick={() => setFeaturedIndex((prev) => (prev + 1) % ARTICLES.length)}
+                    className="w-8 h-8 rounded-full bg-slate-950/80 hover:bg-slate-900 text-slate-400 hover:text-white border border-white/5 flex items-center justify-center transition-colors shadow-sm"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="min-h-[140px] flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex-1 flex flex-col items-start gap-2.5 text-right rtl:text-right">
+                  <span className="text-[10px] font-bold text-cyan-400 font-mono tracking-wider uppercase bg-cyan-950/40 px-2.5 py-0.5 rounded-full border border-cyan-800/20">
+                    {t[feat.cat as keyof typeof t] || feat.cat}
+                  </span>
+                  <h2 
+                    onClick={() => handleSelectArticle(feat)}
+                    className="text-lg md:text-2xl font-black text-white hover:text-cyan-300 transition-colors cursor-pointer select-none"
+                  >
+                    {isAr ? feat.titleAr : feat.titleEn}
+                  </h2>
+                  <p className="text-xs text-slate-400 leading-relaxed max-w-4xl line-clamp-2 md:line-clamp-3">
+                    {isAr ? feat.summaryAr : feat.summaryEn}
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row md:flex-col items-stretch sm:items-center md:items-end justify-center shrink-0 gap-3">
+                  <span className="text-xs text-slate-500 font-mono text-center md:text-right">
+                    {t.readTime} <strong>{isAr ? feat.readTimeAr : feat.readTimeEn}</strong>
+                  </span>
+                  <button
+                    onClick={() => handleSelectArticle(feat)}
+                    className="px-5 py-3 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 rounded-xl text-xs font-black text-white transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)] flex items-center justify-center gap-1.5"
+                  >
+                    <span>{isAr ? 'اقرأ كامل البحث الآن' : 'Explore Scientific Study'}</span>
+                    <ChevronRight size={14} className={isAr ? 'rotate-180 font-bold' : 'font-bold'} />
+                  </button>
+                </div>
+              </div>
+
+              {/* DOTS NAVIGATION INDICATOR */}
+              <div className="flex items-center justify-center gap-1.5 mt-2">
+                {ARTICLES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setFeaturedIndex(i)}
+                    className={`h-1.5 rounded-full transition-all ${featuredIndex === i ? 'w-6 bg-cyan-400' : 'w-2 bg-slate-700/60'}`}
+                  />
+                ))}
+              </div>
+
+            </div>
+          </div>
+        );
+      })()}
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LIST OF GUIDES (Left 5 columns or right 7 columns) */}
         <div className="lg:col-span-4 flex flex-col gap-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#5c689a] px-2">{isAr ? 'فهرس المقالات والأبحاث والمقالات' : 'Indexed Analytical Studies'}</span>
+          <div className="flex items-center justify-between px-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#5c689a]">{isAr ? 'فهرس الشروحات والبحوث' : 'Indexed Analytical Studies'}</span>
+            <span className="text-[10px] font-bold text-slate-500 font-mono">({filteredArticles.length})</span>
+          </div>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap gap-1 px-1">
+            <button 
+              onClick={() => setActiveCat('all')} 
+              className={`px-2.5 py-1 text-[10px] font-bold rounded-lg transition-all ${activeCat === 'all' ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'bg-slate-900/60 text-slate-400 border border-transparent hover:text-slate-300'}`}
+            >
+              {isAr ? 'الكل' : 'All'}
+            </button>
+            {['finance', 'health', 'design', 'developers', 'education'].map((c) => (
+              <button 
+                key={c}
+                onClick={() => setActiveCat(c)} 
+                className={`px-2.5 py-1 text-[10px] font-bold rounded-lg transition-all ${activeCat === c ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'bg-slate-900/60 text-slate-400 border border-transparent hover:text-slate-300'}`}
+              >
+                {t[c as keyof typeof t] || c}
+              </button>
+            ))}
+          </div>
+
+          {/* Inline custom stylesheet to format scrollbars perfectly  */}
+          <style dangerouslySetInnerHTML={{__html: `
+            .custom-scrollbar::-webkit-scrollbar {
+              width: 5px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+              background: rgba(255, 255, 255, 0.08);
+              border-radius: 99px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+              background: rgba(6, 182, 212, 0.35);
+            }
+          `}} />
           
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 max-h-[500px] overflow-y-auto pr-1.5 custom-scrollbar scroll-smooth">
             {filteredArticles.map((art) => {
               const ArtIcon = art.icon;
               const isSelected = selectedArticle?.id === art.id;
