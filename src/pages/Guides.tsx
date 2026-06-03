@@ -552,6 +552,238 @@ $$\\text{Total Price} = \\left( \\text{Weight in Grams} \\times \\text{Karat Gra
 
 Our Gold Purity calculation system handles these conversions instantly client-side, enabling safe asset tracking in real-time.
 `
+  },
+  {
+    id: 'typing-speed-guide',
+    cat: 'education',
+    icon: BookOpen,
+    titleAr: 'العلوم الإدراكية لسرعة الرقن والطباعة: حساب الكلمات بالدقيقة (WPM) والذاكرة الحركية',
+    titleEn: 'The Cognitive Science of Typing Velocity: WPM Metrics, Muscle Memory, and Spatial Kinematics',
+    readTimeAr: 'قراءة في 6 دقائق',
+    readTimeEn: '6 min read',
+    summaryAr: 'دليل تطبيقي وعلمي يوضح كيف تتشكل الذاكرة العضلية أثناء الطباعة باللمس، وكيف يقيس اختبار سرعة الكتابة معدل الأخطاء والمعدل الصافي.',
+    summaryEn: 'An educational dive into tactile response loops, neuro-muscular spatial mapping, and structural WPM calculation formulas.',
+    contentAr: `
+تعد مهارة الطباعة باللمس (Touch Typing) واحدة من أهم المهارات الإنتاجية في العصر الرقمي الحديث. إن ممارسة مهارة الكتابة السريعة ودراسة الآلية العلمية لتطورها تساهم بشكل مباشر في صقل وقت العمل الإبداعي وتقليل التعب الذهني والجسدي المصاحب لاستخدام الحواسب تلقائياً.
+
+### أولاً: كفاءة الذاكرة الحركية وسرعة تدفق الإشارات (Muscle Memory)
+عند البدء بتعلم الطباعة من دون النظر للوحة المفاتيح (Keyboard)، يبني الفص الجداري في الدماغ خريطة مكانية كاملة للأزرار. بمرور الوقت مع التمارين المستمرة، يتحول التركيز من "أين يقع الحرف؟" إلى الكلمة المطلوبة ككل، حيث تتولى الذاكرة العضلية إرسال الأوامر الحركية للأصابع مباشرة وبسرعة هائلة ودقة مستقرة.
+
+### ثانياً: المعادلة الحسابية لسرعة الطباعة (WPM)
+يتم احتساب سرعة الطباعة بمقياس **الكلمات في الدقيقة (Words Per Minute - WPM)**. وفي عالم القياسات، لا تعتبر "الكلمة" مدخلاً لغوياً عشوائياً، بل تساوي برمجياً وتاريخياً مصفوفة من خمسة نقرات تعبيرية (5 Keystrokes) تشمل الفراغات وعلامات الترقيم.
+
+المصطلحات الرياضية لحساب السرعة:
+1. **الكلمات الإجمالية (Gross WPM)**:
+$$Gross\\ WPM = \\frac{\\text{إجمالي النقرات} / 5}{\\text{الوقت المستغرق بالدقائق}}$$
+
+2. **الكلمات الصافية (Net WPM)**: وهي المقياس الحقيقي الذي نعتمد عليه في تطبيقنا، حيث يخصم الأخطاء لضمان الدقة والأمانة العلمية:
+$$Net\\ WPM = Gross\\ WPM - \\frac{\\text{الأخطاء غير المصححة}}{\\text{الوقت المستغرق بالدقائق}}$$
+
+### ثالثاً: جودة الجلسة المريحة وصحة الكتابة
+لا يمكن تطوير سرعة طباعة صحية ومتفوقة دون الاهتمام بزوايا الجلوس:
+* حافظ على استقامة الظهر بزاوية 90 درجة مع الأرض.
+* اجعل المعصمين في وضع مواز للوحة المفاتيح لتجنب الضغط على نفق الرسغ (Carpal Tunnel).
+* قم بتدريب أصابع اليدين العشرة بالكامل بدلاً من الاعتماد على إصبعين أو ثلاثة لتقليل العبء الكلي وتوليد الإيقاع الموحد.
+
+يوفر اختبار سرعة الكتابة المتاح لدينا واجهة تلوين بصرية متقاطعة وتفاعلية لمساعدتك في قياس وتحرير كفاءتك الإنتاجية ومعدل تقدمك بدقة.
+`,
+    contentEn: `
+Tactile response and motor coordination form the baseline of interface communication. Touch Typing represents an essential modern cognitive skill where finger routing becomes automatic, maximizing creative feedback.
+
+### 1. Neuro-Muscular Spatial Mapping (Muscle Memory)
+As individuals practice typing, the brain builds an internal spatial map of layout configurations. Repetition establishes deep somatic reflex loops, eliminating visual eye movements and shifting concentration strictly to creative language outputs.
+
+### 2. Standardized Word-per-Minute Computational Formula (WPM)
+While typical language counts words based on spaces, typing standards define a "Word" as an arbitrary five keystroke string (including spaces and punctuation).
+
+Math metrics evaluate speed parameters:
+* **Gross WPM Protocol**:
+$$Gross\\ WPM = \\frac{\\text{Cumulative Keystrokes} / 5}{\\text{Time elapsed in minutes}}$$
+
+* **Net WPM Protocol**: Subtracts error frequencies to measure absolute performance:
+$$Net\\ WPM = Gross\\ WPM - \\frac{\\text{Uncorrected Error Count}}{\\text{Time elapsed in minutes}}$$
+
+Our custom test metrics analyze active input streams dynamically, providing interactive visual feedback to speed up typing efficiency.
+`
+  },
+  {
+    id: 'zakat-sharia-guide',
+    cat: 'finance',
+    icon: Calculator,
+    titleAr: 'فقه ورياضيات الزكاة الشرعية: دليل حساب النصاب، تقييم الأصول وتوزيع الفريضة المالية',
+    titleEn: 'Feqh and Mathematical Framework of Zakat: Wealth Thresholds (Nisab), Valuation Rules and Asset Types',
+    readTimeAr: 'قراءة في 8 دقائق',
+    readTimeEn: '8 min read',
+    summaryAr: 'تفصيل فقهي وحسابي شامل لمعايير نصاب الزكاة الشرعية في النقود والذهب وتجارة الاستثمار وكيفية تقدير النسبة المقررة.',
+    summaryEn: 'An analytical breakdown of Zakat financial jurisprudence, evaluating gold and fiat currencies on asset thresholds (Nisab).',
+    contentAr: `
+تعد **الزكاة** فريضة شرعية وركناً أساسياً من أركان الإسلام الخمسة، ولها دور تنموي واقتصادي حاسم في تدوير الأموال ومنع احتكارها وتطوير الضمان الاجتماعي في المجتمع المسلم.
+
+### أولاً: حساب النصاب الشرعي للأموال
+نصاب الزكاة هو الحد الأدنى من المال الذي إذا ملكه الشخص وحال عليه الحول (عام هجري كامل)، وجب عليه إخراج الزكاة من ماله.
+* **نصاب الذهب**: يعادل **85 جراماً** من الذهب الصافي (عيار 24).
+* **نصاب الفضة**: يعادل **595 جراماً** من الفضة النقية.
+* **نصاب العملات الورقية**: يقدر بقيمة نصاب الذهب الحالي في الأسواق. فمثلاً، إذا كان سعر جرام الذهب عيار 24 الصافي اليوم هو 80 دولاراً، يكون النصاب المالي الفعلي:
+$$\\text{نصاب النقود} = 85 \\times 80 = 6800 \\text{ دولار}$$
+
+### ثانياً: شروط وجوب إخراج الزكاة
+لكي تصبح الزكاة مفروضة شرعاً على المال، يجب أن تتوفر في المال الشروط التالية:
+1. **الملك التام**: أن يكون المال ملكاً خاصاً وتحت تصرف صاحبه بالكامل.
+2. **النماء**: أن يكون المال قابلاً للنماء والاستثمار (مثل النقد والأسهم والذهب والتجارة).
+3. **بلوغ النصاب**: أن تتعدى قيمت المال الإجمالية حد النصاب المقر علمياً وشرعياً.
+4. **دوران الحول**: عبور عام قمري (هجري) كامل على ملكية المال دون تراجع رصيده الإجمالي تحت حد النصاب في أي فترة من فترات الحول.
+
+### ثالثاً: النسبة المقررة للزكاة وكيفية الحساب
+النسبة الشرعية المقررة لزكاة النقدين والذهب وعروض التجارة هي **ربع العشر (2.5%)** من إجمالي قيمة المال المدخر.
+معادلة إخراج الزكاة:
+$$\\text{قيمة الزكاة المستحقة} = \\text{المال الإجمالي الخاضع للزكاة} \\times \\frac{2.5}{100} \\quad (\\text{أو بالقسمة على } 40)$$
+
+يسخر تطبيق الحاسبة الشرعية للزكاة لتبسيط إدخال أصولك الذهبية، الفضية، المحافظ النقدية، والأصول المتداولة في الأسواق مع مراعاة الديون الصادرة ومقارنتها تلقائياً بأسعار الذهب والفضة اليومية لحساب زكاتك بسلامة وطمأنينة.
+`,
+    contentEn: `
+**Zakat** represents a foundational financial pillar in Islamic jurisprudence designed to optimize capital circulation, combat hoarding, and support socio-economic redistribution.
+
+### 1. Determining Financial Thresholds (Nisab)
+The "Nisab" constitutes the absolute baseline value that triggers a Zakat obligation if maintained throughout a complete Hijri lunar year (Hawl).
+* **Gold Benchmark**: Standardized at **85 Grams** of pure gold (24-karat equivalent).
+* **Silver Benchmark**: Standardized at **595 Grams** of pure silver.
+* **Currency Standard**: Calculated dynamically using current gold market prices. If gold value rests at $80/gram:
+$$\\text{Nisab Threshold} = 85 \\times 80 = \\$6,800$$
+
+### 2. Fundamental Obligation Prerequisites
+Five spiritual and physical criteria validate Zakat eligibility:
+1. **Complete Legal Ownership (Milk Tamm)**: Assets must be fully owned and legally accessible.
+2. **Appreciating Profile (Namaa)**: Assets must be liquid or capable of yield generation (currencies, gold, investment stocks).
+3. **Nisab Compliance**: The asset value must equal or exceed the currency/gold baseline.
+4. **Lunar Year Completion (Hawl)**: Assets must stay above the Nisab limit for 354 continuous days.
+
+### 3. Calculating the Standard Contribution Ratio
+The standardized Sharia-compliant levy is precisely **2.5%** (one-fortieth) of the cumulative eligible assets:
+$$\\text{Zakat Liability} = \\text{Total Eligible Assets} \\times 0.025 \\quad (\\text{or division by 40})$$
+
+Our comprehensive Zakat calculator automatically estimates values across cash holdings, gold weights, and business commodities, deducting liabilities to yield safe computations under Islamic rules.
+`
+  },
+  {
+    id: 'bmi-metrics-guide',
+    cat: 'health',
+    icon: HeartPulse,
+    titleAr: 'الفيزيولوجيا الرياضية لمؤشر كتلة الجسم (BMI): حساب نسب الدهون ومقاييس البنية الجسدية',
+    titleEn: 'Mathematical Physiology of Body Mass Index (BMI): Density Parameters and Adiposity Metrics',
+    readTimeAr: 'قراءة في 7 دقائق',
+    readTimeEn: '7 min read',
+    summaryAr: 'دراسة طبية ورياضية لمعايير مؤشر كتلة الجسم وسلبيات الاقتصار عليه من دون موازنة الكتلة العضلية ونسبة السوائل الحيوية.',
+    summaryEn: 'A health-oriented review of body composition algorithms, density evaluations, and proper waist-to-height index metrics.',
+    contentAr: `
+يعد **مؤشر كتلة الجسم (Body Mass Index - BMI)** أداة إحصائية وفسيولوجية هامة تستخدم لتقدير فئة وزن الإنسان، وتحديد مستويات النحافة أو زيادة الوزن وعلاقة ذالك بالمخاطر الصحية المختلفة مثل الأمراض القلبية ومتلازمات السكري.
+
+### أولاً: المعادلة الحسابية لمؤشر كتلة الجسم
+تأسس هذا المؤشر رياضياً بالاعتماد على دراسات الباحث البلجيكي أدولف كوتيليه في القرن التاسع عشر، وهو يعبر عن تناسب كتلة الجسم مع مربع الطول بالمعادلة البسيطة التالية:
+$$BMI = \\frac{\\text{الوزن (كيلوجرام)}}{\\text{الطول (متر)}^2}$$
+
+على سبيل المثال، للشخص الذي يزن 75 كجم ويبلغ طوله 1.75 متر:
+$$1.75^2 = 3.0625 \\implies BMI = \\frac{75}{3.0625} = 24.49$$
+
+### ثانياً: الفئات التصنيفية لنتائج المؤشر (WHO Guidelines)
+وضعت منظمة الصحة العالمية تصنيفات واضحة مفسرة وموحدة لمقياس الـ BMI كالتالي:
+* **قصور حاد في الوزن (Underweight)**: أقل من 18.5.
+* **الوزن الطبيعي والمثالي (Normal Weight)**: يتراوح بين 18.5 و24.9.
+* **زيادة في الوزن (Overweight)**: يتراوح بين 25.0 و29.9.
+* **السمنة المفرطة (Obesity)**: 30.0 أو أعلى.
+
+### ثالثاً: عيوب ومحدوديات الاعتماد الفردي على الـ BMI
+على الرغم من كفائته الإحصائية، يواجه نظام الـ BMI قصوراً كبيراً في بعض الحالات:
+1. **الرياضيون ولاعبو كمال الأجسام**: يمتلك الرياضيون كتلة عضلية كثيفة تزن أكثر من الدهون العادية. عند حساب المؤشر لهم قد يصنفون كأشخاص يعانون من "السمنة" رغم تدني نسب الدهون لديهم لتقل عن 12%!
+2. **كبار السن**: قد يواجهون تراجعاً في الكتلة العضلية (Sarcopenia) واستبدالها بالدهون، مما قد يعطي مؤشر كتلة جسم طبيعياً وخادعاً رغم عدم توازن تركيب أجسامهم الداخلي.
+
+لذلك، ننصح دائماً باستخدام حاسبة الـ BMI المتاحة في موقعنا رفقة قياسات محيط الخصر ونسب الدهون المتخلفة للحصول على رؤية فسيولوجية صحية دقيقة وشاملة.
+`,
+    contentEn: `
+**Body Mass Index (BMI)** serves as a standardized biostatistical metric for evaluating global weight classifications relative to human stature. Developed for epidemiologic classification, it assesses the relative risk profiles of obesity-related pathology.
+
+### 1. Mathematical Derivation of BMI
+Originally designed by Adolphe Quetelet, the formula correlates physical mass directly to the square of a person\\'s height:
+$$BMI = \\frac{\\text{Weight (kg)}}{\\text{Height (m)}^2}$$
+
+For instance, an individual weighing 85 kilograms at a height of 1.80 meters:
+$$1.80^2 = 3.24 \\implies BMI = \\frac{85}{3.24} = 26.23$$
+
+### 2. Clinical Classifications (WHO Standards)
+The World Health Organization (WHO) divides adult BMI scores into distinct categories:
+* **Underweight**: Below **18.5** (indicates potential nutrient deficiency states).
+* **Normal Range**: **18.5 to 24.9** (associated with low mortality indicators).
+* **Overweight**: **25.0 to 29.9** (elevated lipid-linked risk factors).
+* **Obese Class**: **30.0 and above** (requires systemic metabolic assessment).
+
+### 3. Structural Limits of BMI Modeling
+While statistically useful for populations, BMI has clinical caveats:
+* **Muscular Athletes**: Muscles feature high bone-and-density weight parameters. A bodybuilder with low levels of body fat can be erroneously cataloged as "Obese" under standard BMI metrics.
+* **Geriatric Adaptation**: Height shrinkage and muscle distribution changes in elderly patients degrade BMI reliability.
+
+Our interactive BMI platform incorporates multiple analytical indicators, providing high-quality visual metrics for physiological health trackers.
+`
+  },
+  {
+    id: 'seo-optimization-guide',
+    cat: 'developers',
+    icon: ShieldCheck,
+    titleAr: 'هندسة أرشفة محركات البحث (SEO): بروتوكولات حجب الزحف وهياكل ملفات robots.txt و sitemap',
+    titleEn: 'Search Engine Optimization (SEO) Crawler Architecture: Robots.txt Protocols and XML Sitemap Hierarchies',
+    readTimeAr: 'قراءة في 8 دقائق',
+    readTimeEn: '8 min read',
+    summaryAr: 'كيف تعمل روبوتات جوجل ومحركات البحث في زحف وفهرسة المواقع، والآلية الفعالة لتنسيق خرائط XML وملفات التوجيه.',
+    summaryEn: 'A master developer guide to search engine crawler architectures, sitemap prioritization weights, and crawl budget optimizations.',
+    contentAr: `
+يعتمد نجاح ونمو المواقع على الويب بشكل حاسم على ظهورها وتصدرها في نتائج البحث العضوية (Organic Search). لفهم كيف تقرأ محركات البحث مثل Google موقعك، يتعين عليك دراسة بنية الزحف (Crawlability) والفهرسة (Indexability).
+
+### أولاً: كواليس محركات البحث: كيف يعمل الزاحف (web spider)؟
+يقوم محرك البحث بإرسال خوارزميات برمجية تسمى الروبوتات أو العناكب (مثل Googlebot) لزيارة صفحات الويب. تعمل هذه الروبوتات بثلاثة أدوار أساسية ومتكاملة:
+1. **الزحف (Crawling)**: اكتشاف الروابط وتحديث قواعد الرسوم البيانية للويب.
+2. **الفهرسة (Indexing)**: تخزين محتويات الصفحات وفهم الكلمات الدلالية والأكواد المصاحبة لها.
+3. **الترتيب (Ranking)**: موازنة مئات العوامل (سرعة الموقع، جودة المحتوى، وضوح الروابط) لتحديد موقع الصفحة الأنسب لكل كلمة بحث.
+
+### ثانياً: ملف التوجيه الموحد robots.txt
+يعد ملف **robots.txt** وثيقة التحكم والتواصل الأولى مع زواحف الويب. يتم وضعه في الجذر الرئيسي للموقع (root) لتوجيه عناكب البحث حول الصفحات التي يمنع زحفها أو يسمح بها.
+
+الأوامر الأساسية لبناء ملف robots.txt:
+* **User-agent**: تحديد محرك البحث (مثل Googlebot أو استخدام * لتطبيق الأمر على جميع الروبوتات).
+* **Disallow**: منع الزحف لروابط حساسة مثل لوحات التحكم (/admin) أو الجلسات المؤقتة.
+* **Allow**: السماح بالوصول لروابط فرعية تقع داخل مجلد ممنوع الزحف ككل.
+
+مثال:
+\`\`\`txt
+User-agent: *
+Disallow: /admin/
+Allow: /admin/public-assets/
+\`\`\`
+
+### ثالثاً: خريطة الموقع sitemap.xml
+تمثل **sitemap.xml** وثيقة هيكلية مكتوبة بلغة XML تقدم سرداً جغرافياً لجميع روابط موقعك الفعالة والهامَّة مع إرسال أولويات الأرشفة ونسبة التحديث لكل صفحة. يساعد تواجدها على توفير ميزانية الزحف (Crawl Budget) وحماية موقعك من تداعيات الصفحات اليتيمة (Orphan Pages) التي تفتقر لروابط داخلية تشير إليها.
+
+تساعدك أودات توليد ملفات السيو المدمجة لدينا على صياغة وتجربة هذين الملفين في ثوان معدودة بأسس معيارية وصفر أخطاء لدعم تفوقك في محركات البحث.
+`,
+    contentEn: `
+Organic traffic represents a major driver of sustainable web ecosystems. Search engine optimization relies on making a web application perfectly traversable for automated search engines spiders.
+
+### 1. Web Crawler Mechanics
+Search indices deploy web crawlers (such as Googlebot) to parse dynamic web nodes. This process involves:
+1. **Discovery (Crawling)**: Following hyperlinked nodes to build and map global web topologies.
+2. **Analysis (Indexing)**: Evaluating raw structural codes, semantic content, and metadata within relational index databases.
+3. **Retrieval (Ranking)**: Applying highly complex mathematical scoring algorithms to yield fast, highly relevant search results.
+
+### 2. The Robots.txt Architecture
+The robots.txt standard represents the gatekeeper file placed in your application's root directory. It informs crawler threads which specific directories must be excluded from active crawlers to optimize resource usage.
+
+Standard structural configurations include:
+* **User-agent**: Sets target search crawlers (e.g., using "*" for universal search bots).
+* **Disallow**: Completely hides structural pathways (e.g., preventing scraping of backend "/admin" files).
+* **Allow**: Grants granular override access to folders inside restricted branches.
+
+### 3. XML Sitemap Hierarchies
+An XML Sitemap represents a structured blueprint of your web layout. Providing crawl crawlers with direct pathways to canonical URLs avoids wasting your application's allocated "Crawl Budget" and ensures proper indexing of isolated nested views.
+
+Our SEO Files generator handles files formulation instantly, preparing production-ready robots.txt templates and conforming XML structures for major search console submissions.
+`
   }
 ];
 
@@ -576,9 +808,9 @@ export default function Guides({ lang }: { lang: 'ar' | 'en' }) {
   };
 
   const [search, setSearch] = useState('');
-  const [selectedArticle, setSelectedArticle] = useState<typeof ARTICLES[0] | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
 
-  const handleSelectArticle = (art: typeof ARTICLES[0] | null) => {
+  const handleSelectArticle = (art: any | null) => {
     setSelectedArticle(art);
     if (art) {
       setTimeout(() => {
