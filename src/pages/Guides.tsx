@@ -888,7 +888,7 @@ export default function Guides({ lang }: { lang: 'ar' | 'en' }) {
         const FeatIcon = feat.icon;
         
         return (
-          <div className="relative border border-cyan-500/10 p-6 md:p-8 rounded-[2rem] bg-gradient-to-r from-slate-900/45 via-[#0e163b]/70 to-slate-900/45 overflow-hidden shadow-xl animate-in fade-in duration-500">
+          <div className="relative border border-cyan-500/30 p-6 md:p-8 rounded-[2rem] bg-gradient-to-br from-[#121e56] via-[#070b24] to-[#030514] overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.12)] border-t-cyan-400/50 border-b-indigo-500/40 animate-in fade-in duration-500">
             <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-[60px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/5 rounded-full blur-[60px] pointer-events-none" />
 
