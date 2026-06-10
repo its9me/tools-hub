@@ -42,6 +42,7 @@ const ALL_TOOLS_REGISTRY = [
   { id: 'image-color-picker', nameAr: 'مستخرج ألوان الصور', nameEn: 'Color Picker', descAr: 'استخراج أكواد HEX/RGB من الصور', descEn: 'Extract and pick hex colors from files', icon: Palette, cat: 'developers' },
   { id: 'color-contrast', nameAr: 'فاحص تباين الألوان', nameEn: 'Color Contrast Checker', descAr: 'فحص موازنة تباين الألوان ومعايير WCAG ومعاينة حية وتوفير بدائل وحلول', descEn: 'Check color contrast ratios against WCAG standard & suggest alternatives', icon: Palette, cat: 'developers' },
   { id: 'text-diff-suite', nameAr: 'مقارن ومكتشف فروق النصوص والسطور', nameEn: 'Text Diff & Line Suite', descAr: 'مقارنة فوريّة ذكية للنصوص والمستندات محلياً، مع محو السطور المكررة وفرزها وتصفيتها', descEn: 'Compare texts to detect side-by-side diffs, eliminate duplicate lines and sort lists', icon: FileText, cat: 'developers' },
+  { id: 'xml-viewer', nameAr: 'مستعرض ومحلل ملفات XML', nameEn: 'XML File Viewer & Parser', descAr: 'قراءة وفحص وتنسيق ملفات XML التفاعلية وتصديرها بصيغة JSON محلياً', descEn: 'Parse, inspect, format, query, and transform XML to JSON offline', icon: Code2, cat: 'developers' },
 
   // Health
   { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },

@@ -46,6 +46,7 @@ const categoryData: Record<string, { titleAr: string, titleEn: string, tools: an
     titleEn: 'Developers & SEO',
     tools: [
       { id: 'text-diff-suite', nameAr: 'مقارن وتدقيق فروق النصوص والسطور', nameEn: 'Pro Text Diff & Line Suite', descAr: 'مقارنة نصين بأسلوب side-by-side مذهل، وحذف الأسطر المكررة، وترتيب السطور أبجدياً ورقمياً', descEn: 'Compare texts to detect side-by-side diffs, eliminate duplicate lines and sort lists', icon: FileText },
+      { id: 'xml-viewer', nameAr: 'مستعرض ومحلل ملفات XML للمطورين', nameEn: 'XML File Viewer & Parser', descAr: 'عرض وفحص وتنسيق ملفات XML التفاعلية محلياً بالكامل آمن ۱۰۰٪ وبأداء سريع جداً', descEn: 'Parse, inspect, format, validate, and convert XML tags to JSON structures offline', icon: Code2 },
       { id: 'json-converter', nameAr: 'محول JSON إلى CSV / XML', nameEn: 'JSON Converter', descAr: 'تحويل بيانات JSON وتنسيقها وعرضها محلياً للبرمجة والمشاريع', descEn: 'Convert and parse JSON data with structured view', icon: ArrowRightLeft },
       { id: 'password-generator', nameAr: 'مولد كلمات المرور', nameEn: 'Password Generator', descAr: 'توليد كلمات مرور قوية وعشوائية ومخصصة لحساباتك', descEn: 'Generate strong, secure, and random passwords', icon: Key },
       { id: 'meta-tags-previewer', nameAr: 'فاحص العنوان والوصف (Meta Tags)', nameEn: 'Meta Tags Previewer', descAr: 'معاينة ظهور موقعك في نتائج البحث ووسائل التواصل الاجتماعي', descEn: 'Preview how your site looks on search engines and social media platforms', icon: LayoutTemplate },

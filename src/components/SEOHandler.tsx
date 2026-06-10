@@ -174,6 +174,12 @@ const SEO_ROUTING_MAP: Record<string, SEOContent> = {
     descAr: 'أقوى أداة متكاملة لفحص سلامة أكواد الـ JSON وتحويلها لصيغ مختلفة وتجميلها وعرضها بصيغة مرئية منظمة.',
     descEn: 'Parse, validate, format, and convert JSON structures seamlessly into clean CSV, XML, XML Schemas or human-friendly layout trees.'
   },
+  'xml-viewer': {
+    titleAr: 'مستعرض ومحلل ملفات XML التفاعلي وتنسيق وتصدير JSON محلياً',
+    titleEn: 'Interactive XML File Viewer, Format Parser & JSON Converter',
+    descAr: 'مستعرض ملفات XML تفاعلي، متميز بالتحليل الفوري الآمن للأكواد، وتنسيق الأوسمة المبعثرة، والبحث والفلترة وتحويل XML لـ JSON كلياً على جهازك.',
+    descEn: 'Unleash structured XML processing. Parse, validate, pretty print, minify, inspect nodes tree, search entries, and export XML to JSON 100% locally.'
+  },
   'password-generator': {
     titleAr: 'صانع ومولد كلمات المرور القوية للمواقع وصانع الحماية المطلقة',
     titleEn: 'Secure Random Passwords & Private Keys Generator',

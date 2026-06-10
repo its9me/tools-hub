@@ -88,6 +88,7 @@ export const toolImporters: Record<string, () => Promise<any>> = {
   'world-meeting-planner': () => import('./pages/WorldMeetingPlanner'),
   'gamers-reflex': () => import('./pages/GamersReflexBenchmarker'),
   'text-diff-suite': () => import('./pages/TextProcessorSuite'),
+  'xml-viewer': () => import('./pages/XmlViewer'),
   'guides': () => import('./pages/Guides'),
 };
 
@@ -165,6 +166,7 @@ const InternetSpeedTest = lazy(toolImporters['speed-test']);
 const WorldMeetingPlanner = lazy(toolImporters['world-meeting-planner']);
 const GamersReflexBenchmarker = lazy(toolImporters['gamers-reflex']);
 const TextProcessorSuite = lazy(toolImporters['text-diff-suite']);
+const XmlViewer = lazy(toolImporters['xml-viewer']);
 const Guides = lazy(toolImporters['guides']);
 
 
@@ -477,6 +479,7 @@ export default function App() {
             <Route path="/tool/world-meeting-planner" element={<WorldMeetingPlanner lang={lang} />} />
             <Route path="/tool/gamers-reflex" element={<GamersReflexBenchmarker lang={lang} />} />
             <Route path="/tool/text-diff-suite" element={<TextProcessorSuite lang={lang} />} />
+            <Route path="/tool/xml-viewer" element={<XmlViewer lang={lang} />} />
             
             <Route path="/privacy" element={
               <section className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg mb-4">
