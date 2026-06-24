@@ -156,12 +156,12 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
       </div>
 
       {/* 2. Main Central Hub Panel Container */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto p-4 sm:p-6 lg:p-10 rounded-[2.5rem] border border-[#1d2459] bg-[#05071d]/95 backdrop-blur-xl shadow-[0_0_100px_rgba(5,7,29,0.95)] overflow-hidden flex flex-col xl:flex-row gap-8 lg:gap-14">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto p-4 sm:p-6 lg:p-10 rounded-[2.5rem] border border-[#1d2459] bg-[#05071d] shadow-[0_0_100px_rgba(5,7,29,0.95)] overflow-hidden flex flex-col xl:flex-row gap-8 lg:gap-14">
         
         {/* Futuristic layout background nodes */}
         <div className="absolute inset-0 z-[-1] pointer-events-none">
-          <div className="absolute top-[20%] left-[-15%] w-[45%] h-[45%] bg-blue-600/5 rounded-full blur-[140px]" />
-          <div className="absolute bottom-[20%] right-[-15%] w-[45%] h-[45%] bg-purple-600/5 rounded-full blur-[140px]" />
+          <div className="absolute top-[20%] left-[-15%] w-[45%] h-[45%] bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.06)_0%,transparent_70%)]" />
+          <div className="absolute bottom-[20%] right-[-15%] w-[45%] h-[45%] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.06)_0%,transparent_70%)]" />
         </div>
 
         {/* ================= LEFT PANEL: HIGH FIDELITY BRAND INFO CARD ================= */}
@@ -183,22 +183,22 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
 
             {/* floating glassmorphic badges with glowing 3D-like icons (Ref. Image 1 around circular container) */}
             {/* Top-Left: Code/Developers Badge */}
-            <div className="absolute top-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-[#c084fc]/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(192,132,252,0.2)] hover:scale-110 transition-transform duration-305">
+            <div className="absolute top-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-950/95 border border-[#c084fc]/30 flex items-center justify-center shadow-[0_0_15px_rgba(192,132,252,0.2)] hover:scale-110 transition-transform duration-305">
               <Code2 size={20} className="text-[#c084fc] drop-shadow-[0_0_6px_rgba(192,132,252,0.6)]" />
             </div>
 
             {/* Top-Right: Images/Design Badge */}
-            <div className="absolute top-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-cyan-400/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.2)] hover:scale-110 transition-transform duration-305">
+            <div className="absolute top-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-950/95 border border-cyan-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.2)] hover:scale-110 transition-transform duration-305">
               <ImageIcon size={20} className="text-cyan-400 drop-shadow-[0_0_6px_rgba(34,211,238,0.6)]" />
             </div>
 
             {/* Bottom-Left: Calculators Badge */}
-            <div className="absolute bottom-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-emerald-400/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(52,211,153,0.2)] hover:scale-110 transition-transform duration-305">
+            <div className="absolute bottom-2 left-2 z-20 w-11 h-11 rounded-xl bg-slate-950/95 border border-emerald-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(52,211,153,0.2)] hover:scale-110 transition-transform duration-305">
               <Calculator size={19} className="text-emerald-400 drop-shadow-[0_0_6px_rgba(52,211,153,0.6)] animate-pulse" />
             </div>
 
             {/* Bottom-Right: PDF/Documents Badge */}
-            <div className="absolute bottom-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-900/90 border border-[#fb923c]/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(251,146,96,0.2)] hover:scale-110 transition-transform duration-305">
+            <div className="absolute bottom-2 right-2 z-20 w-11 h-11 rounded-xl bg-slate-950/95 border border-[#fb923c]/30 flex items-center justify-center shadow-[0_0_15px_rgba(251,146,96,0.2)] hover:scale-110 transition-transform duration-305">
               <FileText size={19} className="text-[#fb923c] drop-shadow-[0_0_6px_rgba(251,146,96,0.6)]" />
             </div>
 
@@ -336,8 +336,8 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
       <div className="w-full max-w-[1400px] mx-auto my-1.5">
         <div className="rounded-[2.25rem] border border-[#1d2459]/80 bg-[#060925]/95 p-6 sm:p-8 shadow-xl relative overflow-hidden">
           
-          <div className="absolute top-0 right-0 w-44 h-44 bg-purple-500/5 blur-[80px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-44 h-44 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-44 h-44 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.07)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-44 h-44 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.07)_0%,transparent_70%)] pointer-events-none" />
 
           {/* Heading with search icon */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -425,8 +425,8 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
 
       {/* ================= MY WORKSPACE: FAVORITES & RECENT HISTORY ================= */}
       <div className="w-full max-w-[1400px] mx-auto my-1.5">
-        <div className="rounded-[2.25rem] border border-[#1d2459]/50 bg-[#060821]/80 p-6 sm:p-8 shadow-xl relative overflow-hidden backdrop-blur-md">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-[60px] rounded-full pointer-events-none" />
+        <div className="rounded-[2.25rem] border border-[#1d2459]/50 bg-[#060821] p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.07)_0%,transparent_70%)] pointer-events-none" />
           
           <h3 className="text-sm font-bold text-white mb-6 flex items-center gap-2 border-b border-[#141b44] pb-3">
             <Star size={18} className="text-yellow-400 fill-yellow-400/20" />

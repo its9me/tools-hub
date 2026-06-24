@@ -235,18 +235,18 @@ function Layout({ children, lang, setLang, t }: any) {
       {/* Absolute futuristic ambient glow spots */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Sky blue/cyan glow in the upper left */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[140px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]" />
         {/* Soft violet/indigo glow on the right center */}
-        <div className="absolute top-[30%] right-[-10%] w-[45%] h-[45%] bg-purple-600/10 rounded-full blur-[140px]" />
+        <div className="absolute top-[30%] right-[-10%] w-[45%] h-[45%] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.12)_0%,transparent_70%)]" />
         {/* Soft green/emerald glow on the bottom left */}
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.06)_0%,transparent_70%)]" />
         
         {/* Cyber Grid pattern */}
         <div className="absolute inset-0 cyber-grid opacity-60" />
       </div>
 
       {/* Modern High-Fidelity Header / Navigation Dashboard */}
-      <header className="relative z-50 px-4 sm:px-8 py-3.5 border-b border-[#141b44] bg-[#070a24]/90 backdrop-blur-xl shadow-lg">
+      <header className="relative z-50 px-4 sm:px-8 py-3.5 border-b border-[#141b44] bg-[#070a24] shadow-lg">
         <div className="max-w-[1600px] mx-auto flex items-center justify-between gap-4">
           
           {/* Logo & Brand Identity */}
