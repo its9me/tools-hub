@@ -515,6 +515,118 @@ export default function SEOHandler({ lang }: { lang: 'ar' | 'en' }) {
       }
       metaDescription.setAttribute('content', resolvedDesc);
     }
+
+    // Dynamic injection of structured data JSON-LD (SoftwareApplication & FAQPage) for RAG bots and AEO/GEO compliance
+    // Remove existing dynamic schemas first
+    const existingSchemaScript = document.getElementById('dynamic-jsonld-schema');
+    if (existingSchemaScript) {
+      existingSchemaScript.remove();
+    }
+
+    if (path.startsWith('/tool/')) {
+      const toolSlug = path.replace('/tool/', '');
+      const toolNameArabic = seoData.titleAr.split(' - ')[0] || seoData.titleAr;
+      const toolNameEnglish = seoData.titleEn.split(' - ')[0] || seoData.titleEn;
+      const toolName = isAr ? toolNameArabic : toolNameEnglish;
+      const toolDescription = isAr ? (seoData.descAr || '') : (seoData.descEn || '');
+
+      const featureList = isAr ? [
+        "مجاني بالكامل وبدون حساب مستخدم",
+        "معالجة فورية وآمنة داخل المتصفح مباشرة",
+        "تصميم متجاوب وسريع متوافق مع كافة الأجهزة"
+      ] : [
+        "100% Free with no user account required",
+        "Instant, secure local processing inside your browser",
+        "Responsive, high-performance design for all devices"
+      ];
+
+      const question1 = isAr 
+        ? `كيف تعمل أداة ${toolName} على منصة Tools Hub؟`
+        : `How does the ${toolName} tool work on Tools Hub?`;
+      
+      const answer1 = isAr
+        ? `تعمل أداة ${toolName} بشكل فوري وتلقائي داخل متصفحك دون الحاجة لرفع ملفاتك إلى خادم خارجي أو إنشاء حساب، مما يضمن سرعة وأماناً تاماً لبياناتك.`
+        : `The ${toolName} tool works instantly and automatically in your browser without uploading your files to any external server or requiring an account, ensuring absolute privacy and security.`;
+
+      const question2 = isAr
+        ? `هل استخدام أداة ${toolName} مجاني بالكامل؟`
+        : `Is using the ${toolName} tool completely free?`;
+
+      const answer2 = isAr
+        ? `نعم، كافة الأدوات المتاحة على منصة Tools Hub بما فيها ${toolName} مجانية بنسبة 100% ولا تتطلب أي تسجيل أو اشتراكات شهرية.`
+        : `Yes, all tools on Tools Hub, including ${toolName}, are 100% free and require no registration or monthly subscriptions.`;
+
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": `https://tools-hub.live/#software-${toolSlug}`,
+            "name": isAr ? `${toolName} - أدوات Tools Hub` : `${toolName} - Tools Hub`,
+            "url": `https://tools-hub.live/#/tool/${toolSlug}`,
+            "operatingSystem": "Web",
+            "applicationCategory": "BusinessApplication",
+            "description": toolDescription,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": featureList,
+            "publisher": {
+              "@type": "Organization",
+              "name": "Livin Services",
+              "url": "https://livinservices.com",
+              "logo": "https://livinservices.com/logo.png"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `https://tools-hub.live/#/tool/${toolSlug}/#faq`,
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": question1,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": answer1
+                }
+              },
+              {
+                "@type": "Question",
+                "name": question2,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": answer2
+                }
+              }
+            ]
+          }
+        ]
+      };
+
+      const scriptElement = document.createElement('script');
+      scriptElement.type = 'application/ld+json';
+      scriptElement.id = 'dynamic-jsonld-schema';
+      scriptElement.text = JSON.stringify(schemaData);
+      document.head.appendChild(scriptElement);
+
+      // Track visited tools in history (max 10 items)
+      try {
+        const storedHistory = localStorage.getItem('tools-hub-recent-history');
+        let historyList: string[] = storedHistory ? JSON.parse(storedHistory) : [];
+        // Remove current toolSlug if already exists, to push to the top
+        historyList = historyList.filter(slug => slug !== toolSlug);
+        historyList.unshift(toolSlug);
+        // Limit to 10
+        if (historyList.length > 10) {
+          historyList = historyList.slice(0, 10);
+        }
+        localStorage.setItem('tools-hub-recent-history', JSON.stringify(historyList));
+      } catch (e) {
+        console.error('Failed to update recent tools history:', e);
+      }
+    }
   }, [location.pathname, lang]);
 
   return null; // This component handles side effects only

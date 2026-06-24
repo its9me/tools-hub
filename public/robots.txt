@@ -1,0 +1,37 @@
+# AI Crawlers - Customized Access for tools-hub.live
+# 1. Allow search, RAG, and live citation bots
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# 2. Allow training bots to build base model knowledge
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# 3. Traditional Search Engines
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://tools-hub.live/sitemap.xml

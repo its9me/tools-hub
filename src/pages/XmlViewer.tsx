@@ -758,23 +758,23 @@ export default function XmlViewer({ lang }: { lang: 'ar' | 'en' }) {
   return (
     <div className="flex flex-col gap-8">
       
-      {/* HEADER ROW */}
+      {/* HEADER ROW - Optimized for AEO/GEO Answer-First with conversational headings */}
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)] max-xs:w-10 max-xs:h-10">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)] max-xs:w-10 max-xs:h-10 shrink-0 mt-1">
             <FileCode size={24} className="animate-pulse" />
           </div>
-          <div>
-            <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2">
-              {isAr ? 'مستعرض ومحلل ملفات XML' : 'XML File Viewer & Parser'}
+          <div className="flex flex-col gap-2">
+            <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2 flex-wrap">
+              {isAr ? 'كيف يعمل مستعرض ومحلل ملفات XML و Excel الذكي؟' : 'How does the interactive XML and Excel parser work?'}
               <span className="text-[10px] bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">
-                {isAr ? 'كلاينت سايد' : 'Client Mode'}
+                {isAr ? 'تحليل فوري آمن' : 'Secure Live Mode'}
               </span>
             </h1>
-            <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-sm text-slate-300 leading-relaxed max-w-3xl font-normal border-l-2 border-cyan-500/40 pl-3 rtl:border-l-0 rtl:border-r-2 rtl:pr-3">
               {isAr 
-                ? 'مستعرض محلي فوري وآمن ۱۰۰٪ لعرض وتحليل وتنسيق ملفات XML بجميع أنواعها بدقة عالية دون إرسال أي ملف للسيرفر.' 
-                : 'Free secure offline XML viewer. Instantly parse, inspect, query, map, beautify, and export files with active DOM checks.'
+                ? 'مستعرض ملفات XML و Excel التفاعلي من Tools Hub هو تطبيق ويب مجاني يتيح للمطورين وأصحاب المواقع قراءة، فحص، وتنسيق الأكواد والملفات بصيغة XML أو Excel (XLS/XLSX) فوراً وبشكل آمن تماماً داخل المتصفح محلياً دون رفع البيانات لخادم خارجي، مع إمكانية تحويلها إلى JSON.' 
+                : 'The interactive XML and Excel parser from Tools Hub is a free online tool that lets developers and creators inspect, beautify, validate, and search XML tags or Excel sheets (XLS/XLSX) locally. All operations run 100% in your browser safely without uploading files, with full JSON conversion capability.'
               }
             </p>
           </div>

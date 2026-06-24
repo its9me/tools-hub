@@ -7,48 +7,42 @@ import {
   Image as ImageIcon, Zap, Triangle, Cuboid, FlaskConical, Thermometer, Radio, Box, Plug, 
   PieChart, Wifi, Gauge, Sparkles, Layers,
   Globe, User, ArrowRight, Palette, PenTool, Flame, Laptop,
-  Facebook, Instagram, Youtube, Send, Music
+  Facebook, Instagram, Youtube, Send, Music, Star, History
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
 import AdPlacement from '../components/AdPlacement';
+import { ALL_TOOLS_REGISTRY } from '../components/toolsRegistry';
 
-// Comprehensive index of all tools for instant smart search
-const ALL_TOOLS_REGISTRY = [
-  // Finance
-  { id: 'loan-calculator', nameAr: 'حاسبة القروض', nameEn: 'Loan Calculator', descAr: 'القسط الشهري والفوائد بالتفصيل', descEn: 'Monthly EMI and compound interest', icon: Calculator, cat: 'finance' },
-  { id: 'tax-calculator', nameAr: 'حاسبة ضريبة الدخل', nameEn: 'Income Tax', descAr: 'حساب ضريبة الدخل والخصومات', descEn: 'Estimate income tax & deductions', icon: Calculator, cat: 'finance' },
-  { id: 'compound-interest', nameAr: 'الفائدة المركبة', nameEn: 'Compound Interest', descAr: 'نمو المدخرات والاستثمار العكسي', descEn: 'Savings growth & investment', icon: Calculator, cat: 'finance' },
-  { id: 'zakat-calculator', nameAr: 'حاسبة الزكاة', nameEn: 'Zakat Calculator', descAr: 'حساب زكاة المال والذهب الدقيق', descEn: 'Calculate Zakat on wealth', icon: HeartHandshake, cat: 'finance' },
-  { id: 'invoice-generator', nameAr: 'صانع الفواتير', nameEn: 'Invoice Generator', descAr: 'إنشاء فواتير احترافية للعملاء', descEn: 'Create professional client invoices', icon: FileText, cat: 'finance' },
-  { id: 'stock-profit', nameAr: 'أرباح وخسائر الأسهم', nameEn: 'Stock Profit', descAr: 'حساب صفقات التداول بنقرة واحدة', descEn: 'Calculate stock trades & fees', icon: PieChart, cat: 'finance' },
-
-  // Social & Productivity
-  { id: 'image-resizer', nameAr: 'مقاسات الصور السريعة', nameEn: 'Image Resizer', descAr: 'تعديل مقاسات الصور للمنصات', descEn: 'Resize images for social hubs', icon: ImageIcon, cat: 'social' },
-  { id: 'qr-suite', nameAr: 'أداة QR الذكية', nameEn: 'QR Suite', descAr: 'إنشاء وقراءة رموز الاستجابة السريعة', descEn: 'Generate & scan interactive QRs', icon: QrCode, cat: 'productivity' },
-  { id: 'pdf-compressor', nameAr: 'ضاغط PDF الفوري', nameEn: 'PDF Compressor', descAr: 'تقليل حجم ملفات PDF بأمان وبسرعة', descEn: 'Compress PDF size securely', icon: FileText, cat: 'productivity' },
-  { id: 'word-counter', nameAr: 'حاسبة الكلمات والحروف', nameEn: 'Word Counter', descAr: 'عداد كلمات وجمل ذكي ومتطور', descEn: 'Smart word & sentence counter stats', icon: Code2, cat: 'productivity' },
-  { id: 'online-notepad', nameAr: 'المفكرة السحابية المؤقتة', nameEn: 'Online Notepad', descAr: 'اكتب واحفظ ملاحظاتك أوتوماتيكياً', descEn: 'Auto-saved cloud scratchpad', icon: FileText, cat: 'productivity' },
-
-  // Education
-  { id: 'gpa-calculator', nameAr: 'حاسبة المعدل التراكمي', nameEn: 'GPA Calculator', descAr: 'حساب المعدل الفصلي والتراكمي', descEn: 'Calculate cumulative & semester GPA', icon: GraduationCap, cat: 'education' },
-  { id: 'typing-speed-test', nameAr: 'اختبار سرعة الكتابة', nameEn: 'Typing Speed', descAr: 'احسب سرعتك بالكتابة بالدقيقة', descEn: 'Calculate writing speed (WPM)', icon: BookOpen, cat: 'education' },
-  { id: 'daily-study-schedule', nameAr: 'الجدول الدراسي المنظم', nameEn: 'Study Planner', descAr: 'منظم خطة وجداول المذاكرة اليومية', descEn: 'Organize study plans & routines', icon: Clock, cat: 'education' },
-
-  // Developers
-  { id: 'speed-test', nameAr: 'فحص سرعة الإنترنت', nameEn: 'Internet Speed Test', descAr: 'قياس دقيق لسرعة الرفع والتحميل والـ Ping', descEn: 'High-precision broadband metrics', icon: Gauge, cat: 'developers' },
-  { id: 'ping-tester', nameAr: 'فاحص استقرار الـ Ping', nameEn: 'Ping stability tester', descAr: 'التحقق من جودة الاتصال وثبات السرعة', descEn: 'Check network stability in live charts', icon: Wifi, cat: 'developers' },
-  { id: 'json-converter', nameAr: 'محلل ومحول JSON', nameEn: 'JSON Converter Parser', descAr: 'تحويل بيانات JSON لـ XML أو CSV', descEn: 'Convert JSON formatted structures', icon: Code2, cat: 'developers' },
-  { id: 'image-color-picker', nameAr: 'مستخرج ألوان الصور', nameEn: 'Color Picker', descAr: 'استخراج أكواد HEX/RGB من الصور', descEn: 'Extract and pick hex colors from files', icon: Palette, cat: 'developers' },
-  { id: 'color-contrast', nameAr: 'فاحص تباين الألوان', nameEn: 'Color Contrast Checker', descAr: 'فحص موازنة تباين الألوان ومعايير WCAG ومعاينة حية وتوفير بدائل وحلول', descEn: 'Check color contrast ratios against WCAG standard & suggest alternatives', icon: Palette, cat: 'developers' },
-  { id: 'text-diff-suite', nameAr: 'مقارن ومكتشف فروق النصوص والسطور', nameEn: 'Text Diff & Line Suite', descAr: 'مقارنة فوريّة ذكية للنصوص والمستندات محلياً، مع محو السطور المكررة وفرزها وتصفيتها', descEn: 'Compare texts to detect side-by-side diffs, eliminate duplicate lines and sort lists', icon: FileText, cat: 'developers' },
-  { id: 'xml-viewer', nameAr: 'مستعرض ومحلل ملفات XML', nameEn: 'XML File Viewer & Parser', descAr: 'قراءة وفحص وتنسيق ملفات XML التفاعلية وتصديرها بصيغة JSON محلياً', descEn: 'Parse, inspect, format, query, and transform XML to JSON offline', icon: Code2, cat: 'developers' },
-
-  // Health
-  { id: 'bmi-calculator', nameAr: 'مؤشر كتلة الجسم BMI', nameEn: 'BMI Assessment', descAr: 'تحليل الوزن والدهون بشكل كامل', descEn: 'Calculate physical body mass index', icon: HeartPulse, cat: 'health' },
-  { id: 'calorie-calculator', nameAr: 'حاسبة السعرات والوجبات', nameEn: 'Calorie Counter', descAr: 'احسب السعرات لإنقاص أو الحفاظ على الوزن', descEn: 'Estimate daily calorie metrics', icon: Activity, cat: 'health' },
-  { id: 'world-meeting-planner', nameAr: 'منسق ومخطط الاجتماعات والمناطق الزمنية العالمية', nameEn: 'Interactive World Meeting Planner', descAr: 'تنسيق واختيار الموعد الأمثل والمشترك لفرق العمل الحر والعمل عن بعد', descEn: 'Coordinate and plan multi-timezone meetings and working overlap ranges seamlessly', icon: Globe, cat: 'travel' },
-  { id: 'gamers-reflex', nameAr: 'فاحص سرعة الاستجابة والنقر للاعبين', nameEn: 'Gamers Reflex & CPS Benchmarker', descAr: 'أداة لقياس واختبار سرعة ردة الفعل واستقرار معدل النقر والـ CPS مع مقارنات لاعبي الـ eSports والمحترفين', descEn: 'Test reaction speed & click precision tailored for eSports players alongside pro leaderboards', icon: Trophy, cat: 'lifestyle' }
+// Semantic Search Intent mapping for client-side quick actions (User Intent Detection)
+const INTENT_DICTIONARY = [
+  { keywords: ['أرباح الأسهم', 'أرباح', 'ربح', 'تداول', 'مكسب الأسهم', 'stock', 'profit', 'shares', 'share'], toolIds: ['stock-profit'] },
+  { keywords: ['قرض', 'قروض', 'تمويل', 'أقساط', 'قسط القرض', 'emi', 'loan', 'finance', 'قسط'], toolIds: ['loan-calculator'] },
+  { keywords: ['ضريبة', 'ضرائب', 'ضريبة الدخل', 'راتب', 'رواتب', 'tax', 'salary'], toolIds: ['tax-calculator'] },
+  { keywords: ['زكاة', 'مال', 'أموال', 'زكاه', 'zakat'], toolIds: ['zakat-calculator'] },
+  { keywords: ['ذهب', 'مجوهرات', 'مصنعية الذهب', 'عيار ذهب', 'gold', 'jewelry'], toolIds: ['gold-calculator'] },
+  { keywords: ['تضخم', 'القوة الشرائية', 'تضخم مالي', 'سعر الفلوس', 'inflation'], toolIds: ['inflation-calculator'] },
+  { keywords: ['فاتورة', 'فواتير', 'invoice', 'receipt', 'صانع فواتير'], toolIds: ['invoice-generator'] },
+  { keywords: ['ملاحظات', 'مفكرة', 'أكتب', 'دفتر', 'notes', 'notepad', 'scratchpad'], toolIds: ['online-notepad'] },
+  { keywords: ['معدل', 'جامعة', 'معدل تراكمي', 'معدل فصلي', 'gpa', 'cumulative'], toolIds: ['gpa-calculator'] },
+  { keywords: ['إنترنت', 'نت', 'سرعة النت', 'بنج', 'بينغ', 'وايفاي', 'speed test', 'ping', 'wifi', 'broadband'], toolIds: ['speed-test', 'ping-tester'] },
+  { keywords: ['ألوان', 'لون', 'هكس', 'rgb', 'color', 'picker', 'palette'], toolIds: ['image-color-picker'] },
+  { keywords: ['تباين', 'سهولة الوصول', 'contrast', 'wcag'], toolIds: ['color-contrast'] },
+  { keywords: ['مستعرض', 'xml', 'excel', 'اكسل', 'شيت', 'ملف', 'viewer'], toolIds: ['xml-viewer'] },
+  { keywords: ['وزن', 'سمنة', 'نحافة', 'طول', 'كتلة الجسم', 'bmi', 'body mass'], toolIds: ['bmi-calculator'] },
+  { keywords: ['سعرات', 'أكل', 'كالوري', 'دايت', 'تخسيس', 'calorie', 'calories'], toolIds: ['calorie-calculator'] },
+  { keywords: ['حمل', 'ولادة', 'جنين', 'عمر الجنين', 'pregnancy', 'due date'], toolIds: ['pregnancy-calculator'] },
+  { keywords: ['تمارين', 'رياضة', 'جم', 'تمرين', 'workout', 'gym', 'home fitness'], toolIds: ['workout-generator'] },
+  { keywords: ['ملصق', 'ستيكر', 'واتس', 'تليجرام', 'sticker', 'whatsapp'], toolIds: ['sticker-maker'] },
+  { keywords: ['تعديل حجم', 'مقاسات', 'رسايز', 'crop', 'resize', 'image size'], toolIds: ['image-resizer'] },
+  { keywords: ['سفر', 'وين أسافر', 'سياحة', 'خريطة الدول', 'خريطة', 'travel', 'scratch map', 'destination'], toolIds: ['travel-wheel', 'scratch-map', 'travel-dare', 'trip-countdown', 'travel-slang'] },
+  { keywords: ['أذكياء', 'ألغاز', 'لغز', 'فوازير', 'سؤال وجواب', 'riddle', 'mind training'], toolIds: ['daily-riddle'] },
+  { keywords: ['سرعة الكتابة', 'سرعة الطباعة', 'لوحة المفاتيح', 'typing', 'keyboard', 'wpm'], toolIds: ['typing-speed-test'] },
+  { keywords: ['تنسيق', 'تجميل الكود', 'ترتيب كود', 'beautify', 'format'], toolIds: ['code-beautifier'] },
+  { keywords: ['تحويل لصور', 'webp', 'تحويل ويب بي', 'صورة خفيفة'], toolIds: ['webp-converter'] },
+  { keywords: ['رمز كيو ار', 'qr code', 'كود واي فاي'], toolIds: ['qr-suite'] },
+  { keywords: ['توصيل', 'قانون اوم', 'كهرباء', 'مقاومة', 'led', 'ohms law'], toolIds: ['ohms-law', 'power-led-calculator'] },
+  { keywords: ['أسماء مواليد', 'اسم ولد', 'اسم بنت', 'معاني أسماء', 'baby names'], toolIds: ['baby-names'] }
 ];
 
 // 12 Premium high-fidelity Category Cards exactly styled to match Image 1
@@ -73,6 +67,44 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
   const isAr = lang === 'ar';
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Local storage favorites state
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    try {
+      const stored = localStorage.getItem('tools-hub-favorites');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Local storage recent history state
+  const [recentHistory] = useState<string[]>(() => {
+    try {
+      const stored = localStorage.getItem('tools-hub-recent-history');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const toggleFavorite = (id: string) => {
+    const updated = favorites.includes(id) 
+      ? favorites.filter(favId => favId !== id) 
+      : [...favorites, id];
+    setFavorites(updated);
+    localStorage.setItem('tools-hub-favorites', JSON.stringify(updated));
+  };
+
+  const favoriteToolsList = useMemo(() => {
+    return ALL_TOOLS_REGISTRY.filter(tool => favorites.includes(tool.id));
+  }, [favorites]);
+
+  const recentToolsList = useMemo(() => {
+    return recentHistory
+      .map(id => ALL_TOOLS_REGISTRY.find(t => t.id === id))
+      .filter((tool): tool is NonNullable<typeof tool> => !!tool);
+  }, [recentHistory]);
+
   // Dual-language localized feature structures for Left Brand Panel
   const FEATURES = useMemo(() => [
     { text: isAr ? 'سريعة' : 'Fast', desc: isAr ? 'تنجز أكثر' : 'Finish More', icon: Zap, iconBg: 'bg-cyan-500/15', textClr: 'text-cyan-400' },
@@ -83,14 +115,34 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
 
   const filteredTools = useMemo(() => {
     if (searchQuery.trim() !== '') {
-      const query = searchQuery.toLowerCase();
-      return ALL_TOOLS_REGISTRY.filter(tool => 
-        tool.nameAr.toLowerCase().includes(query) || 
-        tool.nameEn.toLowerCase().includes(query) || 
-        tool.descAr.toLowerCase().includes(query) || 
-        tool.descEn.toLowerCase().includes(query) || 
-        tool.id.includes(query)
-      );
+      const query = searchQuery.trim().toLowerCase();
+      
+      // 1. Check for semantic intent matching
+      let matchedToolIds: string[] = [];
+      for (const entry of INTENT_DICTIONARY) {
+        if (entry.keywords.some(kw => query.includes(kw) || kw.includes(query))) {
+          matchedToolIds = [...matchedToolIds, ...entry.toolIds];
+        }
+      }
+      // Deduplicate intent matches
+      matchedToolIds = Array.from(new Set(matchedToolIds));
+
+      // 2. Perform standard matching on names, descriptions, or IDs
+      const standardMatches = ALL_TOOLS_REGISTRY.filter(tool => {
+        if (matchedToolIds.includes(tool.id)) return false; // Prevent duplication
+        return (
+          tool.nameAr.toLowerCase().includes(query) || 
+          tool.nameEn.toLowerCase().includes(query) || 
+          tool.descAr.toLowerCase().includes(query) || 
+          tool.descEn.toLowerCase().includes(query) || 
+          tool.id.includes(query)
+        );
+      });
+
+      // 3. Assemble matched tool objects
+      const semanticTools = ALL_TOOLS_REGISTRY.filter(tool => matchedToolIds.includes(tool.id));
+      
+      return [...semanticTools, ...standardMatches];
     }
     return [];
   }, [searchQuery]);
@@ -319,22 +371,39 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
                 filteredTools.map((tool) => {
                   const ToolIcon = tool.icon;
                   return (
-                    <Link 
-                      key={tool.id} 
-                      to={`/tool/${tool.id}`}
-                      onMouseEnter={() => window.preloadTool?.(tool.id)}
-                      onFocus={() => window.preloadTool?.(tool.id)}
-                      onTouchStart={() => window.preloadTool?.(tool.id)}
-                      className="bg-[#0b1030]/80 border border-[#212b77]/40 hover:border-cyan-500/40 p-3.5 rounded-2xl flex items-center gap-3 transition-colors hover:bg-[#0f1642] group"
+                    <div 
+                      key={tool.id}
+                      className="relative bg-[#0b1030]/80 border border-[#212b77]/40 hover:border-cyan-500/40 rounded-2xl flex items-center justify-between p-3 transition-colors hover:bg-[#0f1642] group"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
-                        <ToolIcon size={16} />
-                      </div>
-                      <div className="min-w-0 flex flex-col">
-                        <span className="text-xs font-bold text-slate-200 truncate group-hover:text-white">{isAr ? tool.nameAr : tool.nameEn}</span>
-                        <span className="text-[10px] text-slate-400 truncate mt-0.5">{isAr ? tool.descAr : tool.descEn}</span>
-                      </div>
-                    </Link>
+                      <Link 
+                        to={`/tool/${tool.id}`}
+                        onMouseEnter={() => window.preloadTool?.(tool.id)}
+                        onFocus={() => window.preloadTool?.(tool.id)}
+                        onTouchStart={() => window.preloadTool?.(tool.id)}
+                        className="flex items-center gap-3 min-w-0 flex-grow"
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                          <ToolIcon size={16} />
+                        </div>
+                        <div className="min-w-0 flex flex-col">
+                          <span className="text-xs font-bold text-slate-200 truncate group-hover:text-white">{isAr ? tool.nameAr : tool.nameEn}</span>
+                          <span className="text-[10px] text-slate-400 truncate mt-0.5">{isAr ? tool.descAr : tool.descEn}</span>
+                        </div>
+                      </Link>
+                      
+                      {/* Star Favorite Button */}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleFavorite(tool.id);
+                        }}
+                        className="p-2 rounded-xl text-slate-500 hover:text-yellow-400 hover:bg-white/5 transition-all shrink-0 ml-1 rtl:mr-1 rtl:ml-0"
+                        title={isAr ? 'إضافة إلى المفضلة' : 'Add to Favorites'}
+                      >
+                        <Star size={15} className={favorites.includes(tool.id) ? 'fill-yellow-400 text-yellow-400 animate-pulse' : ''} />
+                      </button>
+                    </div>
                   );
                 })
               ) : (
@@ -350,6 +419,114 @@ export default function Home({ lang }: { lang: 'ar' | 'en' }) {
             </div>
           )}
 
+        </div>
+      </div>
+
+
+      {/* ================= MY WORKSPACE: FAVORITES & RECENT HISTORY ================= */}
+      <div className="w-full max-w-[1400px] mx-auto my-1.5">
+        <div className="rounded-[2.25rem] border border-[#1d2459]/50 bg-[#060821]/80 p-6 sm:p-8 shadow-xl relative overflow-hidden backdrop-blur-md">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-[60px] rounded-full pointer-events-none" />
+          
+          <h3 className="text-sm font-bold text-white mb-6 flex items-center gap-2 border-b border-[#141b44] pb-3">
+            <Star size={18} className="text-yellow-400 fill-yellow-400/20" />
+            <span>{isAr ? 'مساحة العمل الخاصة بي' : 'My Personal Workspace'}</span>
+            <span className="text-xs text-slate-400 font-normal ml-auto rtl:mr-auto">
+              {isAr ? 'مخزنة محلياً بالكامل ومحفوظة بنسبة 100٪ في متمتصفحك' : '100% locally saved and secure on your browser'}
+            </span>
+          </h3>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Favorites Column */}
+            <div>
+              <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Star size={14} className="fill-cyan-400/20" />
+                <span>{isAr ? 'الأدوات المفضلة' : 'Favorite Tools'}</span>
+                <span className="bg-cyan-500/10 text-cyan-400 text-[10px] px-2 py-0.5 rounded-full font-mono">{favoriteToolsList.length}</span>
+              </h4>
+              
+              {favoriteToolsList.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[250px] overflow-y-auto pr-1">
+                  {favoriteToolsList.map(tool => {
+                    const ToolIcon = tool.icon;
+                    return (
+                      <div 
+                        key={tool.id}
+                        className="relative bg-[#090c25] border border-[#1d2459] hover:border-yellow-400/30 rounded-xl flex items-center justify-between p-3 transition-all hover:bg-[#0d1033] group"
+                      >
+                        <Link 
+                          to={`/tool/${tool.id}`}
+                          className="flex items-center gap-3 min-w-0 flex-grow"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-yellow-400/10 text-yellow-400 flex items-center justify-center shrink-0">
+                            <ToolIcon size={14} />
+                          </div>
+                          <div className="min-w-0 flex flex-col">
+                            <span className="text-xs font-bold text-slate-200 truncate group-hover:text-white">{isAr ? tool.nameAr : tool.nameEn}</span>
+                          </div>
+                        </Link>
+                        <button
+                          onClick={() => toggleFavorite(tool.id)}
+                          className="p-1.5 rounded-md text-yellow-400 hover:bg-white/5 transition-all shrink-0 ml-1 rtl:mr-1 rtl:ml-0"
+                        >
+                          <Star size={14} className="fill-yellow-400" />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-8 text-center text-slate-500 text-xs border border-dashed border-[#141b44] rounded-xl bg-[#030517]">
+                  {isAr ? 'اضغط على نجمة ⭐ بجانب أي أداة لحفظها هنا ليسهل الوصول إليها!' : 'Click the star ⭐ button next to any tool to add it here!'}
+                </div>
+              )}
+            </div>
+
+            {/* Recent History Column */}
+            <div>
+              <h4 className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <History size={14} />
+                <span>{isAr ? 'الأدوات الأخيرة' : 'Recently Visited'}</span>
+                <span className="bg-purple-500/10 text-purple-400 text-[10px] px-2 py-0.5 rounded-full font-mono">{recentToolsList.length}</span>
+              </h4>
+
+              {recentToolsList.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[250px] overflow-y-auto pr-1">
+                  {recentToolsList.map(tool => {
+                    const ToolIcon = tool.icon;
+                    return (
+                      <div 
+                        key={tool.id}
+                        className="relative bg-[#090c25] border border-[#1d2459] hover:border-purple-400/30 rounded-xl flex items-center justify-between p-3 transition-all hover:bg-[#0d1033] group"
+                      >
+                        <Link 
+                          to={`/tool/${tool.id}`}
+                          className="flex items-center gap-3 min-w-0 flex-grow"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
+                            <ToolIcon size={14} />
+                          </div>
+                          <div className="min-w-0 flex flex-col">
+                            <span className="text-xs font-bold text-slate-200 truncate group-hover:text-white">{isAr ? tool.nameAr : tool.nameEn}</span>
+                          </div>
+                        </Link>
+                        <button
+                          onClick={() => toggleFavorite(tool.id)}
+                          className={`p-1.5 rounded-md transition-all shrink-0 ml-1 rtl:mr-1 rtl:ml-0 ${favorites.includes(tool.id) ? 'text-yellow-400' : 'text-slate-500 hover:text-yellow-400'}`}
+                        >
+                          <Star size={14} className={favorites.includes(tool.id) ? 'fill-yellow-400' : ''} />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-8 text-center text-slate-500 text-xs border border-dashed border-[#141b44] rounded-xl bg-[#030517]">
+                  {isAr ? 'سجل الأدوات التي زرتها سيظهر هنا تلقائياً لسرعة العودة لعملك.' : 'Your recently viewed tools will display here automatically.'}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
